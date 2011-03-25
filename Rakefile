@@ -1,7 +1,7 @@
 namespace :sass do
   desc "Compile Sass into CSS"
   task :compile do
-    %x{ sass --update sass }
+    %x{ sass --update --style compressed css }
   end
 end
 
