@@ -8,16 +8,28 @@ end
 namespace :jekyll do
   desc "Generate site"
   task :generate => :'sass:compile' do
-    require 'jekyll'
-
-    options = Jekyll.configuration({})
-    site = Jekyll::Site.new(options)
-    site.process
+    %x{ jekyll }
   end
 
   desc "Starts a local server"
   task :server do
-    %x{ sass --watch sass:css & }
-    %x{ jekyll --server --auto }
+    sass = Process.fork do
+      trap('INT') {}
+      %x{ sass --watch css:css > /dev/null }
+    end
+    jekyll = Process.fork do
+      trap('INT') {}
+      %x{ jekyll --server --auto > /dev/null }
+    end
+
+    run = true
+
+    trap('INT') { run = false }
+
+    while run
+      sleep 0.5
+    end
+
+    Process.kill 'INT', sass, jekyll
   end
 end
