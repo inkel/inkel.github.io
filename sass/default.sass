@@ -1,0 +1,35 @@
+html
+  background: #fff
+
+body
+  padding: 0
+  margin: 0 auto
+  width: 80em
+  background: #eee
+  font-family: Helvetica, Arial, sans-serif
+
+h1
+  margin-top: 0
+  a
+    color: #000
+    text-decoration: none
+
+hgroup
+  h1, h2, p
+    margin: 0
+
+#followme
+  nav
+    text-align: center
+    ul
+      display: inline
+      li
+        display: inline
+        &:before
+          content: " [ "
+        &:after
+          content: " ] "
+
+@media screen and (min-width: 1000px)
+  body
+    font-size: 1.4em
