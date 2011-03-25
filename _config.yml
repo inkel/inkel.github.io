@@ -1,0 +1,8 @@
+---
+safe: true
+pygments: true
+lsi: false
+markdown: rdiscount
+exclude:
+  - sass
+  - run.sh
