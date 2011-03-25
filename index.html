@@ -1,0 +1,31 @@
+---
+layout: default
+title: Leandro L&oacute;pez (inkel)
+---
+
+<section id="posts">
+  <h2>Artículos</h2>
+  <dl>
+    {% for post in site.posts %}
+    <dt><time published>{{ post.date | date_to_string }}</time> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></dt>
+    <dd>{{ post.description }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section id="projects">
+  <hgroup>
+    <h2>Proyectos</h2>
+    <p>Algunos proyectos en los que estoy trabajando en mi tiempo libre.</p>
+
+    <dl>
+      <dt><a href="http://inkel.github.com/twilight-emacs">twilight-emacs</a></dt>
+      <dd>Mi personalización del aspecto visual de mi editor favorito, <a href="http://www.gnu.org/software/emacs/">GNU Emacs</a>.</dd>
+      <dd>Código: <a href="https://github.com/inkel/twilight-emacs">twilight-emacs</a></dd>
+
+      <dt><a href="https://github.com/inkel/haproxy-ruby">haproxy-ruby</a></dt>
+      <dd>Gema de Ruby para acceder a estadísticas e información de un servidor <a href="http://haproxy.1wt.eu/">HAProxy</a>.</dd>
+      <dd>Este proyecto viene lento, pero no se encuentra abandonado.</dd>
+    </dl>
+  </hgroup>
+</section>
