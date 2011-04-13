@@ -10,12 +10,14 @@ namespace :jekyll do
   task :generate => :'sass:compile' do
     %x{ jekyll }
   end
+end
 
+namespace :blog do
   desc "Starts a local server"
   task :server do
     sass = Process.fork do
       trap('INT') {}
-      %x{ sass --watch css:css > /dev/null }
+      %x{ sass --style compressed --watch css:css > /dev/null }
     end
     jekyll = Process.fork do
       trap('INT') {}
@@ -31,5 +33,12 @@ namespace :jekyll do
     end
 
     Process.kill 'INT', sass, jekyll
+  end
+
+  desc "Publish blog to GitHub"
+  task :publish => [ :'sass:compile', :'jekyll:generate' ] do
+    # %x{ git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s - %C(yellow)%aN%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative github/master.. }
+
+    %x{ git push github master }
   end
 end
