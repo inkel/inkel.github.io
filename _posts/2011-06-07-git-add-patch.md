@@ -4,7 +4,7 @@ title: git add --patch
 description: Una razón más para amar Git
 ---
 
-Aprovechando mi temporada de tiempo libre me entretuve leyendo algunos [artículos de Ryan Tomayko](http://tomayko.com/writings/) y hubo uno que especialmente llamó mi atención: [The Thing About Git](http://tomayko.com/writings/the-thing-about-git). En este artículo Ryan presenta una de las tantas mejores que Git tiene respecto a otros VCS que yo desconocía y que la podría haber utilizado cientos de veces y ahora sin dudas haré.
+Aprovechando mi temporada de tiempo libre me entretuve leyendo algunos [artículos de Ryan Tomayko](http://tomayko.com/writings/) y hubo uno que especialmente llamó mi atención: [The Thing About Git](http://tomayko.com/writings/the-thing-about-git). En este artículo Ryan presenta una de las tantas mejoras que Git tiene respecto a otros VCS que yo desconocía y que la podría haber utilizado cientos de veces y ahora sin dudas haré.
 
 Quienes tengan más experiencia en Git o hayan leído la [página del manual de `git-add(1)`](http://www.kernel.org/pub/software/scm/git/docs/git-add.html) seguramente estarán al tanto del modificador `--patch`, que permite resolver el caso cuando modificamos un archivo con dos cambios no relacionados entre si y queremos hacer `commit`s separados. Supongamos comenzamos con el siguiente archivo `calculator.rb`:
 
@@ -36,7 +36,7 @@ module Calculator
 end
 {% endhighlight %}
 
-Normalmente aquí mi solución era copiar los cambios, hacer un `git reset HEAD exmaples/calculator.rb` y aplicar los cambios de a uno, una solución cualquier cosa menos elegante u óptima. Aquí es donde entra la magia de `git add --patch`: este modificar nos permite, de un modo interactivo, ver los cambios que se van a aplicar y elegir cuales queremos que se pongan en el staging area. Veamos el ejemplo:
+Normalmente acá mi solución era copiar los cambios, hacer un `git reset HEAD exmaples/calculator.rb` y aplicar los cambios de a uno, una solución cualquier cosa menos elegante u óptima. Acá es donde entra la magia de `git add --patch`: este modificador nos permite, de un modo interactivo, ver los cambios que se van a aplicar y elegir cuales queremos que se pongan en el staging area. Veamos el ejemplo:
 
 {% highlight diff %}
 $ git --no-pager diff examples/calculator.rb
@@ -190,4 +190,4 @@ $ git commit -m "Add substract method" examples/calculator.rb
  1 files changed, 4 insertions(+), 0 deletions(-)
 </pre>
 
-¡Listo! Ya separamos los cambios en dos `commit` independientes. Una demostración más de las ventajas de Git con otros VCS.
+¡Listo! Ya separamos los cambios en dos `commit` independientes. Una demostración más de las ventajas de Git respecto a otros VCS.
