@@ -1,7 +1,7 @@
 ---
 layout: post
 title: git add --patch
-description: Una razón más para amar Git
+description: O cómo trabajar de manera incremental con Git
 ---
 
 Aprovechando mi temporada de tiempo libre me entretuve leyendo algunos [artículos de Ryan Tomayko](http://tomayko.com/writings/) y hubo uno que especialmente llamó mi atención: [The Thing About Git](http://tomayko.com/writings/the-thing-about-git). En este artículo Ryan presenta una de las tantas mejoras que Git tiene respecto a otros VCS que yo desconocía y que la podría haber utilizado cientos de veces y ahora sin dudas haré.
