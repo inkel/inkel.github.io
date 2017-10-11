@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://inkel.github.io/posts/initial-commit/</loc>
+    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://inkel.github.io/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://inkel.github.io/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://inkel.github.io/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>http://inkel.github.io/tags/personal/</loc>
+    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://inkel.github.io/posts/</loc>
+    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://inkel.github.io/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://inkel.github.io/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>http://inkel.github.io/tags/</loc>
+    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://inkel.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://inkel.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>http://inkel.github.io/</loc>
+    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://inkel.github.io/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://inkel.github.io/"
+                />
+  </url>
+  
+</urlset>

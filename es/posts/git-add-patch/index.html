@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="O cómo trabajar de manera incremental con Git">
+
+    <title>git add --patch</title>
+    <link rel="canonical" href="http://inkel.github.io/es/posts/git-add-patch/">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body lang="">
+    <header>
+      <h1><a href="/">inkel</a></h1>
+      
+    </header>
+
+
+
+<article class="page">
+  <header>
+    <h1>
+      <a href="/es/posts/git-add-patch/">git add --patch</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 5min.</span>
+    <time datetime="2011-06-07 00:00:00 &#43;0000 UTC">Published on 2011-07-06</time>
+    <nav class="tags">
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Aprovechando mi temporada de tiempo libre me entretuve leyendo algunos <a href="http://tomayko.com/writings/">artículos de Ryan Tomayko</a> y hubo uno que especialmente llamó mi atención: <a href="http://tomayko.com/writings/the-thing-about-git">The Thing About Git</a>. En este artículo Ryan presenta una de las tantas mejoras que Git tiene respecto a otros VCS que yo desconocía y que la podría haber utilizado cientos de veces y ahora sin dudas haré.</p>
+
+<p>Quienes tengan más experiencia en Git o hayan leído la <a href="http://www.kernel.org/pub/software/scm/git/docs/git-add.html">página del manual de <code>git-add(1)</code></a> seguramente estarán al tanto del modificador <code>--patch</code>, que permite resolver el caso cuando modificamos un archivo con dos cambios no relacionados entre si y queremos hacer <code>commit</code>s separados. Supongamos comenzamos con el siguiente archivo <code>calculator.rb</code>:</p>
+
+<p>{% highlight ruby lineno %}
+module Calculator
+end
+{% endhighlight %}</p>
+
+<p>Lo agregamos al repositorio y hacemos el <code>commit</code> inicial:</p>
+
+<pre>
+$ git ci -m "Example file for git add --patch article"
+[drafts/git-add-patch 3f2a0f0] Example file for git add --patch article
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+ create mode 100644 examples/calculator.rb
+</pre>
+
+<p>Luego trabajamos en el archivo y agregamos dos métodos que nos gustaría introducir en <code>commit</code>s separados:</p>
+
+<p>{% highlight ruby lineno %}
+module Calculator
+  def add a, b
+    a + b
+  end</p>
+
+<p>def substract a, b
+    a - b
+  end
+end
+{% endhighlight %}</p>
+
+<p>Normalmente acá mi solución era copiar los cambios, hacer un <code>git reset HEAD exmaples/calculator.rb</code> y aplicar los cambios de a uno, una solución cualquier cosa menos elegante u óptima. Acá es donde entra la magia de <code>git add --patch</code>: este modificador nos permite, de un modo interactivo, ver los cambios que se van a aplicar y elegir cuales queremos que se pongan en el staging area. Veamos el ejemplo:</p>
+
+<p>{% highlight diff %}
+$ git &ndash;no-pager diff examples/calculator.rb
+diff &ndash;git a/examples/calculator.rb b/examples/calculator.rb
+index 50a3da7..748f253 100644
+&mdash; a/examples/calculator.rb
++++ b/examples/calculator.rb
+@@ -1,2 +1,9 @@
+ module Calculator
++  def add a, b
++    a + b
++  end
++
++  def substract a, b
++    a - b
++  end
+ end
+{% endhighlight %}</p>
+
+<p>Ahora yo quiero hacer un <code>commit</code> para el método <code>add</code> y luego uno para el método <code>substract</code>. Entonces ejecuto:</p>
+
+<p>{% highlight diff %}
+$ git add &ndash;patch examples/calculator.rb
+diff &ndash;git a/examples/calculator.rb b/examples/calculator.rb
+index 50a3da7..748f253 100644
+&mdash; a/examples/calculator.rb
++++ b/examples/calculator.rb
+@@ -1,2 +1,9 @@
+ module Calculator
++  def add a, b
++    a + b
++  end
++
++  def substract a, b
++    a - b
++  end
+ end
+Stage this hunk [y,n,q,a,d,/,e,?]?
+{% endhighlight %}</p>
+
+<p>Notar la última línea, donde nos pregunta si deseamos copiar todo ese cambio al staging, junto a otras opciones, que son las siguientes:</p>
+
+<pre>
+Stage this hunk [y,n,q,a,d,/,e,?]?
+y - stage this hunk
+n - do not stage this hunk
+q - quit; do not stage this hunk nor any of the remaining ones
+a - stage this hunk and all later hunks in the file
+d - do not stage this hunk nor any of the later hunks in the file
+g - select a hunk to go to
+/ - search for a hunk matching the given regex
+j - leave this hunk undecided, see next undecided hunk
+J - leave this hunk undecided, see next hunk
+k - leave this hunk undecided, see previous undecided hunk
+K - leave this hunk undecided, see previous hunk
+s - split the current hunk into smaller hunks
+e - manually edit the current hunk
+? - print help
+</pre>
+
+<p>Podríamos usar la opción <code>s</code> para automáticamente dividir los cambios en fracciones menores, pero en este caso esa opción no funciona dado que los cambios son contiguos, entonces utilizaremos la opción <code>e</code> que nos permite indicar los cambios automáticamente:</p>
+
+<pre>
+# Manual hunk edit mode -- see bottom for a quick guide
+@@ -1,2 +1,9 @@
+ module Calculator
++  def add a, b
++    a + b
++  end
++
++  def substract a, b
++    a - b
++  end
+ end
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+#
+# If the patch applies cleanly, the edited hunk will immediately be
+# marked for staging. If it does not apply cleanly, you will be given
+# an opportunity to edit again. If all lines of the hunk are removed,
+# then the edit is aborted and the hunk is left unchanged.
+</pre>
+
+<p>Borramos las líneas correspondientes al método <code>substract</code> y nos fijamos el <code>status</code> y los cambios del proyecto:</p>
+
+<pre>
+$ git status
+# On branch drafts/git-add-patch
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   examples/calculator.rb
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   examples/calculator.rb
+</pre>
+
+<p>Si queremos podemos ver las diferencias que se van a introducir:</p>
+
+<p>{% highlight diff %}
+$ git &ndash;no-pager diff &ndash;cached examples/calculator.rb
+diff &ndash;git a/examples/calculator.rb b/examples/calculator.rb
+index 50a3da7..608a374 100644
+&mdash; a/examples/calculator.rb
++++ b/examples/calculator.rb
+@@ -1,2 +1,5 @@
+ module Calculator
++  def add a, b
++    a + b
++  end
+ end
+{% endhighlight %}</p>
+
+<p>Luego hacemos el primer <code>commit</code>:</p>
+
+<pre>
+$ git commit -m "Add add method"
+[drafts/git-add-patch 208a6d8] Add add method
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+</pre>
+
+<p>Y por último analizamos las diferencias para el segundo <code>commit</code>:</p>
+
+<p>{% highlight diff %}
+$ git &ndash;no-pager diff examples/calculator.rb
+diff &ndash;git a/examples/calculator.rb b/examples/calculator.rb
+index 608a374..748f253 100644
+&mdash; a/examples/calculator.rb
++++ b/examples/calculator.rb
+@@ -2,4 +2,8 @@ module Calculator
+   def add a, b
+     a + b
+   end
++
++  def substract a, b
++    a - b
++  end
+ end
+{% endhighlight %}</p>
+
+<p>Como está todo bien introducimos los cambios:</p>
+
+<pre>
+$ git commit -m "Add substract method" examples/calculator.rb
+[drafts/git-add-patch 89b9608] Add substract method
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+</pre>
+
+<p>¡Listo! Ya separamos los cambios en dos <code>commit</code> independientes. Una demostración más de las ventajas de Git respecto a otros VCS.</p>
+
+  </section>
+
+  <nav id="next-prev">
+    <a class="next" href="/es/posts/git-alias/">Alias en Git &gt;</a>
+    
+    &nbsp;
+  </nav>
+</article>
+
+
+    <footer>
+      <nav id="social">
+        <ul>
+          <li><a href="https://flickr.com/inkel">flickr</a></li><li><a href="https://github.com/inkel">github</a></li><li><a href="https://instagram.com/inkel">instagram</a></li><li><a href="https://twitter.com/inkel">twitter</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
+

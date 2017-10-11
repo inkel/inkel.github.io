@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on inkel</title>
+    <link>http://inkel.github.io/es/posts/</link>
+    <description>Recent content in Posts on inkel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 22 Aug 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://inkel.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Alias en Git</title>
+      <link>http://inkel.github.io/es/posts/git-alias/</link>
+      <pubDate>Wed, 22 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://inkel.github.io/es/posts/git-alias/</guid>
+      <description>Una de las mejores cosas que tiene Git es la posibilidad de definir alias de comandos, para evitar tener que escribir de manera repetitiva el mismo comando. Un ejemplo de esto son los casi típicos st, co y ci, versiones reducidas de status, checkout y commit respectivamente.
+Definir un alias en Git es muy sencillo, simplemente se ejecuta:
+  git config --global alias.st status  git config --global alias.</description>
+    </item>
+    
+    <item>
+      <title>git add --patch</title>
+      <link>http://inkel.github.io/es/posts/git-add-patch/</link>
+      <pubDate>Tue, 07 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://inkel.github.io/es/posts/git-add-patch/</guid>
+      <description>Aprovechando mi temporada de tiempo libre me entretuve leyendo algunos artículos de Ryan Tomayko y hubo uno que especialmente llamó mi atención: The Thing About Git. En este artículo Ryan presenta una de las tantas mejoras que Git tiene respecto a otros VCS que yo desconocía y que la podría haber utilizado cientos de veces y ahora sin dudas haré.
+Quienes tengan más experiencia en Git o hayan leído la página del manual de git-add(1) seguramente estarán al tanto del modificador --patch, que permite resolver el caso cuando modificamos un archivo con dos cambios no relacionados entre si y queremos hacer commits separados.</description>
+    </item>
+    
+  </channel>
+</rss>

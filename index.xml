@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>inkel</title>
+    <link>http://inkel.github.io/</link>
+    <description>Recent content on inkel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 11 Oct 2017 15:47:00 -0300</lastBuildDate>
+    
+	<atom:link href="http://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Initial Commit</title>
+      <link>http://inkel.github.io/posts/initial-commit/</link>
+      <pubDate>Wed, 11 Oct 2017 15:47:00 -0300</pubDate>
+      
+      <guid>http://inkel.github.io/posts/initial-commit/</guid>
+      <description>So here I am, once more, trying to have some sort of blog or journal. I&amp;rsquo;ll try to write about interesting pieces of code that I&amp;rsquo;ve written, problems I had to solve, books I&amp;rsquo;ve read (or dropped), et cetera. Don&amp;rsquo;t get your hopes too high, though, I&amp;rsquo;m lazy and tend to forget doing this kind of stuff.</description>
+    </item>
+    
+  </channel>
+</rss>
