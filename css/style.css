@@ -84,6 +84,10 @@ footer {
     float: right;
 }
 
+article.draft {
+    background: url(/images/draft.png);
+}
+
 /* based on perldoc */
 /* Background */           .chroma        { background-color: #fdf6e3; }
 /* Error */                .chroma .ss4   { color: #a61717; background-color: #e3d2d2; }

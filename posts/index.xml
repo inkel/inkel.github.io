@@ -6,10 +6,21 @@
     <description>Recent content in Posts on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 11 Oct 2017 15:47:00 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2017 14:30:00 -0300</lastBuildDate>
     
 	<atom:link href="http://inkel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Proxy Protocol: what is it and how to use it with Go</title>
+      <link>http://inkel.github.io/posts/proxy-protocol/</link>
+      <pubDate>Fri, 13 Oct 2017 14:30:00 -0300</pubDate>
+      
+      <guid>http://inkel.github.io/posts/proxy-protocol/</guid>
+      <description>Today I became aware of the proxy protocol.
+ The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
+ If you are proxying an HTTP(S) chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&amp;rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</description>
+    </item>
     
     <item>
       <title>Initial Commit</title>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://inkel.github.io/posts/proxy-protocol/</loc>
+    <lastmod>2017-10-13T14:30:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://inkel.github.io/posts/initial-commit/</loc>
     <lastmod>2017-10-11T15:47:00-03:00</lastmod>
   </url>
@@ -23,6 +28,12 @@
   </url>
   
   <url>
+    <loc>http://inkel.github.io/tags/go/</loc>
+    <lastmod>2017-10-13T14:30:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://inkel.github.io/tags/personal/</loc>
     <lastmod>2017-10-11T15:47:00-03:00</lastmod>
     <priority>0</priority>
@@ -30,7 +41,7 @@
   
   <url>
     <loc>http://inkel.github.io/posts/</loc>
-    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+    <lastmod>2017-10-13T14:30:00-03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -46,7 +57,7 @@
   
   <url>
     <loc>http://inkel.github.io/tags/</loc>
-    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+    <lastmod>2017-10-13T14:30:00-03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -62,7 +73,7 @@
   
   <url>
     <loc>http://inkel.github.io/</loc>
-    <lastmod>2017-10-11T15:47:00-03:00</lastmod>
+    <lastmod>2017-10-13T14:30:00-03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
