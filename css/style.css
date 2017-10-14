@@ -125,3 +125,19 @@ article.draft {
 /* GenericSubheading */    .chroma .s1b61 { color: #800080; font-weight: bold; }
 /* GenericTraceback */     .chroma .s1b62 { color: #aa0000; }
 /* TextWhitespace */       .chroma .s1f41 { color: #bbbbbb; }
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    body { width: 700px; }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: landscape) {
+    body { width: 1000px; }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (orientation:portrait) {
+    body { width: 300px; }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) and (orientation: landscape) {
+    body { width: 500px; }
+}
