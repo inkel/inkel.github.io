@@ -6,10 +6,20 @@
     <description>Recent content on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 13 Oct 2017 14:30:00 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 14 Oct 2017 22:37:24 -0300</lastBuildDate>
     
 	<atom:link href="http://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>On Go package names</title>
+      <link>http://inkel.github.io/posts/on-go-package-names/</link>
+      <pubDate>Sat, 14 Oct 2017 22:37:24 -0300</pubDate>
+      
+      <guid>http://inkel.github.io/posts/on-go-package-names/</guid>
+      <description>Or why I renamed github.com/inkel/go-proxy-protocol to github.com/inkel/viaproxy. In my previous article I introduced a repository that hold the code to create net.Conn objects aware of the proxy protocol, but I wasn&amp;rsquo;t happy with the name of the repository.
+Package names are important in Go, and one aspect that we tend to overlook is that they actually are part of the calling signature when you want to use an export type or function.</description>
+    </item>
     
     <item>
       <title>Proxy Protocol: what is it and how to use it with Go</title>

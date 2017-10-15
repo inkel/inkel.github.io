@@ -47,6 +47,14 @@
  The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
  If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</dd>
     
+    <dt>
+      <time datetime="2017-10-14 22:37:24 -0300 -03">2017-14-10</time>
+      &dash;
+      <a href="/posts/on-go-package-names/">On Go package names</a>
+    </dt>
+    <dd>Or why I renamed github.com/inkel/go-proxy-protocol to github.com/inkel/viaproxy. In my previous article I introduced a repository that hold the code to create net.Conn objects aware of the proxy protocol, but I wasn&rsquo;t happy with the name of the repository.
+Package names are important in Go, and one aspect that we tend to overlook is that they actually are part of the calling signature when you want to use an export type or function.</dd>
+    
   </dl>
 </nav>
 
