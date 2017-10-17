@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-	<meta name="generator" content="Hugo 0.29" />
+	<meta name="generator" content="Hugo 0.30" />
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22300706-1"></script>
@@ -65,28 +65,24 @@
 <p>In my <a href="/posts/proxy-protocol/">previous article</a> I introduced a repository that hold the code to create <code>net.Conn</code> objects aware of the <a href="http://www.haproxy.com/blog/haproxy/proxy-protocol/">proxy protocol</a>, but I wasn&rsquo;t happy with the name of the repository.</p>
 
 <p>Package names are important in Go, and one aspect that we tend to overlook is that they actually are part of the calling signature when you want to use an export type or function. With the previous code, if we wanted to use the <code>net.Conn</code> wrapper we would have to first import the library:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="s3eb">import</span><span class="s1f40"> </span><span class="sc1c">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span></code></pre>
-</div>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span></code></pre></div>
 <p>Once we did that, then to wrap a connection we would have to call:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="s7df">newCn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">conn</span><span class="s1388">.</span><span class="s7df">WithProxyProtocol</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1388">)</span></code></pre>
-</div>
-<p>Similarly if we wanted to use the <code>net.Listen</code> alternative, we should&rsquo;ve to import <code>github.com/inkel/go-proxy-protocol/listen</code> and then call <code>cn, err := listen.WithProxyProtocol</code>. This doesn&rsquo;t look right to my eyes, and hopefully not to yours either. And aside esthetics, two packages for such limited code? Doesn&rsquo;t make much sense.</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
+<p>Similarly if we wanted to use the <code>net.Listen</code> alternative, we should&rsquo;ve had to import <code>github.com/inkel/go-proxy-protocol/listen</code> and then call <code>cn, err := listen.WithProxyProtocol</code>. This doesn&rsquo;t look right to my eyes, and hopefully not to yours either. And aside aesthetics, two packages for such limited code? Doesn&rsquo;t make much sense.</p>
 
-<p>So I&rsquo;ve spent the day thinking on a better name that could allow me to better convey the effect we want to achieve and that fits in just one library, and thus, <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a> came to be. Let&rsquo;s see how better the code would look like now when wrapping a connection:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="s1770">// import the package
-</span><span class="s1770"></span><span class="s3eb">import</span><span class="s1f40"> </span><span class="sc1c">&#34;github.com/inkel/viaproxy&#34;</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1770">// wrap the connection
-</span><span class="s1770"></span><span class="s7df">newCn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">viaproxy</span><span class="s1388">.</span><span class="s7df">Wrap</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1388">)</span></code></pre>
-</div>
+<p>So I spent the day thinking on a better name that could allow me to better convey the effect we want to achieve and that fits in just one library, and thus, <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a> came to be. Let&rsquo;s see how better the code would look like now when wrapping a connection:</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
+</span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
+
+<span class="c1">// wrap the connection
+</span><span class="c1"></span><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nx">Wrap</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
 <p>Similarly if you want to use the <code>net.Listener</code>, the code looks just as well (and I might even add that looks better):</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="s1770">// import the package
-</span><span class="s1770"></span><span class="s3eb">import</span><span class="s1f40"> </span><span class="sc1c">&#34;github.com/inkel/viaproxy&#34;</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1770">// create the listener
-</span><span class="s1770"></span><span class="s7df">ln</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">viaproxy</span><span class="s1388">.</span><span class="s7df">Listen</span><span class="s1388">(</span><span class="sc1c">&#34;tcp&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="sc1c">&#34;:1234&#34;</span><span class="s1388">)</span></code></pre>
-</div>
-<p>It certainly looks <strong>much</strong> better, and I hope you agree with it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
+</span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
+
+<span class="c1">// create the listener
+</span><span class="c1"></span><span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nx">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:1234&#34;</span><span class="p">)</span></code></pre></div>
+<p>It certainly looks <strong>much</strong> better, and I hope you agree.</p>
 
   </section>
 
@@ -104,7 +100,7 @@
   </header>
 
   <section class="meta">
-    <span class="reading-time">Reading time: 4min.</span>
+    <span class="reading-time">Reading time: 6min.</span>
     <time datetime="2017-10-13 14:30:00 -0300 -03">Published on 2017-13-10</time>
     <nav class="tags">
       
@@ -124,51 +120,50 @@
 
 <p>Take for instance the following example: we will have a simple TCP server that echo backs the client&rsquo;s remote address:</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="s3eb">package</span><span class="s1f40"> </span><span class="s7df">main</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3eb">import</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="sc1c">&#34;fmt&#34;</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="sc1c">&#34;io/ioutil&#34;</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="sc1c">&#34;log&#34;</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="sc1c">&#34;net&#34;</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s7df">main</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">ln</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Listen</span><span class="s1388">(</span><span class="sc1c">&#34;tcp&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="sc1c">&#34;:7654&#34;</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Fatal</span><span class="s1388">(</span><span class="s7df">err</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">for</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">cn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">ln</span><span class="s1388">.</span><span class="s7df">Accept</span><span class="s1388">()</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Println</span><span class="s1388">(</span><span class="sc1c">&#34;ln.Accept():&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s3e8">continue</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">go</span><span class="s1f40"> </span><span class="s7df">handle</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s7df">handle</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1f40"> </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Conn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">defer</span><span class="s1f40"> </span><span class="s3e8">func</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">Close</span><span class="s1388">();</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Println</span><span class="s1388">(</span><span class="sc1c">&#34;cn.Close():&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}()</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Println</span><span class="s1388">(</span><span class="sc1c">&#34;handling connection from&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">RemoteAddr</span><span class="s1388">())</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">fmt</span><span class="s1388">.</span><span class="s7df">Fprintf</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="sc1c">&#34;Your remote address is %v\n&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">RemoteAddr</span><span class="s1388">())</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">data</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">ioutil</span><span class="s1388">.</span><span class="s7df">ReadAll</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Println</span><span class="s1388">(</span><span class="sc1c">&#34;reading from client:&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40"> </span><span class="s3e8">else</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Printf</span><span class="s1388">(</span><span class="sc1c">&#34;client sent %d bytes: %q&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7d0">len</span><span class="s1388">(</span><span class="s7df">data</span><span class="s1388">),</span><span class="s1f40"> </span><span class="s7df">data</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">}</span></code></pre>
-</div>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;io/ioutil&#34;</span>
+	<span class="s">&#34;log&#34;</span>
+	<span class="s">&#34;net&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">cn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ln</span><span class="p">.</span><span class="nx">Accept</span><span class="p">()</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&#34;ln.Accept():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+
+		<span class="k">go</span> <span class="nx">handle</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">handle</span><span class="p">(</span><span class="nx">cn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">cn</span><span class="p">.</span><span class="nx">Close</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&#34;cn.Close():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
+
+	<span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&#34;handling connection from&#34;</span><span class="p">,</span> <span class="nx">cn</span><span class="p">.</span><span class="nx">RemoteAddr</span><span class="p">())</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">cn</span><span class="p">,</span> <span class="s">&#34;Your remote address is %v\n&#34;</span><span class="p">,</span> <span class="nx">cn</span><span class="p">.</span><span class="nx">RemoteAddr</span><span class="p">())</span>
+
+	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&#34;reading from client:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&#34;client sent %d bytes: %q&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="nx">data</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
 <p>I&rsquo;m running <code>go run server.go</code> in a machine whose IP is <code>192.168.1.20</code>, and I&rsquo;ll be sending requests from another machine whose IP is <code>192.168.1.12</code>. One the server machine I&rsquo;m also running an <a href="HAProxy">https://www.haproxy.org/</a> server that acts as a proxy to the Go program above:</p>
 
@@ -229,96 +224,94 @@ Your remote address is 192.168.1.20:57681
 
 <p>This explains why the Go server isn&rsquo;t reporting the right remote address, even when proxy protocol is used: the <a href="https://golang.org/pkg/net/"><code>net</code></a> package doesn&rsquo;t (currently) supports proxy protocol. But adding support to it isn&rsquo;t too difficult. Here we have a custom connection type that complies with the <a href="https://golang.org/pkg/net/#Conn"><code>net.Conn</code></a> interface:</p>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="s3e8">type</span><span class="s1f40"> </span><span class="s7df">myConn</span><span class="s1f40"> </span><span class="s3e8">struct</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">cn</span><span class="s1f40">      </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Conn</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">r</span><span class="s1f40">       </span><span class="sfa0">*</span><span class="s7df">bufio</span><span class="s1388">.</span><span class="s7df">Reader</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">local</span><span class="s1f40">   </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Addr</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">remote</span><span class="s1f40">  </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Addr</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">proxied</span><span class="s1f40"> </span><span class="s3e8">bool</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s7df">NewProxyConn</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1f40"> </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Conn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Conn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="sfa0">&amp;</span><span class="s7df">myConn</span><span class="s1388">{</span><span class="s7df">cn</span><span class="s1388">:</span><span class="s1f40"> </span><span class="s7df">cn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">r</span><span class="s1388">:</span><span class="s1f40"> </span><span class="s7df">bufio</span><span class="s1388">.</span><span class="s7df">NewReader</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1388">)}</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">Init</span><span class="s1388">();</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">Close</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1f40">                </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">Close</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">Write</span><span class="s1388">(</span><span class="s7df">b</span><span class="s1f40"> </span><span class="s1388">[]</span><span class="s3e8">byte</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s3e8">int</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">Write</span><span class="s1388">(</span><span class="s7df">b</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">SetDeadline</span><span class="s1388">(</span><span class="s7df">t</span><span class="s1f40"> </span><span class="s7df">time</span><span class="s1388">.</span><span class="s7df">Time</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1f40">      </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">SetDeadline</span><span class="s1388">(</span><span class="s7df">t</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">SetReadDeadline</span><span class="s1388">(</span><span class="s7df">t</span><span class="s1f40"> </span><span class="s7df">time</span><span class="s1388">.</span><span class="s7df">Time</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1f40">  </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">SetReadDeadline</span><span class="s1388">(</span><span class="s7df">t</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">SetWriteDeadline</span><span class="s1388">(</span><span class="s7df">t</span><span class="s1f40"> </span><span class="s7df">time</span><span class="s1388">.</span><span class="s7df">Time</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">SetWriteDeadline</span><span class="s1388">(</span><span class="s7df">t</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">LocalAddr</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Addr</span><span class="s1f40">  </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">local</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">RemoteAddr</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Addr</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">remote</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">Read</span><span class="s1388">(</span><span class="s7df">b</span><span class="s1f40"> </span><span class="s1388">[]</span><span class="s3e8">byte</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s3e8">int</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">r</span><span class="s1388">.</span><span class="s7df">Read</span><span class="s1388">(</span><span class="s7df">b</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">Init</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s3e8">error</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">buf</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">r</span><span class="s1388">.</span><span class="s7df">Peek</span><span class="s1388">(</span><span class="sc80">5</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s7df">io</span><span class="s1388">.</span><span class="s7df">EOF</span><span class="s1f40"> </span><span class="sfa0">&amp;&amp;</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">==</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="sfa0">&amp;&amp;</span><span class="s1f40"> </span><span class="s7df">bytes</span><span class="s1388">.</span><span class="s7df">Equal</span><span class="s1388">([]</span><span class="s7d0">byte</span><span class="s1388">(</span><span class="sc1c">`PROXY`</span><span class="s1388">),</span><span class="s1f40"> </span><span class="s7df">buf</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">proxied</span><span class="s1f40"> </span><span class="s1388">=</span><span class="s1f40"> </span><span class="s3e8">true</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">proxyLine</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">r</span><span class="s1388">.</span><span class="s7df">ReadString</span><span class="s1388">(</span><span class="sc1c">&#39;\n&#39;</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">fields</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">strings</span><span class="s1388">.</span><span class="s7df">Fields</span><span class="s1388">(</span><span class="s7df">proxyLine</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">remote</span><span class="s1f40"> </span><span class="s1388">=</span><span class="s1f40"> </span><span class="sfa0">&amp;</span><span class="s7df">addr</span><span class="s1388">{</span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">JoinHostPort</span><span class="s1388">(</span><span class="s7df">fields</span><span class="s1388">[</span><span class="sc80">2</span><span class="s1388">],</span><span class="s1f40"> </span><span class="s7df">fields</span><span class="s1388">[</span><span class="sc80">4</span><span class="s1388">])}</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">local</span><span class="s1f40"> </span><span class="s1388">=</span><span class="s1f40"> </span><span class="sfa0">&amp;</span><span class="s7df">addr</span><span class="s1388">{</span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">JoinHostPort</span><span class="s1388">(</span><span class="s7df">fields</span><span class="s1388">[</span><span class="sc80">3</span><span class="s1388">],</span><span class="s1f40"> </span><span class="s7df">fields</span><span class="s1388">[</span><span class="sc80">5</span><span class="s1388">])}</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40"> </span><span class="s3e8">else</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">local</span><span class="s1f40"> </span><span class="s1388">=</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">LocalAddr</span><span class="s1388">()</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">remote</span><span class="s1f40"> </span><span class="s1388">=</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">.</span><span class="s7df">RemoteAddr</span><span class="s1388">()</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">c</span><span class="s1f40"> </span><span class="sfa0">*</span><span class="s7df">myConn</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">String</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s3e8">string</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">proxied</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">fmt</span><span class="s1388">.</span><span class="s7df">Sprintf</span><span class="s1388">(</span><span class="sc1c">&#34;proxied connection %v&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">fmt</span><span class="s1388">.</span><span class="s7df">Sprintf</span><span class="s1388">(</span><span class="sc1c">&#34;%v&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">c</span><span class="s1388">.</span><span class="s7df">cn</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">type</span><span class="s1f40"> </span><span class="s7df">addr</span><span class="s1f40"> </span><span class="s3e8">struct</span><span class="s1388">{</span><span class="s1f40"> </span><span class="s7df">hp</span><span class="s1f40"> </span><span class="s3e8">string</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">a</span><span class="s1f40"> </span><span class="s7df">addr</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">Network</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s3e8">string</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="sc1c">&#34;tcp&#34;</span><span class="s1f40"> </span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s3e8">func</span><span class="s1f40"> </span><span class="s1388">(</span><span class="s7df">a</span><span class="s1f40"> </span><span class="s7df">addr</span><span class="s1388">)</span><span class="s1f40"> </span><span class="s7df">String</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s3e8">string</span><span class="s1f40">  </span><span class="s1388">{</span><span class="s1f40"> </span><span class="s3e8">return</span><span class="s1f40"> </span><span class="s7df">a</span><span class="s1388">.</span><span class="s7df">hp</span><span class="s1f40"> </span><span class="s1388">}</span></code></pre>
-</div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">myConn</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">cn</span>      <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span>
+	<span class="nx">r</span>       <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span>
+	<span class="nx">local</span>   <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>
+	<span class="nx">remote</span>  <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>
+	<span class="nx">proxied</span> <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">NewProxyConn</span><span class="p">(</span><span class="nx">cn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">c</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">myConn</span><span class="p">{</span><span class="nx">cn</span><span class="p">:</span> <span class="nx">cn</span><span class="p">,</span> <span class="nx">r</span><span class="p">:</span> <span class="nx">bufio</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">cn</span><span class="p">)}</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Init</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">c</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">Close</span><span class="p">()</span> <span class="kt">error</span>                <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">Write</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">SetDeadline</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="kt">error</span>      <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nx">SetDeadline</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">SetReadDeadline</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="kt">error</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nx">SetReadDeadline</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">SetWriteDeadline</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nx">SetWriteDeadline</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">LocalAddr</span><span class="p">()</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">local</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">RemoteAddr</span><span class="p">()</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">remote</span> <span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">Read</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">r</span><span class="p">.</span><span class="nx">Read</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">Init</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">buf</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">r</span><span class="p">.</span><span class="nx">Peek</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span> <span class="o">&amp;&amp;</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Equal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">`PROXY`</span><span class="p">),</span> <span class="nx">buf</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">c</span><span class="p">.</span><span class="nx">proxied</span> <span class="p">=</span> <span class="kc">true</span>
+		<span class="nx">proxyLine</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">r</span><span class="p">.</span><span class="nx">ReadString</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">err</span>
+		<span class="p">}</span>
+		<span class="nx">fields</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Fields</span><span class="p">(</span><span class="nx">proxyLine</span><span class="p">)</span>
+		<span class="nx">c</span><span class="p">.</span><span class="nx">remote</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">addr</span><span class="p">{</span><span class="nx">net</span><span class="p">.</span><span class="nx">JoinHostPort</span><span class="p">(</span><span class="nx">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">])}</span>
+		<span class="nx">c</span><span class="p">.</span><span class="nx">local</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">addr</span><span class="p">{</span><span class="nx">net</span><span class="p">.</span><span class="nx">JoinHostPort</span><span class="p">(</span><span class="nx">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nx">fields</span><span class="p">[</span><span class="mi">5</span><span class="p">])}</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">c</span><span class="p">.</span><span class="nx">local</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nx">LocalAddr</span><span class="p">()</span>
+		<span class="nx">c</span><span class="p">.</span><span class="nx">remote</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nx">RemoteAddr</span><span class="p">()</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nx">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">c</span><span class="p">.</span><span class="nx">proxied</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&#34;proxied connection %v&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">addr</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">hp</span> <span class="kt">string</span> <span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nx">Network</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&#34;tcp&#34;</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nx">String</span><span class="p">()</span> <span class="kt">string</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hp</span> <span class="p">}</span></code></pre></div></p>
 
 <p>Now in our server we wrap the connection into our new type, and pass it to the <code>handle</code> func:</p>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="s3e8">func</span><span class="s1f40"> </span><span class="s7df">main</span><span class="s1388">()</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s7df">ln</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">net</span><span class="s1388">.</span><span class="s7df">Listen</span><span class="s1388">(</span><span class="sc1c">&#34;tcp&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="sc1c">&#34;:7654&#34;</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Fatal</span><span class="s1388">(</span><span class="s7df">err</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s3e8">for</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s7df">cn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">ln</span><span class="s1388">.</span><span class="s7df">Accept</span><span class="s1388">()</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Println</span><span class="s1388">(</span><span class="sc1c">&#34;ln.Accept():&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s3e8">continue</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="hl"><span class="s1f40">		</span><span class="s7df">pcn</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">:=</span><span class="s1f40"> </span><span class="s7df">NewProxyConn</span><span class="s1388">(</span><span class="s7df">cn</span><span class="s1388">)</span><span class="s1f40">
-</span></span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">if</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1f40"> </span><span class="sfa0">!=</span><span class="s1f40"> </span><span class="s3e8">nil</span><span class="s1f40"> </span><span class="s1388">{</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s7df">log</span><span class="s1388">.</span><span class="s7df">Println</span><span class="s1388">(</span><span class="sc1c">&#34;NewProxyConn():&#34;</span><span class="s1388">,</span><span class="s1f40"> </span><span class="s7df">err</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">			</span><span class="s3e8">continue</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40">
-</span><span class="s1f40">		</span><span class="s3e8">go</span><span class="s1f40"> </span><span class="s7df">handle</span><span class="s1388">(</span><span class="s7df">pcn</span><span class="s1388">)</span><span class="s1f40">
-</span><span class="s1f40">	</span><span class="s1388">}</span><span class="s1f40">
-</span><span class="s1f40"></span><span class="s1388">}</span></code></pre>
-</div></p>
+<p><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">cn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ln</span><span class="p">.</span><span class="nx">Accept</span><span class="p">()</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&#34;ln.Accept():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+
+<span class="hl">		<span class="nx">pcn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">NewProxyConn</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
+</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&#34;NewProxyConn():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+			<span class="k">continue</span>
+		<span class="p">}</span>
+
+		<span class="k">go</span> <span class="nx">handle</span><span class="p">(</span><span class="nx">pcn</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div></p>
 
 <p>With this, now we see the right output in both the client:</p>
 
