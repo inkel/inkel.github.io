@@ -43,6 +43,79 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/reverse-curl/">lruc: a reverse cURL</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 2min.</span>
+    <time datetime="2017-10-27 10:24:08 -0300 -03">Published on 2017-27-10</time>
+    <nav class="tags">
+      
+      <a href="/tags/go">go</a>
+      
+      <a href="/tags/tools">tools</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Today <a href="https://interpreterbook.com/">Thorsten Ball</a> asked a simple question on Twitter:</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Does something like a reverse-curl exist? A tool that allows me to listen on a socket and return one HTTP response?</p>&mdash; Thorsten Ball (@thorstenball) <a href="https://twitter.com/thorstenball/status/923890186479656960?ref_src=twsrc%5Etfw">October 27, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>After a brief exchange of tweets, I said:</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Or we could write one in Go 😺</p>&mdash; Lean (inkel) (@inkel) <a href="https://twitter.com/inkel/status/923896402056499200?ref_src=twsrc%5Etfw">October 27, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>Twenty minutes later <a href="https://github.com/inkel/lruc"><code>lruc</code></a> was born.</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Oh wow! :)</p>&mdash; Thorsten Ball (@thorstenball) <a href="https://twitter.com/thorstenball/status/923901953821872128?ref_src=twsrc%5Etfw">October 27, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>It&rsquo;s still very fresh and missing many features, but basically it is a web server that allows you to configure it to always respond with a custom response without too much hassle. The usage is very simple:</p>
+
+<pre><code>Usage of lruc:
+  -addr string
+        Address to listen for requests (default &quot;:8080&quot;)
+  -body -
+        Response body. Use - to read from a stdin (default &quot;Hello, World!&quot;)
+  -code int
+        HTTP response code (default 200)
+  -content-type string
+        Content-Type (default &quot;text/plain&quot;)
+</code></pre>
+
+<p>Say that you want to create a server that always respond with a <code>404 Not Found</code> and a body of <code>No se pudo encontrar lo que buscaba</code> (Spanish for <em>Couldn&rsquo;t find what you were looking for</em> (sort of)) on port 7070, then you could execute the following:</p>
+
+<pre><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
+</code></pre>
+
+<p>Or say that you want to always return an image, then you could do something like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
+
+<span class="c1"># Or in an useless use of cat
+</span><span class="c1"></span>cat image.png <span class="p">|</span> lruc -content-type image/png -body -</code></pre></div>
+<p>This seems like an interesting tool to keep working on, so watch <a href="https://github.com/inkel/lruc"><code>github.com/inkel/lruc</code></a> for updates.</p>
+
+<p>PS: did I said already that I love Go?</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/ec2-key-fingerprint/">EC2 Key Pairs Fingerprinting</a>
     </h1>
   </header>
