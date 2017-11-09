@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on inkel</title>
-    <link>http://inkel.github.io/tags/</link>
+    <link>https://inkel.github.io/tags/</link>
     <description>Recent content in Tags on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 26 Oct 2017 10:38:20 -0300</lastBuildDate>
     
-	<atom:link href="http://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Aws</title>
-      <link>http://inkel.github.io/tags/aws/</link>
+      <link>https://inkel.github.io/tags/aws/</link>
       <pubDate>Thu, 26 Oct 2017 10:38:20 -0300</pubDate>
       
-      <guid>http://inkel.github.io/tags/aws/</guid>
+      <guid>https://inkel.github.io/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go</title>
-      <link>http://inkel.github.io/tags/go/</link>
+      <link>https://inkel.github.io/tags/go/</link>
       <pubDate>Fri, 27 Oct 2017 10:24:08 -0300</pubDate>
       
-      <guid>http://inkel.github.io/tags/go/</guid>
+      <guid>https://inkel.github.io/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Personal</title>
-      <link>http://inkel.github.io/tags/personal/</link>
+      <link>https://inkel.github.io/tags/personal/</link>
       <pubDate>Wed, 11 Oct 2017 15:47:00 -0300</pubDate>
       
-      <guid>http://inkel.github.io/tags/personal/</guid>
+      <guid>https://inkel.github.io/tags/personal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tools</title>
-      <link>http://inkel.github.io/tags/tools/</link>
+      <link>https://inkel.github.io/tags/tools/</link>
       <pubDate>Fri, 27 Oct 2017 10:24:08 -0300</pubDate>
       
-      <guid>http://inkel.github.io/tags/tools/</guid>
+      <guid>https://inkel.github.io/tags/tools/</guid>
       <description></description>
     </item>
     
