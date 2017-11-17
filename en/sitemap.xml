@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://inkel.github.io/posts/pem-to-authorized-keys/</loc>
+    <lastmod>2017-11-17T15:51:51-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://inkel.github.io/posts/reverse-curl/</loc>
     <lastmod>2017-10-27T10:24:08-03:00</lastmod>
   </url>
@@ -62,7 +67,7 @@
   
   <url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2017-10-27T10:24:08-03:00</lastmod>
+    <lastmod>2017-11-17T15:51:51-03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -74,6 +79,12 @@
                 hreflang="en"
                 href="https://inkel.github.io/posts/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/tags/ssh/</loc>
+    <lastmod>2017-11-17T15:51:51-03:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -100,7 +111,7 @@
   
   <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2017-10-27T10:24:08-03:00</lastmod>
+    <lastmod>2017-11-17T15:51:51-03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

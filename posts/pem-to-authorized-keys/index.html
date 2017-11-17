@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22300706-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-22300706-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Say you have a private key in PEM format, and you want to use that key for SSH into another server, by adding an entry to your ~/.ssh/authorized_keys file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in authorized_keys:
+ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string that is safe to append to your ~/.">
+
+    <title>From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</title>
+    <meta content="From PEM to OpenSSH for usage in ~/.ssh/authorized_keys" property="og:title" />
+    <link rel="canonical" href="https://inkel.github.io/posts/pem-to-authorized-keys/">
+
+    <meta content="https://inkel.github.io/images/avatar.png" property="og:image" />
+    <meta content="inkel" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta content="https://inkel.github.io/posts/pem-to-authorized-keys/" property="og:url" />
+    <meta content="Say you have a private key in PEM format, and you want to use that key for SSH into another server, by adding an entry to your ~/.ssh/authorized_keys file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in authorized_keys:
+ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string that is safe to append to your ~/." property="og:description" />
+    <meta name="twitter:label1" value="Reading time">
+    <meta name="twitter:data1" value="1min.">
+    <meta name="twitter:label1" value="Published on">
+    <meta name="twitter:data1" value="2017-17-11">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body lang="">
+    <header>
+      <h1><a href="/">inkel</a></h1>
+      
+    </header>
+
+
+
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/pem-to-authorized-keys/">From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 1min.</span>
+    <time datetime="2017-11-17 15:51:51 -0300 -03">Published on 2017-17-11</time>
+    <nav class="tags">
+      
+      <a href="/tags/ssh">ssh</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Say you have a private key in <a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail">PEM format</a>, and you want to use that key for SSH into another server, by adding an entry to your <code>~/.ssh/authorized_keys</code> file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in <code>authorized_keys</code>:</p>
+
+<pre><code>ssh-keygen -y -f path/to/file.pem
+</code></pre>
+
+<p>This will output a <code>ssh-rsa AAAA…</code> string that is safe to append to your <code>~/.ssh/authorized_keys</code>. The <a href="https://linux.die.net/man/1/ssh-keygen"><code>ssh-keygen</code></a> uses the <code>-f</code> flag to specify the input file name, and the <code>-y</code> flag to read a private file and output the OpenSSH public key to standard output.</p>
+
+  </section>
+
+  <nav id="next-prev">
+    
+    <a class="prev" href="/posts/reverse-curl/">&lt; lruc: a reverse cURL</a>
+    
+  </nav>
+</article>
+
+
+    <footer>
+      <nav id="social">
+        <ul>
+          <li><a href="https://flickr.com/inkel">flickr</a></li><li><a href="https://github.com/inkel">github</a></li><li><a href="https://instagram.com/inkel">instagram</a></li><li><a href="https://twitter.com/inkel">twitter</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
+

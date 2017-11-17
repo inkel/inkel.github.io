@@ -29,9 +29,7 @@
     <meta content="inkel" property="og:site_name" />
     <meta content="website" property="og:type" />
     <meta content="https://inkel.github.io/" property="og:url" />
-    <meta content="Software programmer interested in SRE, DevOps, Machine Learning and Augmented Reality." property="og:description" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Software programmer interested in SRE, DevOps, Machine Learning and Augmented Reality." property="og:description" /><meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body lang="">
@@ -45,6 +43,39 @@
 
 
 <section id="content">
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/pem-to-authorized-keys/">From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 1min.</span>
+    <time datetime="2017-11-17 15:51:51 -0300 -03">Published on 2017-17-11</time>
+    <nav class="tags">
+      
+      <a href="/tags/ssh">ssh</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Say you have a private key in <a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail">PEM format</a>, and you want to use that key for SSH into another server, by adding an entry to your <code>~/.ssh/authorized_keys</code> file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in <code>authorized_keys</code>:</p>
+
+<pre><code>ssh-keygen -y -f path/to/file.pem
+</code></pre>
+
+<p>This will output a <code>ssh-rsa AAAA…</code> string that is safe to append to your <code>~/.ssh/authorized_keys</code>. The <a href="https://linux.die.net/man/1/ssh-keygen"><code>ssh-keygen</code></a> uses the <code>-f</code> flag to specify the input file name, and the <code>-y</code> flag to read a private file and output the OpenSSH public key to standard output.</p>
+
+  </section>
+
+  
+</article>
+
   <hr>
   
   

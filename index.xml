@@ -6,10 +6,20 @@
     <description>Recent content on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 27 Oct 2017 10:24:08 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 17 Nov 2017 15:51:51 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</title>
+      <link>https://inkel.github.io/posts/pem-to-authorized-keys/</link>
+      <pubDate>Fri, 17 Nov 2017 15:51:51 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/pem-to-authorized-keys/</guid>
+      <description>Say you have a private key in PEM format, and you want to use that key for SSH into another server, by adding an entry to your ~/.ssh/authorized_keys file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in authorized_keys:
+ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string that is safe to append to your ~/.</description>
+    </item>
     
     <item>
       <title>lruc: a reverse cURL</title>
