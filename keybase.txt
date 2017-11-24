@@ -1,0 +1,51 @@
+I hereby claim:
+
+  * I am an admin of https://inkel.github.io
+  * I am inkel (https://keybase.io/inkel) on keybase.
+  * I have a public key ASAseuKQokVV8apQZnqXgYpxDy-Ra8zQew1idmeGghr29Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01202c7ae290a24555f1aa50667a97818a710f2f916bccd07b0d62766786821af6f50a",
+      "host": "keybase.io",
+      "kid": "01202c7ae290a24555f1aa50667a97818a710f2f916bccd07b0d62766786821af6f50a",
+      "uid": "28bee564bd5ed731dd24b14d778b1b00",
+      "username": "inkel"
+    },
+    "merkle_root": {
+      "ctime": 1511531772,
+      "hash": "3c2af1eaeb6dd833b7024f520a130fd3d5e11796ace190cdb1da95b4031128c394f9fe4d0c81ec321bdf32978164ddf2b9a608db4398c6ed873f0e5e3843bad0",
+      "hash_meta": "ff244cf581e39b30fc482b84b649315bae485ba2ed02966eccba5080d1da9601",
+      "seqno": 1742426
+    },
+    "service": {
+      "hostname": "inkel.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.36"
+  },
+  "ctime": 1511531797,
+  "expire_in": 504576000,
+  "prev": "eb0139fb5ea3540e3e698861168bdf4b9a1c341b20756ebb96d972528540b379",
+  "seqno": 79,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgLHrikKJFVfGqUGZ6l4GKcQ8vkWvM0HsNYnZnhoIa9vUKp3BheWxvYWTFA0V7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMmM3YWUyOTBhMjQ1NTVmMWFhNTA2NjdhOTc4MThhNzEwZjJmOTE2YmNjZDA3YjBkNjI3NjY3ODY4MjFhZjZmNTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMmM3YWUyOTBhMjQ1NTVmMWFhNTA2NjdhOTc4MThhNzEwZjJmOTE2YmNjZDA3YjBkNjI3NjY3ODY4MjFhZjZmNTBhIiwidWlkIjoiMjhiZWU1NjRiZDVlZDczMWRkMjRiMTRkNzc4YjFiMDAiLCJ1c2VybmFtZSI6Imlua2VsIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTExNTMxNzcyLCJoYXNoIjoiM2MyYWYxZWFlYjZkZDgzM2I3MDI0ZjUyMGExMzBmZDNkNWUxMTc5NmFjZTE5MGNkYjFkYTk1YjQwMzExMjhjMzk0ZjlmZTRkMGM4MWVjMzIxYmRmMzI5NzgxNjRkZGYyYjlhNjA4ZGI0Mzk4YzZlZDg3M2YwZTVlMzg0M2JhZDAiLCJoYXNoX21ldGEiOiJmZjI0NGNmNTgxZTM5YjMwZmM0ODJiODRiNjQ5MzE1YmFlNDg1YmEyZWQwMjk2NmVjY2JhNTA4MGQxZGE5NjAxIiwic2Vxbm8iOjE3NDI0MjZ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiaW5rZWwuZ2l0aHViLmlvIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMzYifSwiY3RpbWUiOjE1MTE1MzE3OTcsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiZWIwMTM5ZmI1ZWEzNTQwZTNlNjk4ODYxMTY4YmRmNGI5YTFjMzQxYjIwNzU2ZWJiOTZkOTcyNTI4NTQwYjM3OSIsInNlcW5vIjo3OSwidGFnIjoic2lnbmF0dXJlIn2jc2lnxEAMt57VkVypmp2yVKfVZ9ugBmhzmj4YPuNSdAFotDHA1WKO930Rw8ch46jEt/P0eBAUDKu6WtbaVqj8Luz6DeELqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgzXXkYusUfEH3e8MmH/ONWfxE6S+4T6nzqXxsDT0FB3ujdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/inkel
+
+==================================================================
