@@ -6,10 +6,20 @@
     <description>Recent content on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 17 Nov 2017 15:51:51 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 06 Dec 2017 11:15:22 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using responsive font sizes</title>
+      <link>https://inkel.github.io/posts/responsive-font-size/</link>
+      <pubDate>Wed, 06 Dec 2017 11:15:22 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/responsive-font-size/</guid>
+      <description>Today Chad Ostrowski, a fellow engineer at Citrusbyte, shared an article he wrote: CSS pro tips: responsive font-sizes and when to use which units. After reading it, I couldn&amp;rsquo;t help myself and adapted some of the tips there to this site. It&amp;rsquo;s now much easier to maintain, I think, as I&amp;rsquo;ve removed all previous media queries, but I had to add one:
+@media only screen and (min-device-width: 1200px) { html { font-size: calc(1em + 0.</description>
+    </item>
     
     <item>
       <title>From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</title>
