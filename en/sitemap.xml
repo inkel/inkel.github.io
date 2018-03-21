@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://inkel.github.io/posts/proxy-protocol-support-in-curl/</loc>
+    <lastmod>2018-03-21T08:49:02-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://inkel.github.io/posts/responsive-font-size/</loc>
     <lastmod>2017-12-06T11:15:22-03:00</lastmod>
   </url>
@@ -84,7 +89,7 @@
   
   <url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2017-12-06T11:15:22-03:00</lastmod>
+    <lastmod>2018-03-21T08:49:02-03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -96,6 +101,12 @@
                 hreflang="en"
                 href="https://inkel.github.io/posts/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/tags/proxy-protocol/</loc>
+    <lastmod>2018-03-21T08:49:02-03:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -128,7 +139,7 @@
   
   <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2017-12-06T11:15:22-03:00</lastmod>
+    <lastmod>2018-03-21T08:49:02-03:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

@@ -106,6 +106,17 @@ ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string tha
     <dd>Today Chad Ostrowski, a fellow engineer at Citrusbyte, shared an article he wrote: CSS pro tips: responsive font-sizes and when to use which units. After reading it, I couldn&rsquo;t help myself and adapted some of the tips there to this site. It&rsquo;s now much easier to maintain, I think, as I&rsquo;ve removed all previous media queries, but I had to add one:
 @media only screen and (min-device-width: 1200px) { html { font-size: calc(1em + 0.</dd>
     
+    <dt>
+      <time datetime="2018-03-21 08:49:02 -0300 -03">2018-21-03</time>
+      &dash;
+      <a href="/posts/proxy-protocol-support-in-curl/">Proxy Protocol Support in Curl</a>
+    </dt>
+    <dd>I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:
+https://t.co/P3BbFqx1ro CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol
+Add --haproxy-protocol for the command line tool
+Cl...
+&mdash; curl commits (@curlcommits) March 17, 2018  This is exciting to me as the work I&rsquo;ve been doing in viaproxy had one caveat: testing it works was a bit convoluted, as I was doing by running an HAProxy instance with a custom configuration like the following:</dd>
+    
   </dl>
 </nav>
 

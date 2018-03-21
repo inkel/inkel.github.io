@@ -96,6 +96,10 @@ article.draft {
     margin-left: auto;
 }
 
+blockquote {
+    font-style: italic;
+}
+
 /* based on perldoc */
 /* Background */           .chroma        { background-color: #fdf6e3; }
 /* Error */                .chroma .ss4   { color: #a61717; background-color: #e3d2d2; }

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22300706-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-22300706-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:
+https://t.co/P3BbFqx1ro CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol
+Add --haproxy-protocol for the command line tool
+Cl...
+&mdash; curl commits (@curlcommits) March 17, 2018  This is exciting to me as the work I&rsquo;ve been doing in viaproxy had one caveat: testing it works was a bit convoluted, as I was doing by running an HAProxy instance with a custom configuration like the following:">
+
+    <title>Proxy Protocol Support in Curl</title>
+    <meta content="Proxy Protocol Support in Curl" property="og:title" />
+    <link rel="canonical" href="https://inkel.github.io/posts/proxy-protocol-support-in-curl/">
+
+    <meta content="https://inkel.github.io/images/avatar.png" property="og:image" />
+    <meta content="inkel" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta content="https://inkel.github.io/posts/proxy-protocol-support-in-curl/" property="og:url" />
+    <meta content="I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:
+https://t.co/P3BbFqx1ro CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol
+Add --haproxy-protocol for the command line tool
+Cl...
+&mdash; curl commits (@curlcommits) March 17, 2018  This is exciting to me as the work I&rsquo;ve been doing in viaproxy had one caveat: testing it works was a bit convoluted, as I was doing by running an HAProxy instance with a custom configuration like the following:" property="og:description" />
+    <meta name="twitter:label1" value="Reading time">
+    <meta name="twitter:data1" value="1min.">
+    <meta name="twitter:label1" value="Published on">
+    <meta name="twitter:data1" value="2018-21-03">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body lang="">
+    <header>
+      <h1><a href="/">inkel</a></h1>
+      
+    </header>
+
+
+
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/proxy-protocol-support-in-curl/">Proxy Protocol Support in Curl</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 1min.</span>
+    <time datetime="2018-03-21 08:49:02 -0300 -03">Published on 2018-21-03</time>
+    <nav class="tags">
+      
+      <a href="/tags/proxy%20protocol">proxy protocol</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://t.co/P3BbFqx1ro">https://t.co/P3BbFqx1ro</a> CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol<br><br>Add --haproxy-protocol for the command line tool<br><br>Cl...</p>&mdash; curl commits (@curlcommits) <a href="https://twitter.com/curlcommits/status/974961166807109633?ref_src=twsrc%5Etfw">March 17, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>This is exciting to me as the work I&rsquo;ve been doing in <a href="https://github.com/inkel/viaproxy"><code>viaproxy</code></a> had one caveat: testing it works was a bit convoluted, as I was doing by running an <a href="https://www.haproxy.org/">HAProxy</a> instance with a custom configuration like the following:</p>
+
+<pre><code>global
+    debug
+    maxconn 4000
+    log 127.0.0.1 local0
+
+defaults
+    timeout connect 10s
+    timeout client  1m
+    timeout server  1m
+
+listen without-send-proxy
+    mode tcp
+    log global
+    option tcplog
+    bind *:17654
+    server app1 127.0.0.1:7655
+
+listen with-send-proxy
+    mode tcp
+    log global
+    option tcplog
+    bind *:27654
+    bind ipv6@:27654
+    server app1 127.0.0.1:7654 send-proxy
+</code></pre>
+
+<p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df35d24740c55239f24b5fc4ce86f375a5</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
+
+<blockquote>
+<p>Send a HAProxy PROXY protocol header at the beginning of the connection. This is used by some load balancers and reverse proxies to indicate the client&rsquo;s true IP address and port.</p>
+
+<p>This option is primarily useful when sending test requests to a service that expects this header.</p>
+</blockquote>
+
+<p>Reading the commit changes is very enlightening, too, as it is a great example of nice and simple C code. I&rsquo;m looking forward to the release!</p>
+
+  </section>
+
+  <nav id="next-prev">
+    
+    <a class="prev" href="/posts/responsive-font-size/">&lt; Using responsive font sizes</a>
+    
+  </nav>
+</article>
+
+
+    <footer>
+      <nav id="social">
+        <a href="https://flickr.com/inkel">flickr</a><a href="https://github.com/inkel">github</a><a href="https://goodreads.com/inkel">goodreads</a><a href="https://instagram.com/inkel">instagram</a><a href="https://twitter.com/inkel">twitter</a>
+      </nav>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22300706-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-22300706-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Software programmer interested in SRE, DevOps, Machine Learning and Augmented Reality.">
+
+    <title>Proxy Protocol</title>
+    <meta content="Proxy Protocol" property="og:title" />
+    <link rel="canonical" href="https://inkel.github.io/tags/proxy-protocol/">
+
+    <meta content="https://inkel.github.io/images/avatar.png" property="og:image" />
+    <meta content="inkel" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta content="https://inkel.github.io/tags/proxy-protocol/" property="og:url" />
+    <meta content="Software programmer interested in SRE, DevOps, Machine Learning and Augmented Reality." property="og:description" /><meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body lang="">
+    <header>
+      <h1><a href="/">inkel</a></h1>
+      
+      <p>Software programmer interested in SRE, DevOps, Machine Learning and Augmented Reality.</p>
+      
+    </header>
+
+
+
+<nav id="archive">
+  <dl>
+    
+    <dt>
+      <time datetime="2017-10-13 14:30:00 -0300 -03">2017-13-10</time>
+      &dash;
+      <a href="/posts/proxy-protocol/">Proxy Protocol: what is it and how to use it with Go</a>
+    </dt>
+    <dd>Today I became aware of the proxy protocol.
+ The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
+ If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</dd>
+    
+    <dt>
+      <time datetime="2018-03-21 08:49:02 -0300 -03">2018-21-03</time>
+      &dash;
+      <a href="/posts/proxy-protocol-support-in-curl/">Proxy Protocol Support in Curl</a>
+    </dt>
+    <dd>I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:
+https://t.co/P3BbFqx1ro CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol
+Add --haproxy-protocol for the command line tool
+Cl...
+&mdash; curl commits (@curlcommits) March 17, 2018  This is exciting to me as the work I&rsquo;ve been doing in viaproxy had one caveat: testing it works was a bit convoluted, as I was doing by running an HAProxy instance with a custom configuration like the following:</dd>
+    
+  </dl>
+</nav>
+
+
+    <footer>
+      <nav id="social">
+        <a href="https://flickr.com/inkel">flickr</a><a href="https://github.com/inkel">github</a><a href="https://goodreads.com/inkel">goodreads</a><a href="https://instagram.com/inkel">instagram</a><a href="https://twitter.com/inkel">twitter</a>
+      </nav>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Proxy Protocol on inkel</title>
+    <link>https://inkel.github.io/tags/proxy-protocol/</link>
+    <description>Recent content in Proxy Protocol on inkel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 21 Mar 2018 08:49:02 -0300</lastBuildDate>
+    
+	<atom:link href="https://inkel.github.io/tags/proxy-protocol/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Proxy Protocol Support in Curl</title>
+      <link>https://inkel.github.io/posts/proxy-protocol-support-in-curl/</link>
+      <pubDate>Wed, 21 Mar 2018 08:49:02 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/proxy-protocol-support-in-curl/</guid>
+      <description>I&amp;rsquo;ve came across the following tweet the other day, and I couldn&amp;rsquo;t be more excited:
+https://t.co/P3BbFqx1ro CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol
+Add --haproxy-protocol for the command line tool
+Cl...
+&amp;mdash; curl commits (@curlcommits) March 17, 2018  This is exciting to me as the work I&amp;rsquo;ve been doing in viaproxy had one caveat: testing it works was a bit convoluted, as I was doing by running an HAProxy instance with a custom configuration like the following:</description>
+    </item>
+    
+    <item>
+      <title>Proxy Protocol: what is it and how to use it with Go</title>
+      <link>https://inkel.github.io/posts/proxy-protocol/</link>
+      <pubDate>Fri, 13 Oct 2017 14:30:00 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/proxy-protocol/</guid>
+      <description>Today I became aware of the proxy protocol.
+ The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
+ If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&amp;rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</description>
+    </item>
+    
+  </channel>
+</rss>
