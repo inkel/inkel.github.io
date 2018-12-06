@@ -6,10 +6,19 @@
     <description>Recent content in Posts on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 21 Mar 2018 08:49:02 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 06 Dec 2018 15:50:17 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Testing Terraform Providers</title>
+      <link>https://inkel.github.io/posts/testing-terraform-providers/</link>
+      <pubDate>Thu, 06 Dec 2018 15:50:17 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/testing-terraform-providers/</guid>
+      <description>If there&amp;rsquo;s one piece of technology I&amp;rsquo;ve come to love and depend upon these last years it definitely is Terraform. Sadly, the only provider that seems to be complete is the AWS provider, but others seems to be missing some useful resources or data sources. As an example, these past days at work I had to work with the Azure provider and found that I was really missing the ability to query Azure for Virtual Machine IDs, but there wasn&amp;rsquo;t a data source for this, and I didn&amp;rsquo;t want to import the virtual machines we&amp;rsquo;ve already created (insert long story reasons here).</description>
+    </item>
     
     <item>
       <title>Proxy Protocol Support in Curl</title>

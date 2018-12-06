@@ -75,7 +75,7 @@ Package names are important in Go, and one aspect that we tend to overlook is th
 <p>Package names are important in Go, and one aspect that we tend to overlook is that they actually are part of the calling signature when you want to use an export type or function. With the previous code, if we wanted to use the <code>net.Conn</code> wrapper we would have to first import the library:</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span></code></pre></div>
 <p>Once we did that, then to wrap a connection we would have to call:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
 <p>Similarly if we wanted to use the <code>net.Listen</code> alternative, we should&rsquo;ve had to import <code>github.com/inkel/go-proxy-protocol/listen</code> and then call <code>cn, err := listen.WithProxyProtocol</code>. This doesn&rsquo;t look right to my eyes, and hopefully not to yours either. And aside aesthetics, two packages for such limited code? Doesn&rsquo;t make much sense.</p>
 
 <p>So I spent the day thinking on a better name that could allow me to better convey the effect we want to achieve and that fits in just one library, and thus, <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a> came to be. Let&rsquo;s see how better the code would look like now when wrapping a connection:</p>
@@ -83,13 +83,13 @@ Package names are important in Go, and one aspect that we tend to overlook is th
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// wrap the connection
-</span><span class="c1"></span><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nx">Wrap</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
+</span><span class="c1"></span><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Wrap</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
 <p>Similarly if you want to use the <code>net.Listener</code>, the code looks just as well (and I might even add that looks better):</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// create the listener
-</span><span class="c1"></span><span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nx">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:1234&#34;</span><span class="p">)</span></code></pre></div>
+</span><span class="c1"></span><span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:1234&#34;</span><span class="p">)</span></code></pre></div>
 <p>It certainly looks <strong>much</strong> better, and I hope you agree.</p>
 
   </section>
