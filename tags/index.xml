@@ -6,76 +6,31 @@
     <description>Recent content in Tags on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 26 Oct 2017 10:38:20 -0300</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Aws</title>
-      <link>https://inkel.github.io/tags/aws/</link>
-      <pubDate>Thu, 26 Oct 2017 10:38:20 -0300</pubDate>
+      <title>cli</title>
+      <link>https://inkel.github.io/tags/cli/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://inkel.github.io/tags/aws/</guid>
+      <guid>https://inkel.github.io/tags/cli/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Css</title>
-      <link>https://inkel.github.io/tags/css/</link>
-      <pubDate>Wed, 06 Dec 2017 11:15:22 -0300</pubDate>
+      <title>tools</title>
+      <link>https://inkel.github.io/tags/tools/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://inkel.github.io/tags/css/</guid>
+      <guid>https://inkel.github.io/tags/tools/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Frontend</title>
-      <link>https://inkel.github.io/tags/frontend/</link>
-      <pubDate>Wed, 06 Dec 2017 11:15:22 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/frontend/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>https://inkel.github.io/tags/go/</link>
-      <pubDate>Fri, 27 Oct 2017 10:24:08 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Personal</title>
-      <link>https://inkel.github.io/tags/personal/</link>
-      <pubDate>Wed, 11 Oct 2017 15:47:00 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/personal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Proxy Protocol</title>
-      <link>https://inkel.github.io/tags/proxy-protocol/</link>
-      <pubDate>Wed, 21 Mar 2018 08:49:02 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/proxy-protocol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ssh</title>
-      <link>https://inkel.github.io/tags/ssh/</link>
-      <pubDate>Fri, 17 Nov 2017 15:51:51 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/ssh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terraform</title>
+      <title>terraform</title>
       <link>https://inkel.github.io/tags/terraform/</link>
       <pubDate>Thu, 06 Dec 2018 15:50:17 -0300</pubDate>
       
@@ -84,11 +39,65 @@
     </item>
     
     <item>
-      <title>Tools</title>
-      <link>https://inkel.github.io/tags/tools/</link>
+      <title>proxy protocol</title>
+      <link>https://inkel.github.io/tags/proxy-protocol/</link>
+      <pubDate>Wed, 21 Mar 2018 08:49:02 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/proxy-protocol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>https://inkel.github.io/tags/css/</link>
+      <pubDate>Wed, 06 Dec 2017 11:15:22 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>frontend</title>
+      <link>https://inkel.github.io/tags/frontend/</link>
+      <pubDate>Wed, 06 Dec 2017 11:15:22 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/frontend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://inkel.github.io/tags/ssh/</link>
+      <pubDate>Fri, 17 Nov 2017 15:51:51 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://inkel.github.io/tags/go/</link>
       <pubDate>Fri, 27 Oct 2017 10:24:08 -0300</pubDate>
       
-      <guid>https://inkel.github.io/tags/tools/</guid>
+      <guid>https://inkel.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>https://inkel.github.io/tags/aws/</link>
+      <pubDate>Thu, 26 Oct 2017 10:38:20 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>https://inkel.github.io/tags/personal/</link>
+      <pubDate>Wed, 11 Oct 2017 15:47:00 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/personal/</guid>
       <description></description>
     </item>
     

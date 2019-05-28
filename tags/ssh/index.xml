@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ssh on inkel</title>
+    <title>ssh on inkel</title>
     <link>https://inkel.github.io/tags/ssh/</link>
-    <description>Recent content in Ssh on inkel</description>
+    <description>Recent content in ssh on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 17 Nov 2017 15:51:51 -0300</lastBuildDate>

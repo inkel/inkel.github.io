@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22300706-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-22300706-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="If you are like me you might have used the sort(1) CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.
+Say that we have the following file to sort:
+fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc  Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo.">
+
+    <title>CLI sort tricks</title>
+    <meta content="CLI sort tricks" property="og:title" />
+    <link rel="canonical" href="https://inkel.github.io/posts/cli-sort-tricks/">
+
+    <meta content="https://inkel.github.io/images/avatar.png" property="og:image" />
+    <meta content="inkel" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta content="https://inkel.github.io/posts/cli-sort-tricks/" property="og:url" />
+    <meta content="If you are like me you might have used the sort(1) CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.
+Say that we have the following file to sort:
+fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc  Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo." property="og:description" />
+    <meta name="twitter:label1" value="Reading time">
+    <meta name="twitter:data1" value="2min.">
+    <meta name="twitter:label1" value="Published on">
+    <meta name="twitter:data1" value="2019-28-05">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body lang="">
+    <header>
+      <h1><a href="/">inkel</a></h1>
+      
+    </header>
+
+
+
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/cli-sort-tricks/">CLI sort tricks</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 2min.</span>
+    <time datetime="2019-05-28 00:00:00 &#43;0000 UTC">Published on 2019-28-05</time>
+    <nav class="tags">
+      
+      <a href="/tags/cli">cli</a>
+      
+      <a href="/tags/tools">tools</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>If you are like me you might have used the <a href="https://linux.die.net/man/1/sort"><code>sort(1)</code></a> CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.</p>
+
+<p>Say that we have the following file to sort:</p>
+
+<pre><code>fpdy 01 08 wcfo
+juvi 01 02 ejan
+urbx 04 03 ckbw
+fkzq 01 08 myaz
+fjie 04 09 rhvo
+almv 04 02 adhs
+cuah 07 04 gbyt
+chok 09 06 nqwo
+emjd 01 04 ledx
+npto 02 10 nqsc
+</code></pre>
+
+<p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
+
+<pre><code>fpdy 0108 wcfo
+juvi 0102 ejan
+urbx 0403 ckbw
+fkzq 0108 myaz
+fjie 0409 rhvo
+almv 0402 adhs
+cuah 0704 gbyt
+chok 0906 nqwo
+emjd 0104 ledx
+npto 0210 nqsc
+</code></pre>
+
+<p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
+
+<pre><code>$ sort -k 2.4 foo.txt
+almv 0402 adhs
+juvi 0102 ejan
+urbx 0403 ckbw
+cuah 0704 gbyt
+emjd 0104 ledx
+chok 0906 nqwo
+fkzq 0108 myaz
+fpdy 0108 wcfo
+fjie 0409 rhvo
+npto 0210 nqsc
+</code></pre>
+
+<p>Why <code>4</code> and not <code>3</code>, I don&rsquo;t know, but I think it&rsquo;s taking the separator into account. I need to investigate more. But so far I haven&rsquo;t the need to do something as fine-grained as this, so I can still sleep well at night.</p>
+
+  </section>
+
+  
+</article>
+
+
+    <footer>
+      <nav id="social">
+        <a href="https://flickr.com/inkel">flickr</a><a href="https://github.com/inkel">github</a><a href="https://goodreads.com/inkel">goodreads</a><a href="https://instagram.com/inkel">instagram</a><a href="https://twitter.com/inkel">twitter</a>
+      </nav>
+    </footer>
+  </body>
+</html>
+

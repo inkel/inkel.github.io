@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Go on inkel</title>
+    <title>go on inkel</title>
     <link>https://inkel.github.io/tags/go/</link>
-    <description>Recent content in Go on inkel</description>
+    <description>Recent content in go on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 27 Oct 2017 10:24:08 -0300</lastBuildDate>
