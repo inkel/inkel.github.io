@@ -102,6 +102,18 @@ blockquote {
 
 figure.photo {
     text-align: center;
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+figure.photo img { max-width: 300px; }
+
+figcaption {
+    font-style: italic;
+    font-variant: small-caps;
 }
 
 /* based on perldoc */
@@ -142,4 +154,7 @@ figure.photo {
 /* GenericTraceback */     .chroma .s1b62 { color: #aa0000; }
 /* TextWhitespace */       .chroma .s1f41 { color: #bbbbbb; }
 
-@media only screen and (min-device-width: 1200px) { html { font-size: calc(1em + 0.5vw); } }
+@media only screen and (min-device-width: 1200px) {
+    html { font-size: calc(1em + 0.5vw); }
+    figure.photo img { max-width: 800px; }
+}
