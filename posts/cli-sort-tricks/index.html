@@ -22,7 +22,7 @@
     <meta name="referrer" content="no-referrer">
     <meta name="description" content="If you are like me you might have used the sort(1) CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.
 Say that we have the following file to sort:
-fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc  Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo.">
+fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo.">
 
     <title>CLI sort tricks</title>
     <meta content="CLI sort tricks" property="og:title" />
@@ -34,7 +34,7 @@ fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo 
     <meta content="https://inkel.github.io/posts/cli-sort-tricks/" property="og:url" />
     <meta content="If you are like me you might have used the sort(1) CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.
 Say that we have the following file to sort:
-fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc  Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo." property="og:description" />
+fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo." property="og:description" />
     <meta name="twitter:label1" value="Reading time">
     <meta name="twitter:data1" value="2min.">
     <meta name="twitter:label1" value="Published on">
@@ -71,9 +71,7 @@ fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo 
 
   <section class="content">
     <p>If you are like me you might have used the <a href="https://linux.die.net/man/1/sort"><code>sort(1)</code></a> CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.</p>
-
 <p>Say that we have the following file to sort:</p>
-
 <pre><code>fpdy 01 08 wcfo
 juvi 01 02 ejan
 urbx 04 03 ckbw
@@ -84,10 +82,7 @@ cuah 07 04 gbyt
 chok 09 06 nqwo
 emjd 01 04 ledx
 npto 02 10 nqsc
-</code></pre>
-
-<p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
-
+</code></pre><p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
 <pre><code>fpdy 0108 wcfo
 juvi 0102 ejan
 urbx 0403 ckbw
@@ -98,10 +93,7 @@ cuah 0704 gbyt
 chok 0906 nqwo
 emjd 0104 ledx
 npto 0210 nqsc
-</code></pre>
-
-<p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
-
+</code></pre><p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
 <pre><code>$ sort -k 2.4 foo.txt
 almv 0402 adhs
 juvi 0102 ejan
@@ -113,13 +105,15 @@ fkzq 0108 myaz
 fpdy 0108 wcfo
 fjie 0409 rhvo
 npto 0210 nqsc
-</code></pre>
-
-<p>Why <code>4</code> and not <code>3</code>, I don&rsquo;t know, but I think it&rsquo;s taking the separator into account. I need to investigate more. But so far I haven&rsquo;t the need to do something as fine-grained as this, so I can still sleep well at night.</p>
+</code></pre><p>Why <code>4</code> and not <code>3</code>, I don&rsquo;t know, but I think it&rsquo;s taking the separator into account. I need to investigate more. But so far I haven&rsquo;t the need to do something as fine-grained as this, so I can still sleep well at night.</p>
 
   </section>
 
-  
+  <nav id="next-prev">
+    <a class="next" href="/posts/typical-workday-at-theorem/">Working at Theorem: a typical day &gt;</a>
+    <a class="prev" href="/posts/testing-terraform-providers/">&lt; Testing Terraform Providers</a>
+    
+  </nav>
 </article>
 
 

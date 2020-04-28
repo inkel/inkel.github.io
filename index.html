@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-	<meta name="generator" content="Hugo 0.55.6" />
+	<meta name="generator" content="Hugo 0.69.0" />
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22300706-1"></script>
@@ -51,6 +51,55 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/typical-workday-at-theorem/">Working at Theorem: a typical day</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 4min.</span>
+    <time datetime="2020-04-28 10:45:00 -0300 -03">Published on 2020-28-04</time>
+    <nav class="tags">
+      
+      <a href="/tags/theorem">theorem</a>
+      
+      <a href="/tags/remote%20working">remote working</a>
+      
+      <a href="/tags/personal">personal</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>I&rsquo;ve joined <del>Citrusbyte</del><a href="https://theorem.co/">Theorem</a> 9 years ago, and since day 1 it was a fully remote experience. Over the years I&rsquo;ve learned lots about how to organize myself to approach each new workday although never gave much thought to it, until a few days ago, when while interviewing a candidate he asked <em>what does a typical day at Theorem looks like</em>. This post will try to address that question.</p>
+<p>First and foremost, a disclaimer: by no means I speak on behalf of Theorem or the rest of my teammates; these are entirely my own experiences and do not reflect the reality of all the great people working at this company.</p>
+<p>I live with my girlfriend and our two lovely kids (4 years old and 1 year and a half), so keep that in mind while reading this post.</p>
+<p>As you are aware, at the time of writing this post we are living in very strange times, throughout a global pandemic that has most of the world in quarantine with people confined to their places and working remotely. As stated earlier, at Theorem we are 100% remote since the beginning, so the COVID-19 pandemic didn&rsquo;t change much on how we work, although it had some effects.</p>
+<h2 id="pre-pandemic-typical-workday">Pre-pandemic typical workday</h2>
+<p>I have an office 20 blocks away from home, and my kids went to kindergarten 4 blocks away from the office, so days started at 6:15 am to enjoy breakfast with the family, then we would drive the kids to school, drop them and head to the office. My workdays usually started, then, at 8:00 am.</p>
+<p>The very first thing I usually do any given day is going through my emails and any pending notification from the day before. If something requires my attention immediately I answer right at it, otherwise, I either archive or snooze the message to a later time if required.</p>
+<p>Next is checking the status of any ongoing task I have been working previously, and paving the way for what&rsquo;s next. Then, off to work.</p>
+<p>Around noon either myself or my girlfriend goes to pick up the kids from school, and takes them home to have lunch, and then back to the office. If I&rsquo;m the one picking them, I do that during my lunch break, and then have a quick bite or snack. Otherwise, I cook something for myself or order some delivery. During this break I might read or watch something.</p>
+<p>Then the rest of the day goes on, until 4:00 pm or 5:00 pm, depending on the day, and walk back home. And that concludes a typical workday.</p>
+<h2 id="typical-workday-during-the-pandemic">Typical workday during the pandemic</h2>
+<p>Things have changed, clearly. We don&rsquo;t wake up anymore at 6:15 am, now it&rsquo;s usually at around 8:00 am. Breakfast is served, and I use this time to catch up on some news and go through my emails and notifications, again snoozing for an hour or so whatever needs my attention; the rest is archived.</p>
+<p>I&rsquo;ve set up a standing desk in my bedroom, which is right next to the living room, where the kids spend most of their time playing. The biggest change since the pandemic was that nowadays I don&rsquo;t have long stretches of work time anymore, so I try and split my tasks into smaller time schedules, so I can take a look at my kids, play with them or help them with homework (yes, even my 1.5 years old daughter has Zoom meetings now.)</p>
+<p>Lunch and dinner are usually planned the night before, so at around noon either me or my girlfriend starts preparing lunch. The kids love this time as they get to watch something on Netflix. I had to cancel all my meetings during this time, but that doesn&rsquo;t seem to have affected my work. Asynchronous communication works great!</p>
+<p>After lunch work continues, and I might be able to get some work-only hours if the kids decide to nap, otherwise, again it&rsquo;s split into smaller chunks of time. Either way, I&rsquo;m still able to drive my commitments to success.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>As you can see, not much has changed, other than how many hours in stretch I can work without interruptions. All other work details were already in place given that we are a 100% remote company. The biggest takeaway, for me, is that in order to survive this crazy new world we are living in, you need to work with great people, who understand not all experiences are equal, who trust you will work with professionalism and responsibility, and who you trust back in the same way.</p>
+<p>If you like what you read and you would like to form part of this great team, check our <a href="https://theorem.co/careers">careers page</a> and apply to any of our current openings. Who knows? Perhaps your dream job is just waiting for you.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/cli-sort-tricks/">CLI sort tricks</a>
     </h1>
   </header>
@@ -69,9 +118,7 @@
 
   <section class="content">
     <p>If you are like me you might have used the <a href="https://linux.die.net/man/1/sort"><code>sort(1)</code></a> CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.</p>
-
 <p>Say that we have the following file to sort:</p>
-
 <pre><code>fpdy 01 08 wcfo
 juvi 01 02 ejan
 urbx 04 03 ckbw
@@ -82,10 +129,7 @@ cuah 07 04 gbyt
 chok 09 06 nqwo
 emjd 01 04 ledx
 npto 02 10 nqsc
-</code></pre>
-
-<p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
-
+</code></pre><p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
 <pre><code>fpdy 0108 wcfo
 juvi 0102 ejan
 urbx 0403 ckbw
@@ -96,10 +140,7 @@ cuah 0704 gbyt
 chok 0906 nqwo
 emjd 0104 ledx
 npto 0210 nqsc
-</code></pre>
-
-<p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
-
+</code></pre><p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
 <pre><code>$ sort -k 2.4 foo.txt
 almv 0402 adhs
 juvi 0102 ejan
@@ -111,9 +152,7 @@ fkzq 0108 myaz
 fpdy 0108 wcfo
 fjie 0409 rhvo
 npto 0210 nqsc
-</code></pre>
-
-<p>Why <code>4</code> and not <code>3</code>, I don&rsquo;t know, but I think it&rsquo;s taking the separator into account. I need to investigate more. But so far I haven&rsquo;t the need to do something as fine-grained as this, so I can still sleep well at night.</p>
+</code></pre><p>Why <code>4</code> and not <code>3</code>, I don&rsquo;t know, but I think it&rsquo;s taking the separator into account. I need to investigate more. But so far I haven&rsquo;t the need to do something as fine-grained as this, so I can still sleep well at night.</p>
 
   </section>
 
@@ -142,13 +181,9 @@ npto 0210 nqsc
 
   <section class="content">
     <p>If there&rsquo;s one piece of technology I&rsquo;ve come to love and depend upon these last years it definitely is <a href="https://www.terraform.io/">Terraform</a>. Sadly, the only provider that seems to be complete is the <a href="https://www.terraform.io/docs/providers/aws/index.html">AWS provider</a>, but others seems to be missing some useful resources or data sources. As an example, these past days at <a href="https://www.citrusbyte.com/">work</a> I had to work with the <a href="https://www.terraform.io/docs/providers/azurerm/index.html">Azure provider</a> and found that I was really missing the ability to query <a href="https://azure.microsoft.com/en-us/">Azure</a> for <a href="https://azure.microsoft.com/en-us/services/virtual-machines/">Virtual Machine</a> IDs, but there wasn&rsquo;t a data source for this, and I didn&rsquo;t want to <a href="https://www.terraform.io/docs/import/index.html">import</a> the virtual machines we&rsquo;ve already created (insert <em>long story</em> reasons here).</p>
-
 <p>But then I remember that Terraform and its providers are written in <a href="https://golang.org/">Go</a>, so I took it to add the resource myself.</p>
-
 <p>This post isn&rsquo;t about how to write providers, the folks at Hashicorp already wrote a guide to <a href="https://www.terraform.io/docs/extend/writing-custom-providers.html">write custom providers</a> which is pretty useful. But I&rsquo;ve found that there was something missing, or that I didn&rsquo;t fully understood, and that was <em>how can I test my changes are working?</em>.</p>
-
 <p>Most if not all providers have unit and acceptance tests that allow to test that the changes we introduced work as expected, which are great for once you want to send a pull request, but I am the type of programmer that likes to try things in the <em>Real World™</em> before going into the TDD workflow, so I fired up my editor and start hacking on adding a new data source that would allow me to query a virtual machine ID by name. After a few tries, I&rsquo;ve got something that looked about right, but then the question came: how do I test it? If I run <code>terraform init</code> it uses the published provider, which obviously doesn&rsquo;t have the changes I made. I&rsquo;ve found in the documentation some references as to where can you place <a href="https://www.terraform.io/docs/configuration/providers.html#third-party-plugins">third-party providers</a> on your machine for testing, but that didn&rsquo;t really work as it was missing, IMO, some information. Luckily, I&rsquo;ve found some pointers in another document that explains how <a href="https://www.terraform.io/docs/extend/how-terraform-works.html#discovery">Terraform works</a>, but that was still missing some information. After a while, I&rsquo;ve found the solution, and here it is:</p>
-
 <ul>
 <li>Git clone <a href="https://github.com/terraform-providers/terraform-provider-azurerm">Azure Terraform provider source code</a>.</li>
 <li>Make the changes.</li>
@@ -159,7 +194,6 @@ npto 0210 nqsc
 <li>Run <code>terraform init</code></li>
 <li>Profit!</li>
 </ul>
-
 <p>Now I can test my changes with a live Terraform configuration.</p>
 
   </section>
@@ -189,13 +223,10 @@ npto 0210 nqsc
 
   <section class="content">
     <p>I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:</p>
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://t.co/P3BbFqx1ro">https://t.co/P3BbFqx1ro</a> CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol<br><br>Add --haproxy-protocol for the command line tool<br><br>Cl...</p>&mdash; curl commits (@curlcommits) <a href="https://twitter.com/curlcommits/status/974961166807109633?ref_src=twsrc%5Etfw">March 17, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <p>This is exciting to me as the work I&rsquo;ve been doing in <a href="https://github.com/inkel/viaproxy"><code>viaproxy</code></a> had one caveat: testing it works was a bit convoluted, as I was doing by running an <a href="https://www.haproxy.org/">HAProxy</a> instance with a custom configuration like the following:</p>
-
 <pre><code>global
     debug
     maxconn 4000
@@ -220,16 +251,11 @@ listen with-send-proxy
     bind *:27654
     bind ipv6@:27654
     server app1 127.0.0.1:7654 send-proxy
-</code></pre>
-
-<p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df35d24740c55239f24b5fc4ce86f375a5</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
-
+</code></pre><p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df35d24740c55239f24b5fc4ce86f375a5</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
 <blockquote>
 <p>Send a HAProxy PROXY protocol header at the beginning of the connection. This is used by some load balancers and reverse proxies to indicate the client&rsquo;s true IP address and port.</p>
-
 <p>This option is primarily useful when sending test requests to a service that expects this header.</p>
 </blockquote>
-
 <p>Reading the commit changes is very enlightening, too, as it is a great example of nice and simple C code. I&rsquo;m looking forward to the release!</p>
 
   </section>
@@ -263,8 +289,8 @@ listen with-send-proxy
     <p>Today <a href="https://chadoh.com/">Chad Ostrowski</a>, a fellow engineer at <a href="https://citrusbyte.com/">Citrusbyte</a>, shared an article he wrote: <a href="https://medium.com/@chadoh/css-pro-tips-responsive-font-sizes-and-when-to-use-which-units-d005486985ec">CSS pro tips: responsive font-sizes and when to use which units</a>. After reading it, I couldn&rsquo;t help myself and adapted some of the tips there to this site. It&rsquo;s now much easier to maintain, I think, as I&rsquo;ve removed all previous media queries, but I had to add one:</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
   <span class="nt">html</span> <span class="p">{</span> <span class="k">font-size</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">1</span><span class="kt">em</span> <span class="o">+</span> <span class="mf">0.5</span><span class="kt">vw</span><span class="p">);</span> <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
-<p>Without this the text on my machine looks <strong>too big</strong>. I need to work on this, I think.</p>
+<span class="p">}</span>
+</code></pre></div><p>Without this the text on my machine looks <strong>too big</strong>. I need to work on this, I think.</p>
 
   </section>
 
@@ -293,11 +319,8 @@ listen with-send-proxy
 
   <section class="content">
     <p>Say you have a private key in <a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail">PEM format</a>, and you want to use that key for SSH into another server, by adding an entry to your <code>~/.ssh/authorized_keys</code> file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in <code>authorized_keys</code>:</p>
-
 <pre><code>ssh-keygen -y -f path/to/file.pem
-</code></pre>
-
-<p>This will output a <code>ssh-rsa AAAA…</code> string that is safe to append to your <code>~/.ssh/authorized_keys</code>. The <a href="https://linux.die.net/man/1/ssh-keygen"><code>ssh-keygen</code></a> uses the <code>-f</code> flag to specify the input file name, and the <code>-y</code> flag to read a private file and output the OpenSSH public key to standard output.</p>
+</code></pre><p>This will output a <code>ssh-rsa AAAA…</code> string that is safe to append to your <code>~/.ssh/authorized_keys</code>. The <a href="https://linux.die.net/man/1/ssh-keygen"><code>ssh-keygen</code></a> uses the <code>-f</code> flag to specify the input file name, and the <code>-y</code> flag to read a private file and output the OpenSSH public key to standard output.</p>
 
   </section>
 
@@ -328,25 +351,18 @@ listen with-send-proxy
 
   <section class="content">
     <p>Today <a href="https://interpreterbook.com/">Thorsten Ball</a> asked a simple question on Twitter:</p>
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Does something like a reverse-curl exist? A tool that allows me to listen on a socket and return one HTTP response?</p>&mdash; Thorsten Ball (@thorstenball) <a href="https://twitter.com/thorstenball/status/923890186479656960?ref_src=twsrc%5Etfw">October 27, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <p>After a brief exchange of tweets, I said:</p>
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Or we could write one in Go 😺</p>&mdash; Lean (inkel) (@inkel) <a href="https://twitter.com/inkel/status/923896402056499200?ref_src=twsrc%5Etfw">October 27, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <p>Twenty minutes later <a href="https://github.com/inkel/lruc"><code>lruc</code></a> was born.</p>
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Oh wow! :)</p>&mdash; Thorsten Ball (@thorstenball) <a href="https://twitter.com/thorstenball/status/923901953821872128?ref_src=twsrc%5Etfw">October 27, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <p>It&rsquo;s still very fresh and missing many features, but basically it is a web server that allows you to configure it to always respond with a custom response without too much hassle. The usage is very simple:</p>
-
 <pre><code>Usage of lruc:
   -addr string
         Address to listen for requests (default &quot;:8080&quot;)
@@ -356,20 +372,14 @@ listen with-send-proxy
         HTTP response code (default 200)
   -content-type string
         Content-Type (default &quot;text/plain&quot;)
-</code></pre>
-
-<p>Say that you want to create a server that always respond with a <code>404 Not Found</code> and a body of <code>No se pudo encontrar lo que buscaba</code> (Spanish for <em>Couldn&rsquo;t find what you were looking for</em> (sort of)) on port 7070, then you could execute the following:</p>
-
+</code></pre><p>Say that you want to create a server that always respond with a <code>404 Not Found</code> and a body of <code>No se pudo encontrar lo que buscaba</code> (Spanish for <em>Couldn&rsquo;t find what you were looking for</em> (sort of)) on port 7070, then you could execute the following:</p>
 <pre><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
-</code></pre>
-
-<p>Or say that you want to always return an image, then you could do something like:</p>
+</code></pre><p>Or say that you want to always return an image, then you could do something like:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
 
 <span class="c1"># Or in an useless use of cat</span>
-cat image.png <span class="p">|</span> lruc -content-type image/png -body -</code></pre></div>
-<p>This seems like an interesting tool to keep working on, so watch <a href="https://github.com/inkel/lruc"><code>github.com/inkel/lruc</code></a> for updates.</p>
-
+cat image.png <span class="p">|</span> lruc -content-type image/png -body -
+</code></pre></div><p>This seems like an interesting tool to keep working on, so watch <a href="https://github.com/inkel/lruc"><code>github.com/inkel/lruc</code></a> for updates.</p>
 <p>PS: did I said already that I love Go?</p>
 
   </section>
@@ -399,12 +409,10 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -</cod
 
   <section class="content">
     <p>Ever happened to you that you wanted to know which SSH key you need to connect to an AWS EC2 instance? I always found that the fingerprints don&rsquo;t tell me much, espcially because I always forget how to compute the fingerprints. Good that I&rsquo;m back to writing, so I&rsquo;m dumping my memory here:</p>
-
 <ul>
 <li>if the key was generated by AWS, then use <code>openssl pkcs8 -in path/to/key.pem -nocrypt -topk8 -outform DER | openssl sha1 -c</code></li>
 <li>if the key was generated using <code>ssh-keygen</code> then use <code>openssl rsa -in path/to/private/key -pubout -outform DER | openssl md5 -c</code></li>
 </ul>
-
 <p>Why does AWS uses one format and why SSH other? Escapes my current knowledge.</p>
 
   </section>
@@ -433,31 +441,26 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -</cod
   </section>
 
   <section class="content">
-    
-
-<h3 id="or-why-i-renamed-github-com-inkel-go-proxy-protocol-to-github-com-inkel-viaproxy-github-com-inkel-viaproxy">Or why I renamed <code>github.com/inkel/go-proxy-protocol</code> to <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a>.</h3>
-
+    <h3 id="or-why-i-renamed-githubcominkelgo-proxy-protocol-to-githubcominkelviaproxygithubcominkelviaproxy">Or why I renamed <code>github.com/inkel/go-proxy-protocol</code> to <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a>.</h3>
 <p>In my <a href="/posts/proxy-protocol/">previous article</a> I introduced a repository that hold the code to create <code>net.Conn</code> objects aware of the <a href="http://www.haproxy.com/blog/haproxy/proxy-protocol/">proxy protocol</a>, but I wasn&rsquo;t happy with the name of the repository.</p>
-
 <p>Package names are important in Go, and one aspect that we tend to overlook is that they actually are part of the calling signature when you want to use an export type or function. With the previous code, if we wanted to use the <code>net.Conn</code> wrapper we would have to first import the library:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span></code></pre></div>
-<p>Once we did that, then to wrap a connection we would have to call:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
-<p>Similarly if we wanted to use the <code>net.Listen</code> alternative, we should&rsquo;ve had to import <code>github.com/inkel/go-proxy-protocol/listen</code> and then call <code>cn, err := listen.WithProxyProtocol</code>. This doesn&rsquo;t look right to my eyes, and hopefully not to yours either. And aside aesthetics, two packages for such limited code? Doesn&rsquo;t make much sense.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span>
+</code></pre></div><p>Once we did that, then to wrap a connection we would have to call:</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
+</code></pre></div><p>Similarly if we wanted to use the <code>net.Listen</code> alternative, we should&rsquo;ve had to import <code>github.com/inkel/go-proxy-protocol/listen</code> and then call <code>cn, err := listen.WithProxyProtocol</code>. This doesn&rsquo;t look right to my eyes, and hopefully not to yours either. And aside aesthetics, two packages for such limited code? Doesn&rsquo;t make much sense.</p>
 <p>So I spent the day thinking on a better name that could allow me to better convey the effect we want to achieve and that fits in just one library, and thus, <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a> came to be. Let&rsquo;s see how better the code would look like now when wrapping a connection:</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// wrap the connection
-</span><span class="c1"></span><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Wrap</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span></code></pre></div>
-<p>Similarly if you want to use the <code>net.Listener</code>, the code looks just as well (and I might even add that looks better):</p>
+</span><span class="c1"></span><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Wrap</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
+</code></pre></div><p>Similarly if you want to use the <code>net.Listener</code>, the code looks just as well (and I might even add that looks better):</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// create the listener
-</span><span class="c1"></span><span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:1234&#34;</span><span class="p">)</span></code></pre></div>
-<p>It certainly looks <strong>much</strong> better, and I hope you agree.</p>
+</span><span class="c1"></span><span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:1234&#34;</span><span class="p">)</span>
+</code></pre></div><p>It certainly looks <strong>much</strong> better, and I hope you agree.</p>
 
   </section>
 
@@ -488,15 +491,11 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -</cod
 
   <section class="content">
     <p>Today I became aware of the <a href="http://www.haproxy.com/blog/haproxy/proxy-protocol/">proxy protocol</a>.</p>
-
 <blockquote>
 <p>The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.</p>
 </blockquote>
-
-<p>If you are proxying an HTTP(S) server, chances are that you have used the <code>X-Forwarded-From</code> header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</p>
-
+<p>If you are proxying an HTTP(S) server, chances are that you have used the <!-- raw HTML omitted -->X-Forwarded-From<!-- raw HTML omitted --> header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</p>
 <p>Take for instance the following example: we will have a simple TCP server that echo backs the client&rsquo;s remote address:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
@@ -541,9 +540,7 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -</cod
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;client sent %d bytes: %q&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="nx">data</span><span class="p">)</span>
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></div>
-
 <p>I&rsquo;m running <code>go run server.go</code> in a machine whose IP is <code>192.168.1.20</code>, and I&rsquo;ll be sending requests from another machine whose IP is <code>192.168.1.12</code>. One the server machine I&rsquo;m also running an <a href="HAProxy">https://www.haproxy.org/</a> server that acts as a proxy to the Go program above:</p>
-
 <pre><code>global
     debug
     maxconn 4000
@@ -567,20 +564,13 @@ listen w-send-proxy
     option tcplog
     bind *:27654
     server app1 192.168.1.20:7654 send-proxy
-</code></pre>
-
-<p>This configuration creates 2 proxies: one listening on port <code>17654</code> which just proxies the client connection to the server, and another proxy listening in port <code>276564</code> which does the same but it also enables using the proxy protocol by using the <a href="http://cbonte.github.io/haproxy-dconv/1.7/configuration.html#send-proxy"><code>send-proxy</code></a> keyword.</p>
-
+</code></pre><p>This configuration creates 2 proxies: one listening on port <code>17654</code> which just proxies the client connection to the server, and another proxy listening in port <code>276564</code> which does the same but it also enables using the proxy protocol by using the <a href="http://cbonte.github.io/haproxy-dconv/1.7/configuration.html#send-proxy"><code>send-proxy</code></a> keyword.</p>
 <p>On the client machine, I&rsquo;m running the following to send requests directly to the Go server, via the regular proxy and via the proxy with proxy protocol enabled:</p>
-
 <pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
 Your remote address is 192.168.1.12:44966
 Your remote address is 192.168.1.20:57680
 Your remote address is 192.168.1.20:57681
-</code></pre>
-
-<p>As you can see in the first case the client is informed that its remote address is <code>192.168.1.12</code>, which is correct, but in both the other cases it says <code>192.168.1.20</code>, which is the address of the proxy. Let&rsquo;s check what the server has to say in its output:</p>
-
+</code></pre><p>As you can see in the first case the client is informed that its remote address is <code>192.168.1.12</code>, which is correct, but in both the other cases it says <code>192.168.1.20</code>, which is the address of the proxy. Let&rsquo;s check what the server has to say in its output:</p>
 <pre><code>$ go run server.go
 2017/10/13 11:50:54 handling connection from 192.168.1.12:44966
 2017/10/13 11:50:54 client sent 6 bytes: &quot;inkel\n&quot;
@@ -588,19 +578,11 @@ Your remote address is 192.168.1.20:57681
 2017/10/13 11:50:54 client sent 6 bytes: &quot;inkel\n&quot;
 2017/10/13 11:50:54 handling connection from 192.168.1.20:57681
 2017/10/13 11:50:54 client sent 56 bytes: &quot;PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\ninkel\n&quot;
-</code></pre>
-
-<p>Here something interesting happens: the first connection, the one made directly to the Go server, properly shows the remote address as <code>192.168.1.12</code> and the contents. The second and third ones incorrectly report the remote address as <code>192.168.1.20</code> but the third one shows something interesting in what was received from the client: instead of just receiving <code>inkel</code> it first received <code>PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\n</code>. This is what proxy protocol does, and if you see clearly, the client&rsquo;s actual IP address is there!</p>
-
+</code></pre><p>Here something interesting happens: the first connection, the one made directly to the Go server, properly shows the remote address as <code>192.168.1.12</code> and the contents. The second and third ones incorrectly report the remote address as <code>192.168.1.20</code> but the third one shows something interesting in what was received from the client: instead of just receiving <code>inkel</code> it first received <code>PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\n</code>. This is what proxy protocol does, and if you see clearly, the client&rsquo;s actual IP address is there!</p>
 <p>The proxy protocol, when enabled, will send the following initial line to the proxied server:</p>
-
 <pre><code>PROXY &lt;inet protocol&gt; &lt;client IP&gt; &lt;proxy IP&gt; &lt;client port&gt; &lt;proxy port&gt;\r\n
-</code></pre>
-
-<p>The actual <a href="http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">specification</a> is fairly simple, and now we can see why the only condition for proxy protocol to work is that <strong>both endpoints of the connection MUST be compatible with proxy protocol</strong>.</p>
-
+</code></pre><p>The actual <a href="http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">specification</a> is fairly simple, and now we can see why the only condition for proxy protocol to work is that <strong>both endpoints of the connection MUST be compatible with proxy protocol</strong>.</p>
 <p>This explains why the Go server isn&rsquo;t reporting the right remote address, even when proxy protocol is used: the <a href="https://golang.org/pkg/net/"><code>net</code></a> package doesn&rsquo;t (currently) supports proxy protocol. But adding support to it isn&rsquo;t too difficult. Here we have a custom connection type that complies with the <a href="https://golang.org/pkg/net/#Conn"><code>net.Conn</code></a> interface:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">myConn</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">cn</span>      <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span>
 	<span class="nx">r</span>       <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span>
@@ -663,9 +645,7 @@ Your remote address is 192.168.1.20:57681
 
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">Network</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&#34;tcp&#34;</span> <span class="p">}</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hp</span> <span class="p">}</span></code></pre></div>
-
 <p>Now in our server we wrap the connection into our new type, and pass it to the <code>handle</code> func:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
@@ -689,26 +669,19 @@ Your remote address is 192.168.1.20:57681
 		<span class="k">go</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">pcn</span><span class="p">)</span>
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></div>
-
 <p>With this, now we see the right output in both the client:</p>
-
 <pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
 Your remote address is 192.168.1.12:45050
 Your remote address is 192.168.1.20:60729
 Your remote address is 192.168.1.12:58556
-</code></pre>
-
-<p>&hellip;and in the server:</p>
-
+</code></pre><p>&hellip;and in the server:</p>
 <pre><code>2017/10/13 13:37:45 accepted connection from 192.168.1.12:45056
 2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
 2017/10/13 13:37:45 accepted connection from 192.168.1.20:60738
 2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
 2017/10/13 13:37:45 accepted connection from 192.168.1.12:58562
 2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
-</code></pre>
-
-<p>This has been turned into a Go library located at <a href="https://github.com/inkel/go-proxy-protocol"><code>github.com/inkel/go-proxy-protocol</code></a>. Feel free to use it and send your feedback and error reports!</p>
+</code></pre><p>This has been turned into a Go library located at <a href="https://github.com/inkel/go-proxy-protocol"><code>github.com/inkel/go-proxy-protocol</code></a>. Feel free to use it and send your feedback and error reports!</p>
 
   </section>
 

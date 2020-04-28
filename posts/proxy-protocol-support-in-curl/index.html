@@ -73,13 +73,10 @@ Cl...
 
   <section class="content">
     <p>I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:</p>
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://t.co/P3BbFqx1ro">https://t.co/P3BbFqx1ro</a> CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol<br><br>Add --haproxy-protocol for the command line tool<br><br>Cl...</p>&mdash; curl commits (@curlcommits) <a href="https://twitter.com/curlcommits/status/974961166807109633?ref_src=twsrc%5Etfw">March 17, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <p>This is exciting to me as the work I&rsquo;ve been doing in <a href="https://github.com/inkel/viaproxy"><code>viaproxy</code></a> had one caveat: testing it works was a bit convoluted, as I was doing by running an <a href="https://www.haproxy.org/">HAProxy</a> instance with a custom configuration like the following:</p>
-
 <pre><code>global
     debug
     maxconn 4000
@@ -104,21 +101,20 @@ listen with-send-proxy
     bind *:27654
     bind ipv6@:27654
     server app1 127.0.0.1:7654 send-proxy
-</code></pre>
-
-<p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df35d24740c55239f24b5fc4ce86f375a5</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
-
+</code></pre><p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df35d24740c55239f24b5fc4ce86f375a5</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
 <blockquote>
 <p>Send a HAProxy PROXY protocol header at the beginning of the connection. This is used by some load balancers and reverse proxies to indicate the client&rsquo;s true IP address and port.</p>
-
 <p>This option is primarily useful when sending test requests to a service that expects this header.</p>
 </blockquote>
-
 <p>Reading the commit changes is very enlightening, too, as it is a great example of nice and simple C code. I&rsquo;m looking forward to the release!</p>
 
   </section>
 
-  
+  <nav id="next-prev">
+    <a class="next" href="/posts/testing-terraform-providers/">Testing Terraform Providers &gt;</a>
+    <a class="prev" href="/posts/responsive-font-size/">&lt; Using responsive font sizes</a>
+    
+  </nav>
 </article>
 
 

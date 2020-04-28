@@ -60,7 +60,7 @@
     </dt>
     <dd>Today I became aware of the proxy protocol.
  The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
- If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</dd>
+ If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-Fromheader to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</dd>
     
     <dt>
       <time datetime="2017-10-14 22:37:24 -0300 -03">2017-14-10</time>
@@ -96,7 +96,7 @@ Oh wow! :)</dd>
       <a href="https://inkel.github.io/posts/pem-to-authorized-keys/">From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</a>
     </dt>
     <dd>Say you have a private key in PEM format, and you want to use that key for SSH into another server, by adding an entry to your ~/.ssh/authorized_keys file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in authorized_keys:
-ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string that is safe to append to your ~/.</dd>
+ssh-keygen -y -f path/to/file.pem This will output a ssh-rsa AAAA… string that is safe to append to your ~/.</dd>
     
     <dt>
       <time datetime="2017-12-06 11:15:22 -0300 -03">2017-06-12</time>
@@ -131,7 +131,15 @@ Cl...
     </dt>
     <dd>If you are like me you might have used the sort(1) CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.
 Say that we have the following file to sort:
-fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc  Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo.</dd>
+fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo.</dd>
+    
+    <dt>
+      <time datetime="2020-04-28 10:45:00 -0300 -03">2020-28-04</time>
+      &dash;
+      <a href="https://inkel.github.io/posts/typical-workday-at-theorem/">Working at Theorem: a typical day</a>
+    </dt>
+    <dd>I&rsquo;ve joined CitrusbyteTheorem 9 years ago, and since day 1 it was a fully remote experience. Over the years I&rsquo;ve learned lots about how to organize myself to approach each new workday although never gave much thought to it, until a few days ago, when while interviewing a candidate he asked what does a typical day at Theorem looks like. This post will try to address that question.
+First and foremost, a disclaimer: by no means I speak on behalf of Theorem or the rest of my teammates; these are entirely my own experiences and do not reflect the reality of all the great people working at this company.</dd>
     
   </dl>
 </nav>

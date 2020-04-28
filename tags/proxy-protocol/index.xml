@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>proxy protocol on inkel</title>
@@ -32,7 +32,7 @@ Cl...
       <guid>https://inkel.github.io/posts/proxy-protocol/</guid>
       <description>Today I became aware of the proxy protocol.
  The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
- If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&amp;rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</description>
+ If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-Fromheader to keep the real remote address of the client making the request and not receving the proxy&amp;rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</description>
     </item>
     
   </channel>

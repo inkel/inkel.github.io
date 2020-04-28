@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on inkel</title>
@@ -19,7 +19,8 @@
       <guid>https://inkel.github.io/es/posts/git-alias/</guid>
       <description>Una de las mejores cosas que tiene Git es la posibilidad de definir alias de comandos, para evitar tener que escribir de manera repetitiva el mismo comando. Un ejemplo de esto son los casi típicos st, co y ci, versiones reducidas de status, checkout y commit respectivamente.
 Definir un alias en Git es muy sencillo, simplemente se ejecuta:
-  git config --global alias.st status  git config --global alias.</description>
+La sintaxis es muy simple:
+ config es el comando para modificar la configuración Git; --global es el parámetro que le indica a config que el cambio de configuración es global; de no indicarlo solamente se realizará para el repositorio actual; alias.</description>
     </item>
     
     <item>

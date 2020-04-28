@@ -32,7 +32,7 @@
     <meta content="https://inkel.github.io/es/posts/git-alias/" property="og:url" />
     <meta content="O cómo aumentar la productividad definiendo comandos propios" property="og:description" />
     <meta name="twitter:label1" value="Reading time">
-    <meta name="twitter:data1" value="4min.">
+    <meta name="twitter:data1" value="3min.">
     <meta name="twitter:label1" value="Published on">
     <meta name="twitter:data1" value="2012-22-08">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +54,7 @@
   </header>
 
   <section class="meta">
-    <span class="reading-time">Reading time: 4min.</span>
+    <span class="reading-time">Reading time: 3min.</span>
     <time datetime="2012-08-22 00:00:00 &#43;0000 UTC">Published on 2012-22-08</time>
     <nav class="tags">
       
@@ -62,20 +62,11 @@
   </section>
 
   <section class="content">
-    
-
-<p>Una de las mejores cosas que tiene Git es la posibilidad de definir alias de comandos, para evitar tener que escribir de manera repetitiva el mismo comando. Un ejemplo de esto son los casi típicos <code>st</code>, <code>co</code> y <code>ci</code>, versiones reducidas de <code>status</code>, <code>checkout</code> y <code>commit</code> respectivamente.</p>
-
+    <p>Una de las mejores cosas que tiene Git es la posibilidad de definir alias de comandos, para evitar tener que escribir de manera repetitiva el mismo comando. Un ejemplo de esto son los casi típicos <code>st</code>, <code>co</code> y <code>ci</code>, versiones reducidas de <code>status</code>, <code>checkout</code> y <code>commit</code> respectivamente.</p>
 <p>Definir un alias en Git es muy sencillo, simplemente se ejecuta:</p>
-
-<pre>
-> git config --global alias.st status
-> git config --global alias.ci commit
-> git config --global alias.co checkout
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>La sintaxis es muy simple:</p>
-
 <ul>
 <li><code>config</code> es el <a href="http://git-scm.com/docs/git-config">comando para modificar la configuración Git</a>;</li>
 <li><code>--global</code> es el parámetro que le indica a <code>config</code> que el cambio de configuración es global; de no indicarlo solamente se realizará para el repositorio actual;</li>
@@ -83,74 +74,31 @@
 seguido deberá indicarse el nombre del alias, en nuestro caso <code>st</code>, <code>co</code> y <code>ci</code>;</li>
 <li>por último se deberá indicar el comando que se desea hacer alias.</li>
 </ul>
-
 <p>En el caso de un comando simple como los del ejemplo, no es necesario más, pero supongamos que queremos hacer un alias del siguiente comando para ver todos los <code>branch</code>es que hicimos <code>merge</code> en el <code>branch</code> actual: <code>git branch --merged</code>, en ese caso debemos hacer lo siguiente:</p>
-
-<pre>
-> git config --global alias.brm "branch --merged"
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Las comillas son necesarias para que Git no interprete los parámetros del comando que se quiere crear el alias como parámetros de <code>config</code>.</p>
-
 <p>La potencia de los alias no se limita solamente a ejecutar comandos propios de Git, si no que se puede utilizar para ejecutar otros comandos. Por ejemplo, supongamos que quiero usar Git para ejecutar el comando <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?whoami"><code>whoami(1)</code></a> (un ejemplo bastante poco sensato, lo sé):</p>
-
-<pre>
-> git config --global alias.whoami "!whoami"
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Con simplemente agregar <code>!</code> al inicio del alias del comando el mismo se ejecutará como un comando externo a Git.</p>
-
 <h2 id="algunos-de-mis-alias">Algunos de mis alias</h2>
-
 <p>Yo utilizo varias alias en mi día a día. Tal vez le puedan resultar útiles a alguien.</p>
-
-<h3 id="ver-el-estado-de-mis-branch-es-respecto-a-mi-branch-actual">Ver el estado de mis <code>branch</code>es respecto a mi <code>branch</code> actual</h3>
-
+<h3 id="ver-el-estado-de-mis-branches-respecto-a-mi-branch-actual">Ver el estado de mis <code>branch</code>es respecto a mi <code>branch</code> actual</h3>
 <p>Dado que trabajo con varios <a href="http://git-scm.com/docs/git-branch"><code>branch</code></a>es al mismo tiempo me gusta saber de cuáles ya he hecho <a href="http://git-scm.com/docs/git-merge"><code>merge</code></a> y los que no:</p>
-
-<pre>
-> git config --global alias.brm "branch --merged"
-> git config --global alias.brnm "banch --no-merged"
-> git config --global alias.bram "branch -a --merged"
-> git config --global alias.branm "branch -a --no-merged"
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h3 id="ver-el-historial-de-cambios">Ver el historial de cambios</h3>
-
 <p>Me gusta visualizar los cambios que se hicieron en el proyecto a manera de listado con un <code>commit</code> por línea, con colores y con indicación del <code>branch</code> de cada <code>commit</code>. Para eso uso varios de los <a href="http://git-scm.com/docs/git-log">parámetros del comando <code>log</code></a>:</p>
-
-<pre>
-> git config --global alias.ll "log --graph --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s - %C(yellow)%aN%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>A no asustarse por los parámetros, básicamente lo que hace es generar un listado como el siguiente:</p>
-
-<pre>
-* 091dd3d - (HEAD, git-alias) Add git alias post - Leandro López (inkel) (18 minutes ago)
-* ba5633e - (origin/master, origin/HEAD, master) Change post tagline - Leandro López (inkel) (49 minutes ago)
-* cb8f1dd - Update analytics code - Leandro López (inkel) (51 minutes ago)
-* 4237ca0 - Change text styling/typos - Leandro López (inkel) (56 minutes ago)
-* 7ed6907 - Change header font - Leandro López (inkel) (61 minutes ago)
-* 0f698df - Remove projects section from index - Leandro López (inkel) (65 minutes ago)
-* 5aa3244 - Remove fake & unnecessary 'about' post - Leandro López (inkel) (67 minutes ago)
-* b42f67b - Remove RubyConfAR'11 badge - Leandro López (inkel) (69 minutes ago)
-*   cda609b - Merge branch 'rubyconf-badge' - Leandro López (inkel) (1 year, 1 month ago)
-|\
-| * 8003b24 - Add RubyConf Argentina 2011 badge - Leandro López (inkel) (1 year, 1 month ago)
-|/
-* addc3c2 - Add 'git add --patch' article - Leandro López (inkel) (1 year, 3 months ago)
-* d89c28b - Add substract method - Leandro López (inkel) (1 year, 3 months ago)
-* 62befa9 - Add add method - Leandro López (inkel) (1 year, 3 months ago)
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Dónde el <code>SHA1</code> aparece en azul, el <code>branch</code> y autor del commit en amarillo y la fecha en verde.</p>
-
 <p>También me gusta ver lo hecho hoy y el día anterior, para eso definí los siguientes alias que utilizan el mismo formato pero filtran los <code>commit</code> por fecha:</p>
-
-<pre>
-> git config --global alias.today "log --graph --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s - %C(yellow)%aN%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --since=midnight"
-> git config --global alias.yesterday "log --graph --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s - %C(yellow)%aN%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --since=yesterday --until=midnight"
-</pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
   </section>
 

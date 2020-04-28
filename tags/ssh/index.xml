@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssh on inkel</title>
@@ -18,7 +18,7 @@
       
       <guid>https://inkel.github.io/posts/pem-to-authorized-keys/</guid>
       <description>Say you have a private key in PEM format, and you want to use that key for SSH into another server, by adding an entry to your ~/.ssh/authorized_keys file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in authorized_keys:
-ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string that is safe to append to your ~/.</description>
+ssh-keygen -y -f path/to/file.pem This will output a ssh-rsa AAAA… string that is safe to append to your ~/.</description>
     </item>
     
   </channel>

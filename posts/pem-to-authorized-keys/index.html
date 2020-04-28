@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
     <meta name="description" content="Say you have a private key in PEM format, and you want to use that key for SSH into another server, by adding an entry to your ~/.ssh/authorized_keys file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in authorized_keys:
-ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string that is safe to append to your ~/.">
+ssh-keygen -y -f path/to/file.pem This will output a ssh-rsa AAAA… string that is safe to append to your ~/.">
 
     <title>From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</title>
     <meta content="From PEM to OpenSSH for usage in ~/.ssh/authorized_keys" property="og:title" />
@@ -32,7 +32,7 @@ ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string tha
     <meta content="website" property="og:type" />
     <meta content="https://inkel.github.io/posts/pem-to-authorized-keys/" property="og:url" />
     <meta content="Say you have a private key in PEM format, and you want to use that key for SSH into another server, by adding an entry to your ~/.ssh/authorized_keys file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in authorized_keys:
-ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string that is safe to append to your ~/." property="og:description" />
+ssh-keygen -y -f path/to/file.pem This will output a ssh-rsa AAAA… string that is safe to append to your ~/." property="og:description" />
     <meta name="twitter:label1" value="Reading time">
     <meta name="twitter:data1" value="1min.">
     <meta name="twitter:label1" value="Published on">
@@ -67,11 +67,8 @@ ssh-keygen -y -f path/to/file.pem  This will output a ssh-rsa AAAA… string tha
 
   <section class="content">
     <p>Say you have a private key in <a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail">PEM format</a>, and you want to use that key for SSH into another server, by adding an entry to your <code>~/.ssh/authorized_keys</code> file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in <code>authorized_keys</code>:</p>
-
 <pre><code>ssh-keygen -y -f path/to/file.pem
-</code></pre>
-
-<p>This will output a <code>ssh-rsa AAAA…</code> string that is safe to append to your <code>~/.ssh/authorized_keys</code>. The <a href="https://linux.die.net/man/1/ssh-keygen"><code>ssh-keygen</code></a> uses the <code>-f</code> flag to specify the input file name, and the <code>-y</code> flag to read a private file and output the OpenSSH public key to standard output.</p>
+</code></pre><p>This will output a <code>ssh-rsa AAAA…</code> string that is safe to append to your <code>~/.ssh/authorized_keys</code>. The <a href="https://linux.die.net/man/1/ssh-keygen"><code>ssh-keygen</code></a> uses the <code>-f</code> flag to specify the input file name, and the <code>-y</code> flag to read a private file and output the OpenSSH public key to standard output.</p>
 
   </section>
 
