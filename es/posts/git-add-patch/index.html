@@ -32,7 +32,7 @@
     <meta content="https://inkel.github.io/es/posts/git-add-patch/" property="og:url" />
     <meta content="O cómo trabajar de manera incremental con Git" property="og:description" />
     <meta name="twitter:label1" value="Reading time">
-    <meta name="twitter:data1" value="3min.">
+    <meta name="twitter:data1" value="5min.">
     <meta name="twitter:label1" value="Published on">
     <meta name="twitter:data1" value="2011-07-06">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +54,7 @@
   </header>
 
   <section class="meta">
-    <span class="reading-time">Reading time: 3min.</span>
+    <span class="reading-time">Reading time: 5min.</span>
     <time datetime="2011-06-07 00:00:00 &#43;0000 UTC">Published on 2011-07-06</time>
     <nav class="tags">
       
@@ -69,8 +69,12 @@ module Calculator
 end
 {% endhighlight %}</p>
 <p>Lo agregamos al repositorio y hacemos el <code>commit</code> inicial:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+$ git ci -m "Example file for git add --patch article"
+[drafts/git-add-patch 3f2a0f0] Example file for git add --patch article
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+ create mode 100644 examples/calculator.rb
+</pre>
 <p>Luego trabajamos en el archivo y agregamos dos métodos que nos gustaría introducir en <code>commit</code>s separados:</p>
 <p>{% highlight ruby lineno %}
 module Calculator
@@ -124,14 +128,61 @@ Stage this hunk [y,n,q,a,d,/,e,?]?
 {% endhighlight %}</li>
 </ul>
 <p>Notar la última línea, donde nos pregunta si deseamos copiar todo ese cambio al staging, junto a otras opciones, que son las siguientes:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+Stage this hunk [y,n,q,a,d,/,e,?]?
+y - stage this hunk
+n - do not stage this hunk
+q - quit; do not stage this hunk nor any of the remaining ones
+a - stage this hunk and all later hunks in the file
+d - do not stage this hunk nor any of the later hunks in the file
+g - select a hunk to go to
+/ - search for a hunk matching the given regex
+j - leave this hunk undecided, see next undecided hunk
+J - leave this hunk undecided, see next hunk
+k - leave this hunk undecided, see previous undecided hunk
+K - leave this hunk undecided, see previous hunk
+s - split the current hunk into smaller hunks
+e - manually edit the current hunk
+? - print help
+</pre>
 <p>Podríamos usar la opción <code>s</code> para automáticamente dividir los cambios en fracciones menores, pero en este caso esa opción no funciona dado que los cambios son contiguos, entonces utilizaremos la opción <code>e</code> que nos permite indicar los cambios automáticamente:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+# Manual hunk edit mode -- see bottom for a quick guide
+@@ -1,2 +1,9 @@
+ module Calculator
++  def add a, b
++    a + b
++  end
++
++  def substract a, b
++    a - b
++  end
+ end
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+#
+# If the patch applies cleanly, the edited hunk will immediately be
+# marked for staging. If it does not apply cleanly, you will be given
+# an opportunity to edit again. If all lines of the hunk are removed,
+# then the edit is aborted and the hunk is left unchanged.
+</pre>
 <p>Borramos las líneas correspondientes al método <code>substract</code> y nos fijamos el <code>status</code> y los cambios del proyecto:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+$ git status
+# On branch drafts/git-add-patch
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   examples/calculator.rb
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   examples/calculator.rb
+</pre>
 <p>Si queremos podemos ver las diferencias que se van a introducir:</p>
 <p>{% highlight diff %}
 $ git &ndash;no-pager diff &ndash;cached examples/calculator.rb
@@ -149,8 +200,11 @@ end
 {% endhighlight %}</li>
 </ul>
 <p>Luego hacemos el primer <code>commit</code>:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+$ git commit -m "Add add method"
+[drafts/git-add-patch 208a6d8] Add add method
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+</pre>
 <p>Y por último analizamos las diferencias para el segundo <code>commit</code>:</p>
 <p>{% highlight diff %}
 $ git &ndash;no-pager diff examples/calculator.rb
@@ -171,8 +225,11 @@ end
 {% endhighlight %}</li>
 </ul>
 <p>Como está todo bien introducimos los cambios:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+$ git commit -m "Add substract method" examples/calculator.rb
+[drafts/git-add-patch 89b9608] Add substract method
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+</pre>
 <p>¡Listo! Ya separamos los cambios en dos <code>commit</code> independientes. Una demostración más de las ventajas de Git respecto a otros VCS.</p>
 
   </section>

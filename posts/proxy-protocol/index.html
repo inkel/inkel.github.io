@@ -22,7 +22,7 @@
     <meta name="referrer" content="no-referrer">
     <meta name="description" content="Today I became aware of the proxy protocol.
  The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
- If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-Fromheader to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.">
+ If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.">
 
     <title>Proxy Protocol: what is it and how to use it with Go</title>
     <meta content="Proxy Protocol: what is it and how to use it with Go" property="og:title" />
@@ -34,7 +34,7 @@
     <meta content="https://inkel.github.io/posts/proxy-protocol/" property="og:url" />
     <meta content="Today I became aware of the proxy protocol.
  The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.
- If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-Fromheader to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed." property="og:description" />
+ If you are proxying an HTTP(S) server, chances are that you have used the X-Forwarded-From header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed." property="og:description" />
     <meta name="twitter:label1" value="Reading time">
     <meta name="twitter:data1" value="6min.">
     <meta name="twitter:label1" value="Published on">
@@ -74,7 +74,7 @@
 <blockquote>
 <p>The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.</p>
 </blockquote>
-<p>If you are proxying an HTTP(S) server, chances are that you have used the <!-- raw HTML omitted -->X-Forwarded-From<!-- raw HTML omitted --> header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</p>
+<p>If you are proxying an HTTP(S) server, chances are that you have used the <code>X-Forwarded-From</code> header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</p>
 <p>Take for instance the following example: we will have a simple TCP server that echo backs the client&rsquo;s remote address:</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
