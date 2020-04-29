@@ -58,10 +58,7 @@ article > aside  {
 
 .meta {
     font-size: 0.75em;
-}
-
-.meta .tags {
-    float: right;
+    text-align: right;
 }
 
 #social {
@@ -71,6 +68,7 @@ article > aside  {
 #social a {
     color: #93a1a1;
     margin: 0.25em;
+    display: inline-block;
 }
 
 footer {
