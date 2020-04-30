@@ -6,10 +6,20 @@
     <description>Recent content in Posts on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 22 Aug 2012 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2020 16:29:01 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Trabajando en Theorem: un día típico</title>
+      <link>https://inkel.github.io/es/posts/dia-trabajo-tipico-theorem/</link>
+      <pubDate>Thu, 30 Apr 2020 16:29:01 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/es/posts/dia-trabajo-tipico-theorem/</guid>
+      <description>Comencé a trabajar en CitrusbyteTheorem hace 9 años, y desde el día 1 ha sido una experiencia totalmente remota. Con los años aprendí un montón acerca de cómo organizarme para encarar cada día de trabajo pero nunca pensé mucho al respecto, hasta ayer, cuando mientras estaba entrevistando a un candidato me preguntó cómo es un típico día de trabajo en Theorem. Este post intentará brindar una respuesta.
+Antes que nada, una aclaración: bajo ningún concepto hablo en nombre de Theorem o alguno de mis compañeros, son enteramente mis experiencias personal y no reflejan la realidad de toda la maravillosa gente que trabaja en esta empresa.</description>
+    </item>
     
     <item>
       <title>Alias en Git</title>
