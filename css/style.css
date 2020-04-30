@@ -19,6 +19,14 @@ h1 > a:hover, h2 > a:hover {
     border-bottom: 1px dotted #93a1a1;
 }
 
+article h1 {
+    font-size: 1.25em;
+}
+
+article h2 {
+    font-size: 1.125em;
+}
+
 code {
     background: #fdf6e3;
     color: #002833;
