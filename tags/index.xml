@@ -6,10 +6,28 @@
     <description>Recent content in Tags on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 Apr 2020 10:45:00 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2020 15:29:19 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>dns</title>
+      <link>https://inkel.github.io/tags/dns/</link>
+      <pubDate>Thu, 30 Apr 2020 15:29:19 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>route53</title>
+      <link>https://inkel.github.io/tags/route53/</link>
+      <pubDate>Thu, 30 Apr 2020 15:29:19 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/route53/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>personal</title>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dns on inkel</title>
+    <link>https://inkel.github.io/tags/dns/</link>
+    <description>Recent content in dns on inkel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 30 Apr 2020 15:29:19 -0300</lastBuildDate>
+    
+	<atom:link href="https://inkel.github.io/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Migrating DNSimple ALIAS records to AWS Route53</title>
+      <link>https://inkel.github.io/posts/dns-alias-to-route53/</link>
+      <pubDate>Thu, 30 Apr 2020 15:29:19 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/dns-alias-to-route53/</guid>
+      <description>Last week I was tasked with migrating a DNS zone from DNSimple to AWS Route53. Overall it was pretty straightforward except when I had to migrate two ALIAS records. This is a special type of record that’s not part of the DNS specification, so there was no direct alternative.
+Subdomain Say that you have a subdomain www.example.com that was using an ALIAS record pointing to www.example.net. This is by far the easiest to move, as it implies replacing the TXT record defining the alias for a CNAME.</description>
+    </item>
+    
+  </channel>
+</rss>

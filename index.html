@@ -51,6 +51,48 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/dns-alias-to-route53/">Migrating DNSimple ALIAS records to AWS Route53</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 2min.</span>
+    <time datetime="2020-04-30 15:29:19 -0300 -03">Published on 2020-30-04</time>
+    <nav class="tags">
+      
+      <a href="/tags/dns">dns</a>
+      
+      <a href="/tags/route53">route53</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Last week I was tasked with migrating a DNS zone from DNSimple to AWS Route53. Overall it was pretty straightforward except when I had to migrate two <code>ALIAS</code> records. This is a special type of record that’s not part of the DNS specification, so there was no direct alternative.</p>
+<h2 id="subdomain">Subdomain</h2>
+<p>Say that you have a subdomain <code>www.example.com</code> that was using an <code>ALIAS</code> record pointing to <code>www.example.net</code>. This is by far the easiest to move, as it implies replacing the <code>TXT</code> record defining the alias for a <code>CNAME</code>.</p>
+<h2 id="apex-domain">Apex domain</h2>
+<p>This is were it gets complicated. If you had an <code>ALIAS</code> for <code>example.com</code> to <code>example.net</code> you cannot replace it with a <code>CNAME</code>, because apex domains do not support that. The solution is to use an <code>A</code> record, which loses the value of an alias you would need to keep updating the IP address of the destination of it ever changes.</p>
+<h2 id="summary">Summary</h2>
+<p>As you can see it’s not that complicated to migrate ALIAS records to AWS Route53, however, they do have some limitations. I’ve went from this</p>
+<pre><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
+example.com.     3600 IN TXT &quot;ALIAS for example.net&quot;
+</code></pre><p>to this</p>
+<pre><code>www.example.com.    3600    IN  CNAME   example.net.
+example.net.        3600    IN  A       192.168.14.52
+</code></pre><p>and achieved the expected results, though we now need to keep an eye on the IP address of the destination.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/typical-workday-at-theorem/">Working at Theorem: a typical day</a>
     </h1>
   </header>

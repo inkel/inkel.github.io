@@ -141,6 +141,14 @@ fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo 
     <dd>I&rsquo;ve joined CitrusbyteTheorem 9 years ago, and since day 1 it was a fully remote experience. Over the years I&rsquo;ve learned lots about how to organize myself to approach each new workday although never gave much thought to it, until a few days ago, when while interviewing a candidate he asked what does a typical day at Theorem looks like. This post will try to address that question.
 First and foremost, a disclaimer: by no means I speak on behalf of Theorem or the rest of my teammates; these are entirely my own experiences and do not reflect the reality of all the great people working at this company.</dd>
     
+    <dt>
+      <time datetime="2020-04-30 15:29:19 -0300 -03">2020-30-04</time>
+      &dash;
+      <a href="https://inkel.github.io/posts/dns-alias-to-route53/">Migrating DNSimple ALIAS records to AWS Route53</a>
+    </dt>
+    <dd>Last week I was tasked with migrating a DNS zone from DNSimple to AWS Route53. Overall it was pretty straightforward except when I had to migrate two ALIAS records. This is a special type of record that’s not part of the DNS specification, so there was no direct alternative.
+Subdomain Say that you have a subdomain www.example.com that was using an ALIAS record pointing to www.example.net. This is by far the easiest to move, as it implies replacing the TXT record defining the alias for a CNAME.</dd>
+    
   </dl>
 </nav>
 
