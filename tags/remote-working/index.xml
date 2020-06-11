@@ -6,10 +6,21 @@
     <description>Recent content in remote working on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 Apr 2020 10:45:00 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/tags/remote-working/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How do I organize my work blocks</title>
+      <link>https://inkel.github.io/posts/work-blocks/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://inkel.github.io/posts/work-blocks/</guid>
+      <description>After publishing my previous Working at Theorem: a typical workday article a co-worker asked me the following:
+ Can you go into the details of what happens during those &amp;ldquo;work&amp;rdquo; blocks? Do you frequently check slack_email or only check them occasionally? Are you heads down for parts of the day? Do you have dedicated &amp;ldquo;help_review others&amp;rdquo; time or does it happen ad-hoc?
+ This is an interesting question, so here are the answers.</description>
+    </item>
     
     <item>
       <title>Working at Theorem: a typical day</title>

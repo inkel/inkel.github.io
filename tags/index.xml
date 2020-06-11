@@ -6,10 +6,37 @@
     <description>Recent content in Tags on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 30 Apr 2020 15:29:19 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>personal</title>
+      <link>https://inkel.github.io/tags/personal/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://inkel.github.io/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>remote working</title>
+      <link>https://inkel.github.io/tags/remote-working/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://inkel.github.io/tags/remote-working/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theorem</title>
+      <link>https://inkel.github.io/tags/theorem/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://inkel.github.io/tags/theorem/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>dns</title>
@@ -26,33 +53,6 @@
       <pubDate>Thu, 30 Apr 2020 15:29:19 -0300</pubDate>
       
       <guid>https://inkel.github.io/tags/route53/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>personal</title>
-      <link>https://inkel.github.io/tags/personal/</link>
-      <pubDate>Tue, 28 Apr 2020 10:45:00 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/personal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>remote working</title>
-      <link>https://inkel.github.io/tags/remote-working/</link>
-      <pubDate>Tue, 28 Apr 2020 10:45:00 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/remote-working/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>theorem</title>
-      <link>https://inkel.github.io/tags/theorem/</link>
-      <pubDate>Tue, 28 Apr 2020 10:45:00 -0300</pubDate>
-      
-      <guid>https://inkel.github.io/tags/theorem/</guid>
       <description></description>
     </item>
     
