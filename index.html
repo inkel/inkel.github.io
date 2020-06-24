@@ -53,6 +53,38 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/powershell-grep/">PowerShell grep</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">Reading time: 1min.</span>
+    <time datetime="2020-06-17 09:26:22 -0300 -03">Published on 2020-17-06</time>
+    <nav class="tags">
+      
+      <a href="/tags/powershell">powershell</a>
+      
+      <a href="/tags/cli">cli</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>I kept forgetting how to perform the equivalent of <a href="https://man7.org/linux/man-pages/man1/grep.1.html"><code>grep(1)</code></a> in PowerShell. The simple answer is <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7"><code>Select-String</code></a>. It is aliased to <code>sls</code>.</p>
+<pre><code>ipconfig | Select-String 192.168
+</code></pre><p>I should probably add a <a href="https://stackoverflow.com/a/24914795">permanent alias</a>.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/work-blocks/">How do I organize my work blocks</a>
     </h1>
   </header>

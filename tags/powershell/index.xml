@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>powershell on inkel</title>
+    <link>https://inkel.github.io/tags/powershell/</link>
+    <description>Recent content in powershell on inkel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 17 Jun 2020 09:26:22 -0300</lastBuildDate>
+    
+	<atom:link href="https://inkel.github.io/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PowerShell grep</title>
+      <link>https://inkel.github.io/posts/powershell-grep/</link>
+      <pubDate>Wed, 17 Jun 2020 09:26:22 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/powershell-grep/</guid>
+      <description>I kept forgetting how to perform the equivalent of grep(1) in PowerShell. The simple answer is Select-String. It is aliased to sls.
+ipconfig | Select-String 192.168 I should probably add a permanent alias.</description>
+    </item>
+    
+  </channel>
+</rss>

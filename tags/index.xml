@@ -6,10 +6,28 @@
     <description>Recent content in Tags on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 09:26:22 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cli</title>
+      <link>https://inkel.github.io/tags/cli/</link>
+      <pubDate>Wed, 17 Jun 2020 09:26:22 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powershell</title>
+      <link>https://inkel.github.io/tags/powershell/</link>
+      <pubDate>Wed, 17 Jun 2020 09:26:22 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/powershell/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>personal</title>
@@ -53,15 +71,6 @@
       <pubDate>Thu, 30 Apr 2020 15:29:19 -0300</pubDate>
       
       <guid>https://inkel.github.io/tags/route53/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cli</title>
-      <link>https://inkel.github.io/tags/cli/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://inkel.github.io/tags/cli/</guid>
       <description></description>
     </item>
     
