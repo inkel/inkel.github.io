@@ -6,10 +6,20 @@
     <description>Recent content in personal on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2020 11:00:00 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/tags/personal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Uses This</title>
+      <link>https://inkel.github.io/posts/uses-this/</link>
+      <pubDate>Tue, 07 Jul 2020 11:00:00 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/uses-this/</guid>
+      <description>I always liked the interviews at Uses This, I find it really interesting knowing other people&amp;rsquo;s setups. And given that I do not foresee them intereviewing me anytime soon, I went ahead and wrote my own version.
+Who are you, and what do you do? I&amp;rsquo;m Leandro López, better known on the Internet as inkel (all lowercase). I work as a software developer at Theorem, mostly doing backend programming but also dabbling in operations when needed.</description>
+    </item>
     
     <item>
       <title>How do I organize my work blocks</title>

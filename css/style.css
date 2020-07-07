@@ -100,6 +100,8 @@ footer {
 
 article.draft {
     background: url(/images/draft.png);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .twitter-tweet {
