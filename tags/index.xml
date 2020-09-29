@@ -6,15 +6,24 @@
     <description>Recent content in Tags on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 07 Jul 2020 11:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 10:38:32 -0300</lastBuildDate>
     
 	<atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>gaming</title>
+      <link>https://inkel.github.io/tags/gaming/</link>
+      <pubDate>Thu, 06 Aug 2020 10:38:32 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/tags/gaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>personal</title>
       <link>https://inkel.github.io/tags/personal/</link>
-      <pubDate>Tue, 07 Jul 2020 11:00:00 -0300</pubDate>
+      <pubDate>Thu, 06 Aug 2020 10:38:32 -0300</pubDate>
       
       <guid>https://inkel.github.io/tags/personal/</guid>
       <description></description>
