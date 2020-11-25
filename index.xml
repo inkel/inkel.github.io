@@ -174,5 +174,14 @@ Package names are important in Go, and one aspect that we tend to overlook is th
       <description>So here I am, once more, trying to have some sort of blog or journal. I&amp;rsquo;ll try to write about interesting pieces of code that I&amp;rsquo;ve written, problems I had to solve, books I&amp;rsquo;ve read (or dropped), et cetera. Don&amp;rsquo;t get your hopes too high, though, I&amp;rsquo;m lazy and tend to forget doing this kind of stuff.</description>
     </item>
     
+    <item>
+      <title>Archives</title>
+      <link>https://inkel.github.io/posts/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://inkel.github.io/posts/archives/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

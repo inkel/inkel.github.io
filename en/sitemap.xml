@@ -208,6 +208,10 @@
   </url>
   
   <url>
+    <loc>https://inkel.github.io/posts/archives/</loc>
+  </url>
+  
+  <url>
     <loc>https://inkel.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
