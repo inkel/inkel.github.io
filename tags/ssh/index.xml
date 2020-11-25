@@ -6,11 +6,7 @@
     <description>Recent content in ssh on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 17 Nov 2017 15:51:51 -0300</lastBuildDate>
-    
-	<atom:link href="https://inkel.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 17 Nov 2017 15:51:51 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From PEM to OpenSSH for usage in ~/.ssh/authorized_keys</title>
       <link>https://inkel.github.io/posts/pem-to-authorized-keys/</link>

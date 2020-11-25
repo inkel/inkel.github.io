@@ -6,11 +6,7 @@
     <description>Recent content in tools on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://inkel.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://inkel.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CLI sort tricks</title>
       <link>https://inkel.github.io/posts/cli-sort-tricks/</link>
