@@ -6,7 +6,16 @@
     <description>Recent content on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 06 Aug 2020 10:38:32 -0300</lastBuildDate><atom:link href="https://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Nov 2020 08:20:45 -0300</lastBuildDate><atom:link href="https://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I have a newsletter now: inkelinks</title>
+      <link>https://inkel.github.io/posts/newsletter/</link>
+      <pubDate>Thu, 26 Nov 2020 08:20:45 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/newsletter/</guid>
+      <description>One thing I like to do is collect links for reading later, and let&amp;rsquo;s be honest, who hasn&amp;rsquo;t? I also usually share some interesting links with folks at work, where I made myself the fame as the links provider. So that got me thinking: why not creating a newsletter where I can share these links with a broader audience? So thank you to Buttondown I now have a newsletter for you: inkelinks.</description>
+    </item>
+    
     <item>
       <title>Am I a gamer now?</title>
       <link>https://inkel.github.io/posts/inkel-gamer/</link>
