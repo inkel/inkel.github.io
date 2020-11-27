@@ -6,7 +6,18 @@
     <description>Recent content in links on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 26 Nov 2020 08:20:45 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Nov 2020 15:39:04 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>inkelinks S01e01</title>
+      <link>https://inkel.github.io/posts/inkelinks-s01e01/</link>
+      <pubDate>Fri, 27 Nov 2020 15:39:04 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/inkelinks-s01e01/</guid>
+      <description>Welcome to the first episode of inkelinks! I hope the title is clear, but in case it doesn’t: this is a collection of links that I’ve found useful, fun, or interesting. I’m planning on releasing a new episode weekly on Fridays at around 14:00 UTC.
+Links  Just a bunch of git stuff
+I use Git extensively, and I’m quite aware of many of its internals and obscure commands, yet there’s always more things to learn.</description>
+    </item>
+    
     <item>
       <title>I have a newsletter now: inkelinks</title>
       <link>https://inkel.github.io/posts/newsletter/</link>

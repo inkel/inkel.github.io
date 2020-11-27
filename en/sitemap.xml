@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://inkel.github.io/posts/newsletter/</loc>
-    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
+    <lastmod>2020-11-27T15:39:04-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -23,18 +18,18 @@
   </url>
   
   <url>
-    <loc>https://inkel.github.io/tags/links/</loc>
-    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
+    <loc>https://inkel.github.io/posts/inkelinks-s01e01/</loc>
+    <lastmod>2020-11-27T15:39:04-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://inkel.github.io/tags/personal/</loc>
-    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
+    <loc>https://inkel.github.io/tags/links/</loc>
+    <lastmod>2020-11-27T15:39:04-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
+    <lastmod>2020-11-27T15:39:04-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -49,7 +44,7 @@
   
   <url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
+    <lastmod>2020-11-27T15:39:04-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -60,6 +55,16 @@
                 hreflang="en"
                 href="https://inkel.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/newsletter/</loc>
+    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/tags/personal/</loc>
+    <lastmod>2020-11-26T08:20:45-03:00</lastmod>
   </url>
   
   <url>
@@ -215,10 +220,6 @@
   <url>
     <loc>https://inkel.github.io/posts/initial-commit/</loc>
     <lastmod>2017-10-11T15:47:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://inkel.github.io/posts/archives/</loc>
   </url>
   
   <url>
