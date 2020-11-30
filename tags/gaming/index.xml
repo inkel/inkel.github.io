@@ -6,7 +6,11 @@
     <description>Recent content in gaming on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 06 Aug 2020 10:38:32 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/gaming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Aug 2020 10:38:32 -0300</lastBuildDate>
+    
+	<atom:link href="https://inkel.github.io/tags/gaming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Am I a gamer now?</title>
       <link>https://inkel.github.io/posts/inkel-gamer/</link>

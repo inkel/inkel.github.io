@@ -6,7 +6,11 @@
     <description>Recent content in links on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 27 Nov 2020 15:39:04 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Nov 2020 15:39:04 -0300</lastBuildDate>
+    
+	<atom:link href="https://inkel.github.io/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>inkelinks S01e01</title>
       <link>https://inkel.github.io/posts/inkelinks-s01e01/</link>

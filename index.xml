@@ -6,7 +6,11 @@
     <description>Recent content on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 27 Nov 2020 15:39:04 -0300</lastBuildDate><atom:link href="https://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Nov 2020 15:39:04 -0300</lastBuildDate>
+    
+	<atom:link href="https://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>inkelinks S01e01</title>
       <link>https://inkel.github.io/posts/inkelinks-s01e01/</link>
@@ -192,6 +196,15 @@ Package names are important in Go, and one aspect that we tend to overlook is th
       
       <guid>https://inkel.github.io/posts/initial-commit/</guid>
       <description>So here I am, once more, trying to have some sort of blog or journal. I&amp;rsquo;ll try to write about interesting pieces of code that I&amp;rsquo;ve written, problems I had to solve, books I&amp;rsquo;ve read (or dropped), et cetera. Don&amp;rsquo;t get your hopes too high, though, I&amp;rsquo;m lazy and tend to forget doing this kind of stuff.</description>
+    </item>
+    
+    <item>
+      <title>Archives</title>
+      <link>https://inkel.github.io/posts/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://inkel.github.io/posts/archives/</guid>
+      <description></description>
     </item>
     
   </channel>
