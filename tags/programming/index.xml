@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on inkel</title>
+    <link>https://inkel.github.io/tags/programming/</link>
+    <description>Recent content in programming on inkel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 02 Dec 2020 10:31:18 -0300</lastBuildDate>
+    
+	<atom:link href="https://inkel.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Advent Of Code 2020</title>
+      <link>https://inkel.github.io/posts/adventofcode-2020/</link>
+      <pubDate>Wed, 02 Dec 2020 10:31:18 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/adventofcode-2020/</guid>
+      <description>For years I&amp;rsquo;ve been a fan of the idea behind Advent of Code, an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. For a variety of reasons I&amp;rsquo;ve neglected participating in past editions, but this year I&amp;rsquo;ve finally decided to give it a try.
+The biggest reason behind the decision to join this year was that for the longest time I had the desire to become proficient in any of the many LISP languages out there, particularly in Clojure, so I saw this as a chance to get more familiar with it, learn something more about it, and having fun while doing so.</description>
+    </item>
+    
+  </channel>
+</rss>
