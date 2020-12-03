@@ -17,7 +17,9 @@
       <pubDate>Wed, 02 Dec 2020 10:31:18 -0300</pubDate>
       
       <guid>https://inkel.github.io/posts/adventofcode-2020/</guid>
-      <description>For years I&amp;rsquo;ve been a fan of the idea behind Advent of Code, an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. For a variety of reasons I&amp;rsquo;ve neglected participating in past editions, but this year I&amp;rsquo;ve finally decided to give it a try.
+      <description>For years I&amp;rsquo;ve been a fan of the idea behind Advent of Code:
+ …an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like.
+ For a variety of reasons I&amp;rsquo;ve neglected participating in past editions, but this year I&amp;rsquo;ve finally decided to give it a try.
 The biggest reason behind the decision to join this year was that for the longest time I had the desire to become proficient in any of the many LISP languages out there, particularly in Clojure, so I saw this as a chance to get more familiar with it, learn something more about it, and having fun while doing so.</description>
     </item>
     
