@@ -6,10 +6,16 @@
     <description>Recent content in programming on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 02 Dec 2020 10:31:18 -0300</lastBuildDate>
-    
-	<atom:link href="https://inkel.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 06 Dec 2020 23:30:00 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 2020: Day 1</title>
+      <link>https://inkel.github.io/posts/adventofcode2020-starting/</link>
+      <pubDate>Sun, 06 Dec 2020 23:30:00 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/adventofcode2020-starting/</guid>
+      <description>I did it! I was finally to solve both Day 1 challenges in Clojure! And it only took me four days!
+As said in my previous post one of the reasons why I&amp;rsquo;m participating in this years Advent of Code is because I want to learn Clojure, and while at times I felt frustrated because I couldn&amp;rsquo;t find the solution, I&amp;rsquo;m happy that I did. As with everything, in hindsight, the solution is obvious now.</description>
+    </item>
     
     <item>
       <title>Advent Of Code 2020</title>

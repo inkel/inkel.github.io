@@ -6,11 +6,7 @@
     <description>Recent content in proxy protocol on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 21 Mar 2018 08:49:02 -0300</lastBuildDate>
-    
-	<atom:link href="https://inkel.github.io/tags/proxy-protocol/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 21 Mar 2018 08:49:02 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/proxy-protocol/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Proxy Protocol Support in Curl</title>
       <link>https://inkel.github.io/posts/proxy-protocol-support-in-curl/</link>

@@ -6,11 +6,7 @@
     <description>Recent content in go on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 27 Oct 2017 10:24:08 -0300</lastBuildDate>
-    
-	<atom:link href="https://inkel.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 27 Oct 2017 10:24:08 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>lruc: a reverse cURL</title>
       <link>https://inkel.github.io/posts/reverse-curl/</link>

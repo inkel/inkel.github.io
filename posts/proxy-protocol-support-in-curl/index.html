@@ -103,7 +103,7 @@ listen with-send-proxy
     bind *:27654
     bind ipv6@:27654
     server app1 127.0.0.1:7654 send-proxy
-</code></pre><p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df35d24740c55239f24b5fc4ce86f375a5</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
+</code></pre><p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
 <blockquote>
 <p>Send a HAProxy PROXY protocol header at the beginning of the connection. This is used by some load balancers and reverse proxies to indicate the client&rsquo;s true IP address and port.</p>
 <p>This option is primarily useful when sending test requests to a service that expects this header.</p>

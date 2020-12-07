@@ -6,15 +6,11 @@
     <description>Recent content in Tags on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 02 Dec 2020 10:31:18 -0300</lastBuildDate>
-    
-	<atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 06 Dec 2020 23:30:00 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>adventofcode</title>
       <link>https://inkel.github.io/tags/adventofcode/</link>
-      <pubDate>Wed, 02 Dec 2020 10:31:18 -0300</pubDate>
+      <pubDate>Sun, 06 Dec 2020 23:30:00 -0300</pubDate>
       
       <guid>https://inkel.github.io/tags/adventofcode/</guid>
       <description></description>
@@ -23,7 +19,7 @@
     <item>
       <title>programming</title>
       <link>https://inkel.github.io/tags/programming/</link>
-      <pubDate>Wed, 02 Dec 2020 10:31:18 -0300</pubDate>
+      <pubDate>Sun, 06 Dec 2020 23:30:00 -0300</pubDate>
       
       <guid>https://inkel.github.io/tags/programming/</guid>
       <description></description>
