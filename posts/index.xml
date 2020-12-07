@@ -9,12 +9,23 @@
     <lastBuildDate>Sun, 06 Dec 2020 23:30:00 -0300</lastBuildDate><atom:link href="https://inkel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advent of Code 2020: Day 1</title>
-      <link>https://inkel.github.io/posts/adventofcode2020-starting/</link>
+      <link>https://inkel.github.io/posts/adventofcode2020-day1/</link>
       <pubDate>Sun, 06 Dec 2020 23:30:00 -0300</pubDate>
       
-      <guid>https://inkel.github.io/posts/adventofcode2020-starting/</guid>
+      <guid>https://inkel.github.io/posts/adventofcode2020-day1/</guid>
       <description>I did it! I was finally to solve both Day 1 challenges in Clojure! And it only took me four days!
 As said in my previous post one of the reasons why I&amp;rsquo;m participating in this years Advent of Code is because I want to learn Clojure, and while at times I felt frustrated because I couldn&amp;rsquo;t find the solution, I&amp;rsquo;m happy that I did. As with everything, in hindsight, the solution is obvious now.</description>
+    </item>
+    
+    <item>
+      <title>inkelinks S01E02</title>
+      <link>https://inkel.github.io/posts/inkelinks-s01e02/</link>
+      <pubDate>Fri, 04 Dec 2020 11:00:08 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/inkelinks-s01e02/</guid>
+      <description>Issue #2 of my newsletter was delivered today. I&amp;rsquo;m really enjoying curating links and sharing them with friends! In case you missed it, here it is:
+Yes! Welcome to a new issue of inkelinks. Last time it was the first one and of course I had a typo on the subject 😞 but all the links were working, so there’s that 💪🏽
+In this issue you’ll find the regular links section plus a new Podcast Episode of the Week section where I’ll share a single link to an episode of the many podcasts that I listen to that I think has value for sharing.</description>
     </item>
     
     <item>
