@@ -6,7 +6,18 @@
     <description>Recent content in adventofcode on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 06 Dec 2020 23:30:00 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/adventofcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Dec 2020 14:47:52 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/adventofcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 2020: Day 2</title>
+      <link>https://inkel.github.io/posts/adventofcode2020-day2/</link>
+      <pubDate>Mon, 07 Dec 2020 14:47:52 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/adventofcode2020-day2/</guid>
+      <description>Funny how day 1 took me 4 days to solve but I was able to solve day 2 in just an hour. I guess the challenges are not strictly in a increasing order of complexity.
+I also like that I think my Clojure programming style is getting better as the time passes, which in the end was my sole main objective.
+Let’s see what day 3 lies ahead…</description>
+    </item>
+    
     <item>
       <title>Advent of Code 2020: Day 1</title>
       <link>https://inkel.github.io/posts/adventofcode2020-day1/</link>
