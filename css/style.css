@@ -32,6 +32,18 @@ article h2 {
     font-size: 1.125em;
 }
 
+article .meta nav {
+    display: inline-block;
+}
+
+article .meta time::before {
+    content: "• ";
+}
+
+article .meta time::after {
+    content: " •";
+}
+
 code {
     background: #fdf6e3;
     color: #002833;
