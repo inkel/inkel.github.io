@@ -6,7 +6,17 @@
     <description>Recent content in Posts on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 08 Dec 2020 10:20:00 -0300</lastBuildDate><atom:link href="https://inkel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Dec 2020 16:24:49 -0300</lastBuildDate><atom:link href="https://inkel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 2020: Day 5</title>
+      <link>https://inkel.github.io/posts/adventofcode2020-day5/</link>
+      <pubDate>Wed, 09 Dec 2020 16:24:49 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/adventofcode2020-day5/</guid>
+      <description>These day 5 solutions took me a little longer, yet nothing compared to how long it took me when I started with Clojure.
+One thing that I always knew theoretically but now I can confirm because of working with it the last few days is that the level of expressiveness is astonishing. I was very comfortable when I was programming in Ruby because I felt that it was too easy to translate my thoughts into code, but I&amp;rsquo;ve got to confess that while I&amp;rsquo;m nowhere near that level of comfort, I&amp;rsquo;m liking it more and more as each day passes.</description>
+    </item>
+    
     <item>
       <title>Advent of Code 2020: Day 4</title>
       <link>https://inkel.github.io/posts/adventofcode2020-day4/</link>
