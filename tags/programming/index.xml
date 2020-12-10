@@ -6,7 +6,16 @@
     <description>Recent content in programming on inkel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 09 Dec 2020 16:24:49 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 18:17:06 -0300</lastBuildDate><atom:link href="https://inkel.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 2020: Day 6</title>
+      <link>https://inkel.github.io/posts/adventofcode2020-day6/</link>
+      <pubDate>Thu, 10 Dec 2020 18:17:06 -0300</pubDate>
+      
+      <guid>https://inkel.github.io/posts/adventofcode2020-day6/</guid>
+      <description>So far these are the challenges that I liked the most, I think. Also, a feeling that I&amp;rsquo;ve been having lately was that the code is a mess (to be expected because I&amp;rsquo;m learning) and this particular day&amp;rsquo;s solutions showed me exactly that: there are lots of refactorings to apply that will make the code more reusable and maintainable. I don&amp;rsquo;t plan on doing that yet, but it&amp;rsquo;s likely I&amp;rsquo;ll do it in the upcoming days.</description>
+    </item>
+    
     <item>
       <title>Advent of Code 2020: Day 5</title>
       <link>https://inkel.github.io/posts/adventofcode2020-day5/</link>

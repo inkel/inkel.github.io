@@ -3,18 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://inkel.github.io/posts/adventofcode2020-day5/</loc>
-    <lastmod>2020-12-09T16:24:49-03:00</lastmod>
+    <loc>https://inkel.github.io/posts/adventofcode2020-day6/</loc>
+    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://inkel.github.io/tags/adventofcode/</loc>
-    <lastmod>2020-12-09T16:24:49-03:00</lastmod>
+    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2020-12-09T16:24:49-03:00</lastmod>
+    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -29,7 +29,7 @@
   
   <url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2020-12-09T16:24:49-03:00</lastmod>
+    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -44,12 +44,12 @@
   
   <url>
     <loc>https://inkel.github.io/tags/programming/</loc>
-    <lastmod>2020-12-09T16:24:49-03:00</lastmod>
+    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2020-12-09T16:24:49-03:00</lastmod>
+    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -60,6 +60,11 @@
                 hreflang="en"
                 href="https://inkel.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/adventofcode2020-day5/</loc>
+    <lastmod>2020-12-09T16:24:49-03:00</lastmod>
   </url>
   
   <url>
