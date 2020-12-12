@@ -20,6 +20,11 @@ h1 > a, h2 > a {
     vertical-align: middle;
 }
 
+#avatar img {
+    height: 64px;
+    width: 64px;
+}
+
 h1 > a:hover, h2 > a:hover {
     border-bottom: 1px dotted #93a1a1;
 }
@@ -199,4 +204,23 @@ figcaption {
 @media only screen and (min-device-width: 1200px) {
     html { font-size: calc(1em + 0.5vw); }
     figure.photo img { max-width: 800px; }
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: #002b36;
+        color: #839496;
+    }
+
+    h1 > a, h2 > a {
+        color: #839496;
+    }
+
+    a {
+        color: #b58900;
+    }
+
+    pre, code {
+        background-color: #93a1a1;
+    }
 }
