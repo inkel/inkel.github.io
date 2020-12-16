@@ -54,6 +54,51 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/inkelinks-s01e01/">inkelinks S01e01</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">2min.</span>
+    <time datetime="2020-11-27 15:39:04 -0300 -03">2020-11-27</time>
+    <nav class="tags">
+      
+      <a href="/tags/links">links</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Welcome to the first episode of <em>inkelinks</em>! I hope the title is clear, but in case it doesn’t: this is a collection of links that I’ve found useful, fun, or interesting. I’m planning on releasing a new episode weekly on Fridays at around 14:00 UTC.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://blog.meain.io/2020/bunch-of-git-stuff/">Just a bunch of git stuff</a><br>
+I use Git extensively, and I’m quite aware of many of its internals and obscure commands, yet there’s always more things to learn.</li>
+<li><a href="https://www.benkuhn.net/progessays/">Essays on programming I think about a lot</a><br>
+Over time I found many of the linked essays individually, so it’s nice to have them all in one place. Highly recommended!</li>
+<li><a href="https://coding-fonts.css-tricks.com/">Coding Fonts</a><br>
+I’m looking for a new font, this looks like a nice place to start.</li>
+<li><a href="https://github.com/TheMozg/awk-raycaster">awk-raycaster: Pseudo-3D shooter written completely in gawk using raycasting technique</a><br>
+I’m in awe. I love AWK, I use it almost daily, but I’ve never thought this was possible.</li>
+<li><a href="https://medium.com/@shazow/ssh-how-does-it-even-9e43586e4ffc">Why aren’t we using SSH for everything?</a><br>
+I ask myself the same question. SSH is an awesome protocol, not only for connecting to another computer!</li>
+<li><a href="https://www.ibiblio.org/harris/500milemail.html">The case of the 500-mile email</a><br>
+This is one of the best stories <strong>ever</strong>.</li>
+</ul>
+<h2 id="epilogue">Epilogue</h2>
+<p>I hope you find this newsletter useful and entertaining. I really enjoyed going through my links collection and digging these gems. Feedback and suggestions always welcomed!</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/newsletter/">I have a newsletter now: inkelinks</a>
     </h1>
   </header>
@@ -488,68 +533,6 @@ npto 0210 nqsc
 <li>Profit!</li>
 </ul>
 <p>Now I can test my changes with a live Terraform configuration.</p>
-
-  </section>
-
-  
-</article>
-
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/proxy-protocol-support-in-curl/">Proxy Protocol Support in Curl</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">1min.</span>
-    <time datetime="2018-03-21 08:49:02 -0300 -03">2018-03-21</time>
-    <nav class="tags">
-      
-      <a href="/tags/proxy%20protocol">proxy protocol</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://t.co/P3BbFqx1ro">https://t.co/P3BbFqx1ro</a> CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol<br><br>Add --haproxy-protocol for the command line tool<br><br>Cl...</p>&mdash; curl commits (@curlcommits) <a href="https://twitter.com/curlcommits/status/974961166807109633?ref_src=twsrc%5Etfw">March 17, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<p>This is exciting to me as the work I&rsquo;ve been doing in <a href="https://github.com/inkel/viaproxy"><code>viaproxy</code></a> had one caveat: testing it works was a bit convoluted, as I was doing by running an <a href="https://www.haproxy.org/">HAProxy</a> instance with a custom configuration like the following:</p>
-<pre><code>global
-    debug
-    maxconn 4000
-    log 127.0.0.1 local0
-
-defaults
-    timeout connect 10s
-    timeout client  1m
-    timeout server  1m
-
-listen without-send-proxy
-    mode tcp
-    log global
-    option tcplog
-    bind *:17654
-    server app1 127.0.0.1:7655
-
-listen with-send-proxy
-    mode tcp
-    log global
-    option tcplog
-    bind *:27654
-    bind ipv6@:27654
-    server app1 127.0.0.1:7654 send-proxy
-</code></pre><p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
-<blockquote>
-<p>Send a HAProxy PROXY protocol header at the beginning of the connection. This is used by some load balancers and reverse proxies to indicate the client&rsquo;s true IP address and port.</p>
-<p>This option is primarily useful when sending test requests to a service that expects this header.</p>
-</blockquote>
-<p>Reading the commit changes is very enlightening, too, as it is a great example of nice and simple C code. I&rsquo;m looking forward to the release!</p>
 
   </section>
 

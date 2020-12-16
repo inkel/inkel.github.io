@@ -3,8 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://inkel.github.io/posts/adventofcode2020-day7/</loc>
+    <lastmod>2020-12-16T08:11:47-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/tags/adventofcode/</loc>
+    <lastmod>2020-12-16T08:11:47-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2020-12-11T11:30:13-03:00</lastmod>
+    <lastmod>2020-12-16T08:11:47-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -14,6 +24,41 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://inkel.github.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/</loc>
+    <lastmod>2020-12-16T08:11:47-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://inkel.github.io/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://inkel.github.io/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/tags/programming/</loc>
+    <lastmod>2020-12-16T08:11:47-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/tags/</loc>
+    <lastmod>2020-12-16T08:11:47-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://inkel.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://inkel.github.io/tags/"
                 />
   </url>
   
@@ -28,47 +73,7 @@
   </url>
   
   <url>
-    <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2020-12-11T11:30:13-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://inkel.github.io/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://inkel.github.io/posts/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2020-12-11T11:30:13-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://inkel.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://inkel.github.io/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day6/</loc>
-    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://inkel.github.io/tags/adventofcode/</loc>
-    <lastmod>2020-12-10T18:17:06-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://inkel.github.io/tags/programming/</loc>
     <lastmod>2020-12-10T18:17:06-03:00</lastmod>
   </url>
   

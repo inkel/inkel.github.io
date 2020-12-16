@@ -6,10 +6,19 @@
    <description>Recent content in Tags on inkel</description>
    <generator>Hugo -- gohugo.io</generator>
    <language>en-US</language>
-   <lastBuildDate>Fri, 11 Dec 2020 11:30:13 -0300</lastBuildDate>
+   <lastBuildDate>Wed, 16 Dec 2020 08:11:47 -0300</lastBuildDate>
    
        <atom:link href="https://inkel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
    
+   
+     <item>
+       <title>Advent of Code 2020: Day 7</title>
+       <link>https://inkel.github.io/posts/adventofcode2020-day7/</link>
+       <pubDate>Wed, 16 Dec 2020 08:11:47 -0300</pubDate>
+       
+       <guid>https://inkel.github.io/posts/adventofcode2020-day7/</guid>
+       <description>&lt;p&gt;I had a very busy couple of days at work, so I couldn&amp;rsquo;t get too much done in Advent of Code. Working on day 7 took me a while to figure out the &lt;a href=&#34;https://github.com/inkel/adventofcode-2020/blob/5300bc3ad6936f39a2d027050b5b32ecf5dba577/src/adventofcode_2020/day7.clj&#34;&gt;solution&lt;/a&gt;, specially in part 2. But I did it.&lt;/p&gt;&lt;p&gt;I think the biggest issue that I faced was that I was still trying to think in terms of procedural programming and not functional programming. I&amp;rsquo;m definitely not happy with the solution, again &lt;a href=&#34;https://github.com/inkel/adventofcode-2020/blob/5300bc3ad6936f39a2d027050b5b32ecf5dba577/src/adventofcode_2020/day7.clj#L55-L60&#34;&gt;specially part 2&lt;/a&gt;, but it works. I&amp;rsquo;m definitely looking forward to start refactoring the code and looking for better solutions.&lt;/p&gt;</description>
+     </item>
    
      <item>
        <title>inkelinks S01E03</title>
