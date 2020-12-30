@@ -6,10 +6,19 @@
    <description>Recent content on inkel</description>
    <generator>Hugo -- gohugo.io</generator>
    <language>en-US</language>
-   <lastBuildDate>Wed, 16 Dec 2020 08:11:47 -0300</lastBuildDate>
+   <lastBuildDate>Wed, 30 Dec 2020 08:34:21 -0300</lastBuildDate>
    
        <atom:link href="https://inkel.github.io/index.xml" rel="self" type="application/rss+xml" />
    
+   
+     <item>
+       <title>Bye 2020</title>
+       <link>https://inkel.github.io/posts/bye-2020/</link>
+       <pubDate>Wed, 30 Dec 2020 08:34:21 -0300</pubDate>
+       
+       <guid>https://inkel.github.io/posts/bye-2020/</guid>
+       <description>&lt;p&gt;It&amp;rsquo;s finally over. This awful year has ended. My work life &lt;a href=&#34;https://inkel.github.io/posts/typical-workday-at-theorem/&#34;&gt;hasn&amp;rsquo;t changed much&lt;/a&gt;, although I had to &lt;a href=&#34;https://inkel.github.io/posts/work-blocks/&#34;&gt;organize my work blocks&lt;/a&gt; in a better way. My personal life, on the other hand, was quite affected, specially for my kids and partner; they were the most affected by having to start kindergarden classes via Zoom (my kids), and almost completely stop they work life (my partner).&lt;/p&gt;&lt;p&gt;I did manage to do some stuff that I find nice to share, and hopefully will continue doing in 2021:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;I dedicated more time to this blog again.&lt;/li&gt;&lt;li&gt;I have a &lt;a href=&#34;https://buttondown.email/inkel&#34; title=&#34;inkelinks&#34;&gt;newsletter&lt;/a&gt; now; please go and subscribe!&lt;/li&gt;&lt;li&gt;For the first time in my life I joined the &lt;a href=&#34;https://inkel.github.io/posts/adventofcode-2020/&#34;&gt;Advent of Code&lt;/a&gt;, although for different reasons I&amp;rsquo;ve stopped working on the challenges; I&amp;rsquo;m planning on continue with them in my upcoming vacations.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;I don&amp;rsquo;t believe in &lt;em&gt;magical dates&lt;/em&gt; and I know it&amp;rsquo;s not that January 1st, 2021 will be automatically better: COVID-19 still exists, travel is restricted, the economy in this country (Argentina) isn&amp;rsquo;t getting any better, etc, but I&amp;rsquo;m looking forward to see what the new year will bring and work on making things better, not only for me, but for my family.&lt;/p&gt;</description>
+     </item>
    
      <item>
        <title>Advent of Code 2020: Day 7</title>
