@@ -138,6 +138,8 @@ article.draft {
     background-size: contain;
 }
 
+#content hr:last-of-type { display: none; }
+
 .twitter-tweet {
     margin-right: auto;
     margin-left: auto;

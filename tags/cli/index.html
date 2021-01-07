@@ -34,30 +34,108 @@
     </header>
 
 
+<section id="content" class="archive">
+  
+  
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/powershell-grep/">PowerShell grep</a>
+    </h1>
+  </header>
 
-<nav id="archive">
-  <dl>
-    
-    <dt>
-      <time datetime="2019-05-28 00:00:00 &#43;0000 UTC">2019-28-05</time>
-      &dash;
-      <a href="https://inkel.github.io/posts/cli-sort-tricks/">CLI sort tricks</a>
-    </dt>
-    <dd>If you are like me you might have used the sort(1) CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.
-Say that we have the following file to sort:
-fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo almv 04 02 adhs cuah 07 04 gbyt chok 09 06 nqwo emjd 01 04 ledx npto 02 10 nqsc Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do sort -k 3 foo.</dd>
-    
-    <dt>
-      <time datetime="2020-06-17 09:26:22 -0300 -03">2020-17-06</time>
-      &dash;
-      <a href="https://inkel.github.io/posts/powershell-grep/">PowerShell grep</a>
-    </dt>
-    <dd>I kept forgetting how to perform the equivalent of grep(1) in PowerShell. The simple answer is Select-String. It is aliased to sls.
-ipconfig | Select-String 192.168 I should probably add a permanent alias.</dd>
-    
-  </dl>
-</nav>
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2020-06-17 09:26:22 -0300 -03">2020-06-17</time>
+    <nav class="tags">
+      
+      <a href="/tags/powershell">powershell</a>
+      
+      <a href="/tags/cli">cli</a>
+      
+    </nav>
+  </section>
 
+  <section class="content">
+    <p>I kept forgetting how to perform the equivalent of <a href="https://man7.org/linux/man-pages/man1/grep.1.html"><code>grep(1)</code></a> in PowerShell. The simple answer is <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7"><code>Select-String</code></a>. It is aliased to <code>sls</code>.</p>
+<pre><code>ipconfig | Select-String 192.168
+</code></pre><p>I should probably add a <a href="https://stackoverflow.com/a/24914795">permanent alias</a>.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/cli-sort-tricks/">CLI sort tricks</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">2min.</span>
+    <time datetime="2019-05-28 00:00:00 &#43;0000 UTC">2019-05-28</time>
+    <nav class="tags">
+      
+      <a href="/tags/cli">cli</a>
+      
+      <a href="/tags/tools">tools</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>If you are like me you might have used the <a href="https://linux.die.net/man/1/sort"><code>sort(1)</code></a> CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.</p>
+<p>Say that we have the following file to sort:</p>
+<pre><code>fpdy 01 08 wcfo
+juvi 01 02 ejan
+urbx 04 03 ckbw
+fkzq 01 08 myaz
+fjie 04 09 rhvo
+almv 04 02 adhs
+cuah 07 04 gbyt
+chok 09 06 nqwo
+emjd 01 04 ledx
+npto 02 10 nqsc
+</code></pre><p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
+<pre><code>fpdy 0108 wcfo
+juvi 0102 ejan
+urbx 0403 ckbw
+fkzq 0108 myaz
+fjie 0409 rhvo
+almv 0402 adhs
+cuah 0704 gbyt
+chok 0906 nqwo
+emjd 0104 ledx
+npto 0210 nqsc
+</code></pre><p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
+<pre><code>$ sort -k 2.4 foo.txt
+almv 0402 adhs
+juvi 0102 ejan
+urbx 0403 ckbw
+cuah 0704 gbyt
+emjd 0104 ledx
+chok 0906 nqwo
+fkzq 0108 myaz
+fpdy 0108 wcfo
+fjie 0409 rhvo
+npto 0210 nqsc
+</code></pre><p>Why <code>4</code> and not <code>3</code>, I don&rsquo;t know, but I think it&rsquo;s taking the separator into account. I need to investigate more. But so far I haven&rsquo;t the need to do something as fine-grained as this, so I can still sleep well at night.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+</section>
 
     <footer>
       <nav id="social">

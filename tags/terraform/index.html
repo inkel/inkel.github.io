@@ -34,20 +34,52 @@
     </header>
 
 
+<section id="content" class="archive">
+  
+  
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/testing-terraform-providers/">Testing Terraform Providers</a>
+    </h1>
+  </header>
 
-<nav id="archive">
-  <dl>
-    
-    <dt>
-      <time datetime="2018-12-06 15:50:17 -0300 -03">2018-06-12</time>
-      &dash;
-      <a href="https://inkel.github.io/posts/testing-terraform-providers/">Testing Terraform Providers</a>
-    </dt>
-    <dd>If there&rsquo;s one piece of technology I&rsquo;ve come to love and depend upon these last years it definitely is Terraform. Sadly, the only provider that seems to be complete is the AWS provider, but others seems to be missing some useful resources or data sources. As an example, these past days at work I had to work with the Azure provider and found that I was really missing the ability to query Azure for Virtual Machine IDs, but there wasn&rsquo;t a data source for this, and I didn&rsquo;t want to import the virtual machines we&rsquo;ve already created (insert long story reasons here).</dd>
-    
-  </dl>
-</nav>
+  <section class="meta">
+    <span class="reading-time">3min.</span>
+    <time datetime="2018-12-06 15:50:17 -0300 -03">2018-12-06</time>
+    <nav class="tags">
+      
+      <a href="/tags/terraform">terraform</a>
+      
+    </nav>
+  </section>
 
+  <section class="content">
+    <p>If there&rsquo;s one piece of technology I&rsquo;ve come to love and depend upon these last years it definitely is <a href="https://www.terraform.io/">Terraform</a>. Sadly, the only provider that seems to be complete is the <a href="https://www.terraform.io/docs/providers/aws/index.html">AWS provider</a>, but others seems to be missing some useful resources or data sources. As an example, these past days at <a href="https://www.citrusbyte.com/">work</a> I had to work with the <a href="https://www.terraform.io/docs/providers/azurerm/index.html">Azure provider</a> and found that I was really missing the ability to query <a href="https://azure.microsoft.com/en-us/">Azure</a> for <a href="https://azure.microsoft.com/en-us/services/virtual-machines/">Virtual Machine</a> IDs, but there wasn&rsquo;t a data source for this, and I didn&rsquo;t want to <a href="https://www.terraform.io/docs/import/index.html">import</a> the virtual machines we&rsquo;ve already created (insert <em>long story</em> reasons here).</p>
+<p>But then I remember that Terraform and its providers are written in <a href="https://golang.org/">Go</a>, so I took it to add the resource myself.</p>
+<p>This post isn&rsquo;t about how to write providers, the folks at Hashicorp already wrote a guide to <a href="https://www.terraform.io/docs/extend/writing-custom-providers.html">write custom providers</a> which is pretty useful. But I&rsquo;ve found that there was something missing, or that I didn&rsquo;t fully understood, and that was <em>how can I test my changes are working?</em>.</p>
+<p>Most if not all providers have unit and acceptance tests that allow to test that the changes we introduced work as expected, which are great for once you want to send a pull request, but I am the type of programmer that likes to try things in the <em>Real World™</em> before going into the TDD workflow, so I fired up my editor and start hacking on adding a new data source that would allow me to query a virtual machine ID by name. After a few tries, I&rsquo;ve got something that looked about right, but then the question came: how do I test it? If I run <code>terraform init</code> it uses the published provider, which obviously doesn&rsquo;t have the changes I made. I&rsquo;ve found in the documentation some references as to where can you place <a href="https://www.terraform.io/docs/configuration/providers.html#third-party-plugins">third-party providers</a> on your machine for testing, but that didn&rsquo;t really work as it was missing, IMO, some information. Luckily, I&rsquo;ve found some pointers in another document that explains how <a href="https://www.terraform.io/docs/extend/how-terraform-works.html#discovery">Terraform works</a>, but that was still missing some information. After a while, I&rsquo;ve found the solution, and here it is:</p>
+<ul>
+<li>Git clone <a href="https://github.com/terraform-providers/terraform-provider-azurerm">Azure Terraform provider source code</a>.</li>
+<li>Make the changes.</li>
+<li>Run <code>go build</code>. This will generate a <code>terraform-provider-azurerm</code> executable in your current directory.</li>
+<li>Move the executable to the discovery folder: <code>mv terraform-provider-azurerm ~/.terraform.d/plugins/darwin_amd64/</code></li>
+<li>Go to a folder with some Terraform configuration that uses the Azure provider.</li>
+<li>Remove the cached version: <code>rm -rv .terraform/plugins/</code> (this will remove all plugins, but don&rsquo;t worry)</li>
+<li>Run <code>terraform init</code></li>
+<li>Profit!</li>
+</ul>
+<p>Now I can test my changes with a live Terraform configuration.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+</section>
 
     <footer>
       <nav id="social">

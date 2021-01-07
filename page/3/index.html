@@ -44,6 +44,114 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/dns-alias-to-route53/">Migrating DNSimple ALIAS records to AWS Route53</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">2min.</span>
+    <time datetime="2020-04-30 15:29:19 -0300 -03">2020-04-30</time>
+    <nav class="tags">
+      
+      <a href="/tags/dns">dns</a>
+      
+      <a href="/tags/route53">route53</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Last week I was tasked with migrating a DNS zone from DNSimple to AWS Route53. Overall it was pretty straightforward except when I had to migrate two <code>ALIAS</code> records. This is a special type of record that’s not part of the DNS specification, so there was no direct alternative.</p>
+<h2 id="subdomain">Subdomain</h2>
+<p>Say that you have a subdomain <code>www.example.com</code> that was using an <code>ALIAS</code> record pointing to <code>www.example.net</code>. This is by far the easiest to move, as it implies replacing the <code>TXT</code> record defining the alias for a <code>CNAME</code>.</p>
+<h2 id="apex-domain">Apex domain</h2>
+<p>This is were it gets complicated. If you had an <code>ALIAS</code> for <code>example.com</code> to <code>example.net</code> you cannot replace it with a <code>CNAME</code>, because apex domains do not support that. The solution is to use an <code>A</code> record, which loses the value of an alias you would need to keep updating the IP address of the destination of it ever changes.</p>
+<h2 id="summary">Summary</h2>
+<p>As you can see it’s not that complicated to migrate ALIAS records to AWS Route53, however, they do have some limitations. I’ve went from this</p>
+<pre><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
+example.com.     3600 IN TXT &quot;ALIAS for example.net&quot;
+</code></pre><p>to this</p>
+<pre><code>www.example.com.    3600    IN  CNAME   example.net.
+example.net.        3600    IN  A       192.168.14.52
+</code></pre><p>and achieved the expected results, though we now need to keep an eye on the IP address of the destination.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/typical-workday-at-theorem/">Working at Theorem: a typical day</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">4min.</span>
+    <time datetime="2020-04-28 10:45:00 -0300 -03">2020-04-28</time>
+    <nav class="tags">
+      
+      <a href="/tags/theorem">theorem</a>
+      
+      <a href="/tags/remote%20working">remote working</a>
+      
+      <a href="/tags/personal">personal</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>I&rsquo;ve joined <del>Citrusbyte</del><a href="https://theorem.co/">Theorem</a> 9 years ago, and since day 1 it was a fully remote experience. Over the years I&rsquo;ve learned lots about how to organize myself to approach each new workday although never gave much thought to it, until a few days ago, when while interviewing a candidate he asked <em>what does a typical day at Theorem looks like</em>. This post will try to address that question.</p>
+<p>First and foremost, a disclaimer: by no means I speak on behalf of Theorem or the rest of my teammates; these are entirely my own experiences and do not reflect the reality of all the great people working at this company.</p>
+<p>I live with my girlfriend and our two lovely kids (4 years old and 1 year and a half), so keep that in mind while reading this post.</p>
+<p>As you are aware, at the time of writing this post we are living in very strange times, throughout a global pandemic that has most of the world in quarantine with people confined to their places and working remotely. As stated earlier, at Theorem we are 100% remote since the beginning, so the COVID-19 pandemic didn&rsquo;t change much on how we work, although it had some effects.</p>
+<h2 id="pre-pandemic-typical-workday">Pre-pandemic typical workday</h2>
+<p>I have an office 20 blocks away from home, and my kids went to kindergarten 4 blocks away from the office, so days started at 6:15 am to enjoy breakfast with the family, then we would drive the kids to school, drop them and head to the office. My workdays usually started, then, at 8:00 am.</p>
+<figure class="photo"><a href="https://www.flickr.com/photos/inkel/49831040487/in/dateposted/">
+    <img src="https://live.staticflickr.com/65535/49831040487_a6ce2c02ea.jpg"/> </a><figcaption>
+            <h4>Office</h4>
+        </figcaption>
+</figure>
+
+<p>The very first thing I usually do any given day is going through my emails and any pending notification from the day before. If something requires my attention immediately I answer right at it, otherwise, I either archive or snooze the message to a later time if required.</p>
+<p>Next is checking the status of any ongoing task I have been working previously, and paving the way for what&rsquo;s next. Then, off to work.</p>
+<p>Around noon either myself or my girlfriend goes to pick up the kids from school, and takes them home to have lunch, and then back to the office. If I&rsquo;m the one picking them, I do that during my lunch break, and then have a quick bite or snack. Otherwise, I cook something for myself or order some delivery. During this break I might read or watch something.</p>
+<p>Then the rest of the day goes on, until 4:00 pm or 5:00 pm, depending on the day, and walk back home. And that concludes a typical workday.</p>
+<h2 id="typical-workday-during-the-pandemic">Typical workday during the pandemic</h2>
+<p>Things have changed, clearly. We don&rsquo;t wake up anymore at 6:15 am, now it&rsquo;s usually at around 8:00 am. Breakfast is served, and I use this time to catch up on some news and go through my emails and notifications, again snoozing for an hour or so whatever needs my attention; the rest is archived.</p>
+<p>I&rsquo;ve set up a standing desk in my bedroom, which is right next to the living room, where the kids spend most of their time playing. The biggest change since the pandemic was that nowadays I don&rsquo;t have long stretches of work time anymore, so I try and split my tasks into smaller time schedules, so I can take a look at my kids, play with them or help them with homework (yes, even my 1.5 years old daughter has Zoom meetings now.)</p>
+<figure class="photo">
+  <a href="https://www.flickr.com/photos/inkel/49802372406/in/dateposted/" title="Working from home">
+    <img src="https://live.staticflickr.com/65535/49802372406_9ea8c8a64d.jpg" alt="Work from home" />
+  </a>
+  <a href="https://www.flickr.com/photos/inkel/49802676397/in/photostream/" title="Work from home">
+    <img src="https://live.staticflickr.com/65535/49802676397_47b9993d65.jpg" alt="Work from home" />
+  </a>
+  <figcaption>
+    <h4>Working from home with kids</h4>
+  </figcaption>
+</figure>
+<p>Lunch and dinner are usually planned the night before, so at around noon either me or my girlfriend starts preparing lunch. The kids love this time as they get to watch something on Netflix. I had to cancel all my meetings during this time, but that doesn&rsquo;t seem to have affected my work. Asynchronous communication works great!</p>
+<p>After lunch work continues, and I might be able to get some work-only hours if the kids decide to nap, otherwise, again it&rsquo;s split into smaller chunks of time. Either way, I&rsquo;m still able to drive my commitments to success.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>As you can see, not much has changed, other than how many hours in stretch I can work without interruptions. All other work details were already in place given that we are a 100% remote company. The biggest takeaway, for me, is that in order to survive this crazy new world we are living in, you need to work with great people, who understand not all experiences are equal, who trust you will work with professionalism and responsibility, and who you trust back in the same way.</p>
+<p>If you like what you read and you would like to form part of this great team, check our <a href="https://theorem.co/careers">careers page</a> and apply to any of our current openings. Who knows? Perhaps your dream job is just waiting for you.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/cli-sort-tricks/">CLI sort tricks</a>
     </h1>
   </header>
@@ -411,258 +519,6 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
   
 </article>
 
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/proxy-protocol/">Proxy Protocol: what is it and how to use it with Go</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">6min.</span>
-    <time datetime="2017-10-13 14:30:00 -0300 -03">2017-10-13</time>
-    <nav class="tags">
-      
-      <a href="/tags/go">go</a>
-      
-      <a href="/tags/proxy%20protocol">proxy protocol</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>Today I became aware of the <a href="http://www.haproxy.com/blog/haproxy/proxy-protocol/">proxy protocol</a>.</p>
-<blockquote>
-<p>The Proxy Protocol was designed to chain proxies / reverse-proxies without losing the client information.</p>
-</blockquote>
-<p>If you are proxying an HTTP(S) server, chances are that you have used the <code>X-Forwarded-From</code> header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</p>
-<p>Take for instance the following example: we will have a simple TCP server that echo backs the client&rsquo;s remote address:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;io/ioutil&#34;</span>
-	<span class="s">&#34;log&#34;</span>
-	<span class="s">&#34;net&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">for</span> <span class="p">{</span>
-		<span class="nx">cn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ln</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ln.Accept():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-			<span class="k">continue</span>
-		<span class="p">}</span>
-
-		<span class="k">go</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">cn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">cn</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;cn.Close():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-		<span class="p">}</span>
-	<span class="p">}()</span>
-
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;handling connection from&#34;</span><span class="p">,</span> <span class="nx">cn</span><span class="p">.</span><span class="nf">RemoteAddr</span><span class="p">())</span>
-
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="nx">cn</span><span class="p">,</span> <span class="s">&#34;Your remote address is %v\n&#34;</span><span class="p">,</span> <span class="nx">cn</span><span class="p">.</span><span class="nf">RemoteAddr</span><span class="p">())</span>
-
-	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;reading from client:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;client sent %d bytes: %q&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="nx">data</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>I&rsquo;m running <code>go run server.go</code> in a machine whose IP is <code>192.168.1.20</code>, and I&rsquo;ll be sending requests from another machine whose IP is <code>192.168.1.12</code>. One the server machine I&rsquo;m also running an <a href="HAProxy">https://www.haproxy.org/</a> server that acts as a proxy to the Go program above:</p>
-<pre><code>global
-    debug
-    maxconn 4000
-    log 127.0.0.1 local0
-
-defaults
-    timeout connect 10s
-    timeout client  1m
-    timeout server  1m
-
-listen wo-send-proxy
-    mode tcp
-    log global
-    option tcplog
-    bind *:17654
-    server app1 192.168.1.20:7654
-
-listen w-send-proxy
-    mode tcp
-    log global
-    option tcplog
-    bind *:27654
-    server app1 192.168.1.20:7654 send-proxy
-</code></pre><p>This configuration creates 2 proxies: one listening on port <code>17654</code> which just proxies the client connection to the server, and another proxy listening in port <code>276564</code> which does the same but it also enables using the proxy protocol by using the <a href="http://cbonte.github.io/haproxy-dconv/1.7/configuration.html#send-proxy"><code>send-proxy</code></a> keyword.</p>
-<p>On the client machine, I&rsquo;m running the following to send requests directly to the Go server, via the regular proxy and via the proxy with proxy protocol enabled:</p>
-<pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
-Your remote address is 192.168.1.12:44966
-Your remote address is 192.168.1.20:57680
-Your remote address is 192.168.1.20:57681
-</code></pre><p>As you can see in the first case the client is informed that its remote address is <code>192.168.1.12</code>, which is correct, but in both the other cases it says <code>192.168.1.20</code>, which is the address of the proxy. Let&rsquo;s check what the server has to say in its output:</p>
-<pre><code>$ go run server.go
-2017/10/13 11:50:54 handling connection from 192.168.1.12:44966
-2017/10/13 11:50:54 client sent 6 bytes: &quot;inkel\n&quot;
-2017/10/13 11:50:54 handling connection from 192.168.1.20:57680
-2017/10/13 11:50:54 client sent 6 bytes: &quot;inkel\n&quot;
-2017/10/13 11:50:54 handling connection from 192.168.1.20:57681
-2017/10/13 11:50:54 client sent 56 bytes: &quot;PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\ninkel\n&quot;
-</code></pre><p>Here something interesting happens: the first connection, the one made directly to the Go server, properly shows the remote address as <code>192.168.1.12</code> and the contents. The second and third ones incorrectly report the remote address as <code>192.168.1.20</code> but the third one shows something interesting in what was received from the client: instead of just receiving <code>inkel</code> it first received <code>PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\n</code>. This is what proxy protocol does, and if you see clearly, the client&rsquo;s actual IP address is there!</p>
-<p>The proxy protocol, when enabled, will send the following initial line to the proxied server:</p>
-<pre><code>PROXY &lt;inet protocol&gt; &lt;client IP&gt; &lt;proxy IP&gt; &lt;client port&gt; &lt;proxy port&gt;\r\n
-</code></pre><p>The actual <a href="http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">specification</a> is fairly simple, and now we can see why the only condition for proxy protocol to work is that <strong>both endpoints of the connection MUST be compatible with proxy protocol</strong>.</p>
-<p>This explains why the Go server isn&rsquo;t reporting the right remote address, even when proxy protocol is used: the <a href="https://golang.org/pkg/net/"><code>net</code></a> package doesn&rsquo;t (currently) supports proxy protocol. But adding support to it isn&rsquo;t too difficult. Here we have a custom connection type that complies with the <a href="https://golang.org/pkg/net/#Conn"><code>net.Conn</code></a> interface:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">myConn</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">cn</span>      <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span>
-	<span class="nx">r</span>       <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span>
-	<span class="nx">local</span>   <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>
-	<span class="nx">remote</span>  <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>
-	<span class="nx">proxied</span> <span class="kt">bool</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">NewProxyConn</span><span class="p">(</span><span class="nx">cn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">c</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">myConn</span><span class="p">{</span><span class="nx">cn</span><span class="p">:</span> <span class="nx">cn</span><span class="p">,</span> <span class="nx">r</span><span class="p">:</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">cn</span><span class="p">)}</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Init</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">c</span><span class="p">,</span> <span class="kc">nil</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">Close</span><span class="p">()</span> <span class="kt">error</span>                <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span> <span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">Write</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">SetDeadline</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="kt">error</span>      <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nf">SetDeadline</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">SetReadDeadline</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="kt">error</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nf">SetReadDeadline</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">SetWriteDeadline</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nf">SetWriteDeadline</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">LocalAddr</span><span class="p">()</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">local</span> <span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">RemoteAddr</span><span class="p">()</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">remote</span> <span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">Read</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">r</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">Init</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
-	<span class="nx">buf</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">r</span><span class="p">.</span><span class="nf">Peek</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span> <span class="o">&amp;&amp;</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">err</span>
-	<span class="p">}</span>
-
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">Equal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">`PROXY`</span><span class="p">),</span> <span class="nx">buf</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">c</span><span class="p">.</span><span class="nx">proxied</span> <span class="p">=</span> <span class="kc">true</span>
-		<span class="nx">proxyLine</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">r</span><span class="p">.</span><span class="nf">ReadString</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="nx">err</span>
-		<span class="p">}</span>
-		<span class="nx">fields</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Fields</span><span class="p">(</span><span class="nx">proxyLine</span><span class="p">)</span>
-		<span class="nx">c</span><span class="p">.</span><span class="nx">remote</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">addr</span><span class="p">{</span><span class="nx">net</span><span class="p">.</span><span class="nf">JoinHostPort</span><span class="p">(</span><span class="nx">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">])}</span>
-		<span class="nx">c</span><span class="p">.</span><span class="nx">local</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">addr</span><span class="p">{</span><span class="nx">net</span><span class="p">.</span><span class="nf">JoinHostPort</span><span class="p">(</span><span class="nx">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nx">fields</span><span class="p">[</span><span class="mi">5</span><span class="p">])}</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-		<span class="nx">c</span><span class="p">.</span><span class="nx">local</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nf">LocalAddr</span><span class="p">()</span>
-		<span class="nx">c</span><span class="p">.</span><span class="nx">remote</span> <span class="p">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">.</span><span class="nf">RemoteAddr</span><span class="p">()</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="kc">nil</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">myConn</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">c</span><span class="p">.</span><span class="nx">proxied</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;proxied connection %v&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">cn</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">addr</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">hp</span> <span class="kt">string</span> <span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">Network</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&#34;tcp&#34;</span> <span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hp</span> <span class="p">}</span>
-</code></pre></div>
-<p>Now in our server we wrap the connection into our new type, and pass it to the <code>handle</code> func:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">for</span> <span class="p">{</span>
-		<span class="nx">cn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ln</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ln.Accept():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-			<span class="k">continue</span>
-		<span class="p">}</span>
-
-<span class="hl">		<span class="nx">pcn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">NewProxyConn</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
-</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;NewProxyConn():&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-			<span class="k">continue</span>
-		<span class="p">}</span>
-
-		<span class="k">go</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">pcn</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>With this, now we see the right output in both the client:</p>
-<pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
-Your remote address is 192.168.1.12:45050
-Your remote address is 192.168.1.20:60729
-Your remote address is 192.168.1.12:58556
-</code></pre><p>&hellip;and in the server:</p>
-<pre><code>2017/10/13 13:37:45 accepted connection from 192.168.1.12:45056
-2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
-2017/10/13 13:37:45 accepted connection from 192.168.1.20:60738
-2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
-2017/10/13 13:37:45 accepted connection from 192.168.1.12:58562
-2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
-</code></pre><p>This has been turned into a Go library located at <a href="https://github.com/inkel/go-proxy-protocol"><code>github.com/inkel/go-proxy-protocol</code></a>. Feel free to use it and send your feedback and error reports!</p>
-
-  </section>
-
-  
-</article>
-
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/initial-commit/">Initial Commit</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">1min.</span>
-    <time datetime="2017-10-11 15:47:00 -0300 -03">2017-10-11</time>
-    <nav class="tags">
-      
-      <a href="/tags/personal">personal</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>So here I am, once more, trying to have some sort of blog or journal. I&rsquo;ll try to write about interesting pieces of code that I&rsquo;ve written, problems I had to solve, books I&rsquo;ve read (or dropped), et cetera. Don&rsquo;t get your hopes too high, though, I&rsquo;m lazy and tend to forget doing this kind of stuff.</p>
-
-  </section>
-
-  
-</article>
-
   
 
   
@@ -682,11 +538,14 @@ Your remote address is 192.168.1.12:58556
   <li class="page-item active">
     <a class="page-link" href="/page/3/">3</a>
   </li>
-  <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  <li class="page-item">
+    <a class="page-link" href="/page/4/">4</a>
   </li>
   <li class="page-item">
-    <a href="/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

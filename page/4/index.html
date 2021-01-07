@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-US">
   <head>
+	<meta name="generator" content="Hugo 0.79.1" />
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8844932ea3044682adb9db426ac05300"}'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0;">
 
@@ -12,14 +13,14 @@
     <meta name="referrer" content="no-referrer">
     <meta name="description" content="Software programmer interested in SRE, DevOps, Machine Learning and Augmented Reality.">
 
-    <title>proxy protocol</title>
-    <meta content="proxy protocol" property="og:title" />
-    <link rel="canonical" href="https://inkel.github.io/tags/proxy-protocol/">
+    <title>inkel</title>
+    <meta content="inkel" property="og:title" />
+    <link rel="canonical" href="https://inkel.github.io/">
 
     <meta content="https://inkel.github.io/images/avatar.png" property="og:image" />
     <meta content="inkel" property="og:site_name" />
     <meta content="website" property="og:type" />
-    <meta content="https://inkel.github.io/tags/proxy-protocol/" property="og:url" />
+    <meta content="https://inkel.github.io/" property="og:url" />
     <meta content="Software programmer interested in SRE, DevOps, Machine Learning and Augmented Reality." property="og:description" /><meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
@@ -34,71 +35,10 @@
     </header>
 
 
-<section id="content" class="archive">
-  
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/proxy-protocol-support-in-curl/">Proxy Protocol Support in Curl</a>
-    </h1>
-  </header>
 
-  <section class="meta">
-    <span class="reading-time">1min.</span>
-    <time datetime="2018-03-21 08:49:02 -0300 -03">2018-03-21</time>
-    <nav class="tags">
-      
-      <a href="/tags/proxy%20protocol">proxy protocol</a>
-      
-    </nav>
-  </section>
 
-  <section class="content">
-    <p>I&rsquo;ve came across the following tweet the other day, and I couldn&rsquo;t be more excited:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://t.co/P3BbFqx1ro">https://t.co/P3BbFqx1ro</a> CURLOPT_HAPROXYPROTOCOL: support the HAProxy PROXY protocol<br><br>Add --haproxy-protocol for the command line tool<br><br>Cl...</p>&mdash; curl commits (@curlcommits) <a href="https://twitter.com/curlcommits/status/974961166807109633?ref_src=twsrc%5Etfw">March 17, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<p>This is exciting to me as the work I&rsquo;ve been doing in <a href="https://github.com/inkel/viaproxy"><code>viaproxy</code></a> had one caveat: testing it works was a bit convoluted, as I was doing by running an <a href="https://www.haproxy.org/">HAProxy</a> instance with a custom configuration like the following:</p>
-<pre><code>global
-    debug
-    maxconn 4000
-    log 127.0.0.1 local0
-
-defaults
-    timeout connect 10s
-    timeout client  1m
-    timeout server  1m
-
-listen without-send-proxy
-    mode tcp
-    log global
-    option tcplog
-    bind *:17654
-    server app1 127.0.0.1:7655
-
-listen with-send-proxy
-    mode tcp
-    log global
-    option tcplog
-    bind *:27654
-    bind ipv6@:27654
-    server app1 127.0.0.1:7654 send-proxy
-</code></pre><p>Luckily commit <a href="https://github.com/curl/curl/commit/6baeb6df35d24740c55239f24b5fc4ce86f375a5"><code>6baeb6df</code></a> adds a new <code>--haproxy-protocol</code> that, as documented, will do the following:</p>
-<blockquote>
-<p>Send a HAProxy PROXY protocol header at the beginning of the connection. This is used by some load balancers and reverse proxies to indicate the client&rsquo;s true IP address and port.</p>
-<p>This option is primarily useful when sending test requests to a service that expects this header.</p>
-</blockquote>
-<p>Reading the commit changes is very enlightening, too, as it is a great example of nice and simple C code. I&rsquo;m looking forward to the release!</p>
-
-  </section>
-
-  
-</article>
-
+<section id="content">
   <hr>
-  
   
   
 <article class="page">
@@ -324,7 +264,65 @@ Your remote address is 192.168.1.12:58556
 
   <hr>
   
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/initial-commit/">Initial Commit</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2017-10-11 15:47:00 -0300 -03">2017-10-11</time>
+    <nav class="tags">
+      
+      <a href="/tags/personal">personal</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>So here I am, once more, trying to have some sort of blog or journal. I&rsquo;ll try to write about interesting pieces of code that I&rsquo;ve written, problems I had to solve, books I&rsquo;ve read (or dropped), et cetera. Don&rsquo;t get your hopes too high, though, I&rsquo;m lazy and tend to forget doing this kind of stuff.</p>
+
+  </section>
+
+  
+</article>
+
+  
+
+  
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/3/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/3/">3</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/4/">4</a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
 </section>
+
 
     <footer>
       <nav id="social">
