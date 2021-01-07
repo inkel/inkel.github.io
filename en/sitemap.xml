@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://inkel.github.io/posts/bye-2020/</loc>
-    <lastmod>2020-12-30T08:34:21-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2020-12-30T08:34:21-03:00</lastmod>
+    <lastmod>2021-01-07T08:31:06-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -23,13 +18,18 @@
   </url>
   
   <url>
-    <loc>https://inkel.github.io/tags/personal/</loc>
-    <lastmod>2020-12-30T08:34:21-03:00</lastmod>
+    <loc>https://inkel.github.io/tags/inkelinks/</loc>
+    <lastmod>2021-01-07T08:31:06-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/inkelinks-s01e06/</loc>
+    <lastmod>2021-01-07T08:31:06-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2020-12-30T08:34:21-03:00</lastmod>
+    <lastmod>2021-01-07T08:31:06-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -44,7 +44,7 @@
   
   <url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2020-12-30T08:34:21-03:00</lastmod>
+    <lastmod>2021-01-07T08:31:06-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -55,6 +55,16 @@
                 hreflang="en"
                 href="https://inkel.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/bye-2020/</loc>
+    <lastmod>2020-12-30T08:34:21-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/tags/personal/</loc>
+    <lastmod>2020-12-30T08:34:21-03:00</lastmod>
   </url>
   
   <url>
@@ -70,11 +80,6 @@
   <url>
     <loc>https://inkel.github.io/tags/programming/</loc>
     <lastmod>2020-12-16T08:11:47-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://inkel.github.io/tags/inkelinks/</loc>
-    <lastmod>2020-12-11T11:30:13-03:00</lastmod>
   </url>
   
   <url>

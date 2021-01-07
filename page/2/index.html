@@ -44,6 +44,53 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/inkelinks-s01e02/">inkelinks S01E02</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">2min.</span>
+    <time datetime="2020-12-04 11:00:08 -0300 -03">2020-12-04</time>
+    <nav class="tags">
+      
+      <a href="/tags/inkelinks">inkelinks</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p><a href="https://buttondown.email/inkel/archive/inkelinks-s01e02/">Issue #2 of my newsletter</a> was delivered today. I&rsquo;m really enjoying curating links and sharing them with friends! In case you missed it, here it is:</p>
+<p>Yes! Welcome to a new issue of inkelinks. Last time it was the first one and of course I had a typo on the subject 😞 but all the links were working, so there’s that 💪🏽</p>
+<p>In this issue you’ll find the regular links section plus a new <em>Podcast Episode of the Week</em> section where I’ll share a single link to an episode of the many podcasts that I listen to that I think has value for sharing. I hope you like it!</p>
+<p>As always your feedback and suggestions are welcomed!</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://owenou.com/upterm/">Upterm - Secure Terminal Sharing</a><br>
+I never did too much pair programming, but for sure this looks like an interesting take on making it easier to share a terminal with others.</li>
+<li><a href="https://jpmens.net/2016/03/05/a-shell-command-to-create-json-jo/">A shell command to create JSON: jo</a><br>
+My good friend Matías Aguirre (<a href="https://twitter.com/linuxaddict">@linuxaddict on Twitter</a>) shared this with me. I can’t believe I’ve never heard of it before, this is an awesome utility!</li>
+<li><a href="https://metaredux.com/posts/2020/07/07/supercharge-your-bash-history.html">Supercharge Your Bash History</a><br>
+Excellent article on how to configure Bash history to show meaningful information and not just every single thing you type in your terminal.</li>
+<li><a href="https://www.benkuhn.net/vc/">How to make video calls almost as good as face-to-face</a><br>
+In this day and era, video calls are becoming more important at every minute. This article might seem long, but the tl;dr section is concise to give you already lots of pointers. Sadly, for folks like myself in countries where technology is becoming too expensive this will be a “look at how good my setup could be” article.</li>
+<li><a href="https://gauthier.uk/blog/who/">The UNIX <code>who</code> command</a><br>
+Nice and short post on how using simple tools like <code>strace</code> and <code>man</code> one can mimic the behavior of a program.</li>
+</ul>
+<h2 id="podcast-episode-of-the-week">Podcast episode of the week</h2>
+<p><a href="https://changelog.com/gotime/145">Füźžįñg with Katie Hockman, Roberto Clapis, &amp; Filippo Valsorda</a><br>
+One of my favourite podcast shows is Go Time, and not so long ago they released an episode on fuzzing, a testing technique where you provide invalid data to your program and monitor for crashes. Whether you’re a Go developer or not this episode is highly recommended of only because you’ll learn new things!</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/adventofcode-2020/">Advent Of Code 2020</a>
     </h1>
   </header>
@@ -452,71 +499,6 @@ example.net.        3600    IN  A       192.168.14.52
 <h2 id="conclusions">Conclusions</h2>
 <p>As you can see, not much has changed, other than how many hours in stretch I can work without interruptions. All other work details were already in place given that we are a 100% remote company. The biggest takeaway, for me, is that in order to survive this crazy new world we are living in, you need to work with great people, who understand not all experiences are equal, who trust you will work with professionalism and responsibility, and who you trust back in the same way.</p>
 <p>If you like what you read and you would like to form part of this great team, check our <a href="https://theorem.co/careers">careers page</a> and apply to any of our current openings. Who knows? Perhaps your dream job is just waiting for you.</p>
-
-  </section>
-
-  
-</article>
-
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/cli-sort-tricks/">CLI sort tricks</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">2min.</span>
-    <time datetime="2019-05-28 00:00:00 &#43;0000 UTC">2019-05-28</time>
-    <nav class="tags">
-      
-      <a href="/tags/cli">cli</a>
-      
-      <a href="/tags/tools">tools</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>If you are like me you might have used the <a href="https://linux.die.net/man/1/sort"><code>sort(1)</code></a> CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.</p>
-<p>Say that we have the following file to sort:</p>
-<pre><code>fpdy 01 08 wcfo
-juvi 01 02 ejan
-urbx 04 03 ckbw
-fkzq 01 08 myaz
-fjie 04 09 rhvo
-almv 04 02 adhs
-cuah 07 04 gbyt
-chok 09 06 nqwo
-emjd 01 04 ledx
-npto 02 10 nqsc
-</code></pre><p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
-<pre><code>fpdy 0108 wcfo
-juvi 0102 ejan
-urbx 0403 ckbw
-fkzq 0108 myaz
-fjie 0409 rhvo
-almv 0402 adhs
-cuah 0704 gbyt
-chok 0906 nqwo
-emjd 0104 ledx
-npto 0210 nqsc
-</code></pre><p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
-<pre><code>$ sort -k 2.4 foo.txt
-almv 0402 adhs
-juvi 0102 ejan
-urbx 0403 ckbw
-cuah 0704 gbyt
-emjd 0104 ledx
-chok 0906 nqwo
-fkzq 0108 myaz
-fpdy 0108 wcfo
-fjie 0409 rhvo
-npto 0210 nqsc
-</code></pre><p>Why <code>4</code> and not <code>3</code>, I don&rsquo;t know, but I think it&rsquo;s taking the separator into account. I need to investigate more. But so far I haven&rsquo;t the need to do something as fine-grained as this, so I can still sleep well at night.</p>
 
   </section>
 
