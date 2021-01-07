@@ -44,6 +44,37 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/adventofcode2020-day3/">Advent of Code 2020: Day 3</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2020-12-07 23:00:00 -0300 -03">2020-12-07</time>
+    <nav class="tags">
+      
+      <a href="/tags/programming">programming</a>
+      
+      <a href="/tags/adventofcode">adventofcode</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>I&rsquo;m on a roll! Day 1 was <a href="https://inkel.github.io/posts/adventofcode2020-day1/">painful</a>; in day 2 I did some <a href="https://inkel.github.io/posts/adventofcode2020-day2/">improvements</a>, and now <a href="https://github.com/inkel/adventofcode-2020/blob/5bbf796dba907e708ed3a68874bfaa12745d5bb6/src/adventofcode_2020/day3.clj">day 3 was also solved</a> in less than 2 hours!</p>
+<p>I&rsquo;m getting more familiar with Clojure, and the tools I use for this project: <a href="https://leiningen.org">Leiningen</a>, Emacs + <a href="https://github.com/clojure-emacs/cider">CIDER</a>. About the latter, I know I could be more efficient if I knew the commands better, but so far it is really useful and I&rsquo;m not only learning tons but also in awe as to how well integrated this tool is.</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/adventofcode2020-day2/">Advent of Code 2020: Day 2</a>
     </h1>
   </header>
@@ -361,64 +392,6 @@ CLI is where I feel Windows fails the most, and while the new <a href="https://d
     <p>I kept forgetting how to perform the equivalent of <a href="https://man7.org/linux/man-pages/man1/grep.1.html"><code>grep(1)</code></a> in PowerShell. The simple answer is <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7"><code>Select-String</code></a>. It is aliased to <code>sls</code>.</p>
 <pre><code>ipconfig | Select-String 192.168
 </code></pre><p>I should probably add a <a href="https://stackoverflow.com/a/24914795">permanent alias</a>.</p>
-
-  </section>
-
-  
-</article>
-
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/work-blocks/">How do I organize my work blocks</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">5min.</span>
-    <time datetime="2020-06-10 00:00:00 &#43;0000 UTC">2020-06-10</time>
-    <nav class="tags">
-      
-      <a href="/tags/theorem">theorem</a>
-      
-      <a href="/tags/remote%20working">remote working</a>
-      
-      <a href="/tags/personal">personal</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>After publishing my previous <a href="/posts/typical-workday-at-theorem/"><em>Working at Theorem: a typical workday</em></a> article a co-worker asked me the following:</p>
-<blockquote>
-<p>Can you go into the details of what happens during those &ldquo;work&rdquo; blocks? Do you frequently check slack_email or only check them occasionally? Are you heads down for parts of the day? Do you have dedicated &ldquo;help_review others&rdquo; time or does it happen ad-hoc?</p>
-</blockquote>
-<p>This is an interesting question, so here are the answers.</p>
-<h2 id="checking-email--slack">Checking email / Slack</h2>
-<p>I approach these two differently. Email is something I check only when I don’t have any other task or when I’m in a break. I don’t have alerts or notifications when a new email arrives, so it’s a task that only happens in an active way. I consider email as the best asynchronous communication tool available, thus I treat it that way. I’ve several different filters that labels or archives emails as they arrive so when I check them I don’t have to lose precious time triaging everything that I’ve received.</p>
-<p>Of course working 100% asynchronously is an utopia when working in a team that interacts with an external customer, so synchronous communication is a must; at work we use Slack for this. I’ve enabled notifications although I’ve also muted several channels that only generate noise or are mostly for announcements. I could leave those muted channels, however they are still important and I check them a few times throughout the day, usually after catching up with email.</p>
-<p>I try to be conscious of how much affects others when mentioning them on Slack, so I try to keep usage of <code>@here</code> at a minimum, <code>@channel</code> only when it is <strong>urgent or very important</strong>; using <code>@everyone</code> is completely off the table, unless a catastrophe happens.
-And when it comes to direct messages I always try to send initially only one message: a greeting plus whatever question or comment I’d like to communicate; this way the other person can quickly decide to dedicate some time to me or not.</p>
-<h2 id="code-reviews">Code reviews</h2>
-<p>A big part of my day consists of reviewing pull requests created by other members of the team. I’m not going to go into the details of how you should behave when doing PR reviews, there are already hundred of posts dedicated to that: this is how I approach this task, YMMV.</p>
-<p>First I start by reading the title and description. If those are good and informative then I’d approach the review in a better mood: good programming is mostly about communication, so I held prose to the same standards as code.</p>
-<p>Second I look at each commit individually. Writing clear and well scoped commits makes reviewing easier, as you can better understand the author’s intentions. PRs with just one or two gigantic commits are a bummer and from time to time I try and teach people to write smaller commits next time.</p>
-<p>Last but not least I look at the code in detail. The first things I look for is overall structure: is the code properly indented or doesn’t violate the rules and standards set for the project? Then I look at the semantics, trying to understand each decision, expecting to see well named variables and methods, easy to follow flow control statements, etc. I can be very nit picky at times, so I have to keep me at bay of not becoming an asshole. And yet there are times when you need to become one; luckily is not something that I need to do often.</p>
-<p>PR reviewing is an opportunity for both the author and the reviewer’s growth as programmers and communicators. Treat it like as a learning experience and not as a chore.</p>
-<h2 id="time-management">Time management</h2>
-<p>With the current pandemic my working conditions changed quite a bit, even when I was already working remotely. The biggest change was on time management. When I worked from my office, I had some dedicated time for things like checking emails and Slack, for deeply diving into any tasks I was working on, and for reviewing code. Now those dedicated time chunks are gone, so I try to manage my time as follows:</p>
-<ul>
-<li>Checking emails and Slack is something I do first thing in the morning, before and after lunch, and during any coffee- or cigarette-break;</li>
-<li>Working on assigned tasks in 20 minutes chunks. Nowadays is hard to find long stretch hours of work, 20 minutes is a good compromise between <em>I want to do something</em> and <em>gonna check the kids, have a break</em>.</li>
-<li>PR reviews: I usually do them after the above mentioned 20 minutes. In the past I also scheduled this way, but after 40 minutes/1 hour instead.</li>
-<li>Lunchtime is something I’ve cleared out in my calendar, daily from noon to 1pm, so we have some routine for the kids. This I try to keep on schedule, so it doesn’t conflicts with my calendar. Of course it doesn’t always happens but so far it hasn’t been a problem.</li>
-</ul>
-<h2 id="endnotes">Endnotes</h2>
-<p>As you can see I haven’t shared any truth revealing insights, though I hope it helps others getting more organized. This schema works for me; it might work for you or don’t work at all.</p>
-<p>Interesting in working with me? Check our <a href="https://theorem.co/careers">careers page</a> and apply to any of our current openings. We are waiting for you ;)</p>
 
   </section>
 

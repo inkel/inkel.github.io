@@ -11,6 +11,15 @@
    
    
      <item>
+       <title>Enabling Comments</title>
+       <link>https://inkel.github.io/posts/enabling-comments/</link>
+       <pubDate>Thu, 07 Jan 2021 08:47:51 -0300</pubDate>
+       
+       <guid>https://inkel.github.io/posts/enabling-comments/</guid>
+       <description>&lt;p&gt;I&amp;rsquo;ve been looking for a solution to add comments to this blog, but none of them convinced me, as required adding some JavaScript or &lt;code&gt;IFRAME&lt;/code&gt;, which doesn&amp;rsquo;t feel right, so I decided to try a new approach and I&amp;rsquo;ve enabled &lt;a href=&#34;https://github.com/inkel/inkel.github.io/discussions&#34;&gt;GitHub Discussions&lt;/a&gt; in the repository where this blog&amp;rsquo;s content is hosted. I still have to create an entry for each post, which is a tiresome process as there doesn&amp;rsquo;t seem to be an API for it yet, and also I haven&amp;rsquo;t decided if that&amp;rsquo;s something I&amp;rsquo;d like to have or have you creating a new discussion if needed.&lt;/p&gt;</description>
+     </item>
+   
+     <item>
        <title>inkelinks S01E06 - Season Finale</title>
        <link>https://inkel.github.io/posts/inkelinks-s01e06/</link>
        <pubDate>Thu, 31 Dec 2020 08:31:06 -0300</pubDate>
