@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://inkel.github.io/posts/enabling-comments/</loc>
-    <lastmod>2021-01-07T08:47:51-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2021-01-07T08:47:51-03:00</lastmod>
+    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -23,8 +18,18 @@
   </url>
   
   <url>
+    <loc>https://inkel.github.io/tags/inkelinks/</loc>
+    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/inkelinks-s02e02/</loc>
+    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2021-01-07T08:47:51-03:00</lastmod>
+    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -38,18 +43,8 @@
   </url>
   
   <url>
-    <loc>https://inkel.github.io/tags/inkelinks/</loc>
-    <lastmod>2020-12-31T08:31:06-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://inkel.github.io/posts/inkelinks-s01e06/</loc>
-    <lastmod>2020-12-31T08:31:06-03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2020-12-31T08:31:06-03:00</lastmod>
+    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -60,6 +55,21 @@
                 hreflang="en"
                 href="https://inkel.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/inkelinks-s02e01/</loc>
+    <lastmod>2021-01-08T11:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/enabling-comments/</loc>
+    <lastmod>2021-01-07T08:47:51-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/inkelinks-s01e06/</loc>
+    <lastmod>2020-12-31T08:31:06-03:00</lastmod>
   </url>
   
   <url>
