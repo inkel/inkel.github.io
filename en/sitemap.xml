@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
+    <lastmod>2021-01-23T07:30:57-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -19,17 +19,17 @@
   
   <url>
     <loc>https://inkel.github.io/tags/inkelinks/</loc>
-    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
+    <lastmod>2021-01-23T07:30:57-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://inkel.github.io/posts/inkelinks-s02e02/</loc>
-    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
+    <loc>https://inkel.github.io/posts/inkelinks-s02e03/</loc>
+    <lastmod>2021-01-23T07:30:57-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
+    <lastmod>2021-01-23T07:30:57-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -44,7 +44,7 @@
   
   <url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
+    <lastmod>2021-01-23T07:30:57-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -55,6 +55,11 @@
                 hreflang="en"
                 href="https://inkel.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://inkel.github.io/posts/inkelinks-s02e02/</loc>
+    <lastmod>2021-01-15T11:00:00-03:00</lastmod>
   </url>
   
   <url>
