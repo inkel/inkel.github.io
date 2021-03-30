@@ -12,6 +12,15 @@
    
    
      <item>
+       <title>Hello, Grafana Labs!</title>
+       <link>https://inkel.github.io/posts/hello-grafana-labs/</link>
+       <pubDate>Tue, 30 Mar 2021 15:37:44 -0300</pubDate>
+       
+       <guid>https://inkel.github.io/posts/hello-grafana-labs/</guid>
+       <description>&lt;p&gt;It’s been a while since my &lt;a href=&#34;https://inkel.github.io/posts/goodbye-theorem/&#34;&gt;last post&lt;/a&gt; here, not because I’m lazy (which I am), but because as you know I recently changed jobs. It’s been almost a month at my new place, and now I feel confident to say that I joined &lt;a href=&#34;https://grafana.com/&#34;&gt;Grafana Labs&lt;/a&gt; as an SRE for the internal cloud platform!&lt;/p&gt;&lt;p&gt;For most of my career I worked as a backend developer, only dabbling sporadically into an operations role, so I would be lying if I said that impostor syndrome didn&amp;rsquo;t kick in during my first few days at this new role, but luckily my team is super friendly, helping, and understanding, and my confidence is getting bigger as days pass. I think I made the right decision deciding to jump into this new adventure.&lt;/p&gt;&lt;p&gt;Switching jobs is never easy, specially after almost a decade at my previous work, and thus some of my schedules were affected, like the weekly cadence of &lt;a href=&#34;https://buttondown.email/inkel&#34;&gt;newsletter&lt;/a&gt; or writing into this blog. I hope to get back into rhythm soon.&lt;/p&gt;&lt;p&gt;In the meantime I continue to learn more about this amazing company and the work I&amp;rsquo;ll be doing, improving my skills, and learning a few more tricks. The future looks really bright!&lt;/p&gt;</description>
+     </item>
+   
+     <item>
        <title>Goodbye, Theorem</title>
        <link>https://inkel.github.io/posts/goodbye-theorem/</link>
        <pubDate>Thu, 25 Feb 2021 23:47:11 -0300</pubDate>

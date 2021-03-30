@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://inkel.github.io/posts/goodbye-theorem/</loc>
-    <lastmod>2021-02-25T23:47:11-03:00</lastmod>
-  </url>
-  
-  <url>
+    <loc>https://inkel.github.io/posts/hello-grafana-labs/</loc>
+    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+  </url><url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2021-02-25T23:47:11-03:00</lastmod>
+    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -20,16 +17,12 @@
                 hreflang="en"
                 href="https://inkel.github.io/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/personal/</loc>
-    <lastmod>2021-02-25T23:47:11-03:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+  </url><url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2021-02-25T23:47:11-03:00</lastmod>
+    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -40,11 +33,9 @@
                 hreflang="en"
                 href="https://inkel.github.io/posts/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2021-02-25T23:47:11-03:00</lastmod>
+    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -55,279 +46,175 @@
                 hreflang="en"
                 href="https://inkel.github.io/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://inkel.github.io/tags/work/</loc>
+    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+  </url><url>
+    <loc>https://inkel.github.io/posts/goodbye-theorem/</loc>
+    <lastmod>2021-02-25T23:47:11-03:00</lastmod>
+  </url><url>
     <loc>https://inkel.github.io/tags/inkelinks/</loc>
     <lastmod>2021-01-23T07:30:57-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s02e03/</loc>
     <lastmod>2021-01-23T07:30:57-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s02e02/</loc>
     <lastmod>2021-01-15T11:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s02e01/</loc>
     <lastmod>2021-01-08T11:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/enabling-comments/</loc>
     <lastmod>2021-01-07T08:47:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s01e06/</loc>
     <lastmod>2020-12-31T08:31:06-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/bye-2020/</loc>
     <lastmod>2020-12-30T08:34:21-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s01e05/</loc>
     <lastmod>2020-12-23T11:30:13-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s01e04/</loc>
     <lastmod>2020-12-18T11:30:13-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day7/</loc>
     <lastmod>2020-12-16T08:11:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/adventofcode/</loc>
     <lastmod>2020-12-16T08:11:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/programming/</loc>
     <lastmod>2020-12-16T08:11:47-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s01e03/</loc>
     <lastmod>2020-12-11T11:30:13-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day6/</loc>
     <lastmod>2020-12-10T18:17:06-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day5/</loc>
     <lastmod>2020-12-09T16:24:49-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day4/</loc>
     <lastmod>2020-12-08T10:20:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day3/</loc>
     <lastmod>2020-12-07T23:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day2/</loc>
     <lastmod>2020-12-07T14:47:52-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode2020-day1/</loc>
     <lastmod>2020-12-06T23:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s01e02/</loc>
     <lastmod>2020-12-04T11:00:08-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/adventofcode-2020/</loc>
     <lastmod>2020-12-02T10:31:18-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkelinks-s01e01/</loc>
     <lastmod>2020-11-27T15:39:04-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/newsletter/</loc>
     <lastmod>2020-11-26T08:20:45-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/inkel-gamer/</loc>
     <lastmod>2020-08-06T10:38:32-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/gaming/</loc>
     <lastmod>2020-08-06T10:38:32-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/uses-this/</loc>
     <lastmod>2020-07-07T11:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/cli/</loc>
     <lastmod>2020-06-17T09:26:22-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/powershell/</loc>
     <lastmod>2020-06-17T09:26:22-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/powershell-grep/</loc>
     <lastmod>2020-06-17T09:26:22-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/work-blocks/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/remote-working/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/theorem/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/dns/</loc>
     <lastmod>2020-04-30T15:29:19-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/dns-alias-to-route53/</loc>
     <lastmod>2020-04-30T15:29:19-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/route53/</loc>
     <lastmod>2020-04-30T15:29:19-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/typical-workday-at-theorem/</loc>
     <lastmod>2020-04-28T10:45:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/cli-sort-tricks/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/tools/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/terraform/</loc>
     <lastmod>2018-12-06T15:50:17-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/testing-terraform-providers/</loc>
     <lastmod>2018-12-06T15:50:17-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/proxy-protocol/</loc>
     <lastmod>2018-03-21T08:49:02-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/proxy-protocol-support-in-curl/</loc>
     <lastmod>2018-03-21T08:49:02-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/css/</loc>
     <lastmod>2017-12-06T11:15:22-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/frontend/</loc>
     <lastmod>2017-12-06T11:15:22-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/responsive-font-size/</loc>
     <lastmod>2017-12-06T11:15:22-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/pem-to-authorized-keys/</loc>
     <lastmod>2017-11-17T15:51:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/ssh/</loc>
     <lastmod>2017-11-17T15:51:51-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/go/</loc>
     <lastmod>2017-10-27T10:24:08-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/reverse-curl/</loc>
     <lastmod>2017-10-27T10:24:08-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/tags/aws/</loc>
     <lastmod>2017-10-26T10:38:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/ec2-key-fingerprint/</loc>
     <lastmod>2017-10-26T10:38:20-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/on-go-package-names/</loc>
     <lastmod>2017-10-14T22:37:24-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/proxy-protocol/</loc>
     <lastmod>2017-10-13T14:30:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/posts/initial-commit/</loc>
     <lastmod>2017-10-11T15:47:00-03:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://inkel.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -340,5 +227,4 @@
                 href="https://inkel.github.io/categories/"
                 />
   </url>
-  
 </urlset>
