@@ -44,6 +44,72 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/change-several-commits-author-easily/">Change several Git commits&#39; author easily</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">4min.</span>
+    <time datetime="2021-04-15 09:54:09 -0300 -03">2021-04-15</time>
+    <nav class="tags">
+      
+      <a href="/tags/git">git</a>
+      
+      <a href="/tags/work">work</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>Recently <a href="/posts/hello-grafana-labs/">I&rsquo;ve changed jobs</a>, and that meant, among many other things, that my work email address changed, which means that my commits are now using the wrong email address! I need to fix that, but of course I&rsquo;ve already committed stuff using my old email address. How can I fix that?</p>
+<p>Luckily the solution isn&rsquo;t difficult, though it took me a while to properly figure it out.</p>
+<p>The first thing I needed to do was to configure my repository to use my work email address:</p>
+<pre><code>path/to/work-repo $ git config user.name &quot;Leandro López (inkel)&quot;
+path/to/work-repo $ git config user.email &quot;work@example.com&quot;
+</code></pre><p>Note that I&rsquo;m doing this only for my work related repositories, so all of my other work (e.g. public or open source) uses my personal email address.</p>
+<p>Next I want to know which commits SHA1s are using my personal email address. I can use the<a href="http://git-scm.com/docs/git-log#Documentation/git-log.txt---authorltpatterngt"> <code>--author</code> flag of <code>git-log(1)</code></a> and get that information easily:</p>
+<pre><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s&quot; --abbrev-commit --author=personal@example.com
+86b860dcc - inkel &lt;personal@example.com&gt; - Use stringSet for collecting child modules
+9822062a9 - inkel &lt;personal@example.com&gt; - Use stringSet for collecting top root modules
+d6d397f3c - inkel &lt;personal@example.com&gt; - Add stringSet type to collect unique set of strings
+</code></pre><p>Now what I want to do is to reset the author to use the one I configured for this repository without editing the commit message; additionally I want to add a <code>Signed off by</code> line at the end of each commit message. One way to do this is to manually execute the following for every commit:</p>
+<pre><code>$ git commit --amend --signoff --author=&quot;Leandro López (inkel) &lt;work@example.com&gt;&quot; $COMMITSHA
+</code></pre><p>But as you can figure out, this becomes tedious if you have multiple commits. So let&rsquo;s use the power of <a href="http://git-scm.com/docs/git-rebase"><code>git-rebase(1)</code></a> and automate this:</p>
+<pre><code>$ git rebase --exec='git commit --no-edit --amend -s --reset-author' d6d397f3c^
+Executing: git commit --no-edit --amend -s --reset-author
+[detached HEAD f29b70ad2] Add stringSet type to collect unique set of strings
+ 2 files changed, 120 insertions(+)
+ create mode 100644 docker/terraform/automation/stringset.go
+ create mode 100644 docker/terraform/automation/stringset_test.go
+Executing: git commit --no-edit --amend -s --reset-author
+[detached HEAD 3ca17042b] Use stringSet for collecting root modules
+ 1 file changed, 7 insertions(+), 21 deletions(-)
+Executing: git commit --no-edit --amend -s --reset-author
+[detached HEAD 5d168a566] Use stringSet to collect modules
+ 1 file changed, 3 insertions(+), 14 deletions(-)
+Successfully rebased and updated refs/heads/foo.
+</code></pre><p>And that&rsquo;s it! All the commits got fixed to use my work email address instead.</p>
+<h2 id="what-is-going-on-lets-dig-into-it">What is going on?! Let&rsquo;s dig into it</h2>
+<p>First is the <a href="http://git-scm.com/docs/git-rebase"><code>--exec</code> flag</a>. This tells Git that for the given list of commits it needs to execute that command <strong>after</strong> each commit. In this case the command to execute is <code>git commit --no-edit --amend -s --reset-author</code> which amends the commit (<code>--amend</code>) without changing the commit message (<code>--no-edit</code>) except by adding a <code>Signed off by</code> line at the end of the message (<code>-s</code> which is short for <code>--signoff</code>) and changing the author to the one this repository should use (<code>--reset-author</code>, remember we add a custom configuration for it).</p>
+<p>Then comes the commit list, in this case <code>d6d397f3c^</code>. Look again at the list of commits above. If you see, the SHA is the same as the one at the bottom of the list, which is the <em>first</em> commit of the list (they are shown in reverse order). The <code>^</code> at the end of the SHA instructs Git to go through the current list of commits until the <em>parent</em> of that commit, without including it.</p>
+<p>And that&rsquo;s it! Once this is done, I pull the list of commits again and it looks right:</p>
+<pre><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s (%cr)' --abbrev-commit --date=relative&quot; --author=work@example.com
+5d168a566 - Leandro López (inkel) &lt;work@example.com&gt; - Use stringSet for collecting child modules
+3ca17042b - Leandro López (inkel) &lt;work@example.com&gt; - Use stringSet for collecting top root modules
+f29b70ad2 - Leandro López (inkel) &lt;work@example.com&gt; - Add stringSet type to collect unique set of strings
+</code></pre><p>This is a very particular use case, but what else we could do with it? Well, you can pass anything to the <code>exec</code> flag, not only Git commands, so you could say run your test suite for each commit and if the command fails then it will stop executing the rebase, allowing you to fix things before continuing. Definitely a very powerful tool to have in your toolbox!</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/hello-grafana-labs/">Hello, Grafana Labs!</a>
     </h1>
   </header>
@@ -305,34 +371,6 @@
 
   <section class="content">
     <p>This <a href="https://buttondown.email/inkel/archive/inkelinks-s01e05-christmas-edition/">week&rsquo;s episode</a> was delivered a little bit earlier because this Jesus guy stole my thunder and decided to celebrate his birthday on Friday. Anyway, if you are not happy with GitHub&rsquo;s repository page UI, or want to program without using your keyboard, or are you in doubt if you should use a NoSQL database or an old RDBMS, then you don&rsquo;t want to miss this episode.</p>
-
-  </section>
-
-  
-</article>
-
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/inkelinks-s01e04/">inkelinks S01E04</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">1min.</span>
-    <time datetime="2020-12-18 11:30:13 -0300 -03">2020-12-18</time>
-    <nav class="tags">
-      
-      <a href="/tags/inkelinks">inkelinks</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>Today <a href="https://buttondown.email/inkel/archive/inkelinks-s01e04/">I brought you</a> a little bit of space and programming, more programming history, how to get recognized at work, designing better documentation, and speeding up your CI pipelines by cloning your repositories in a faster way. You don&rsquo;t want to miss it!</p>
 
   </section>
 

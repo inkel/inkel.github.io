@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://inkel.github.io/posts/hello-grafana-labs/</loc>
-    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+    <loc>https://inkel.github.io/posts/change-several-commits-author-easily/</loc>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
+  </url><url>
+    <loc>https://inkel.github.io/tags/git/</loc>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
   </url><url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -18,11 +21,8 @@
                 href="https://inkel.github.io/"
                 />
   </url><url>
-    <loc>https://inkel.github.io/tags/personal/</loc>
-    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
-  </url><url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -35,7 +35,7 @@
                 />
   </url><url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -48,6 +48,12 @@
                 />
   </url><url>
     <loc>https://inkel.github.io/tags/work/</loc>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
+  </url><url>
+    <loc>https://inkel.github.io/posts/hello-grafana-labs/</loc>
+    <lastmod>2021-03-30T15:37:44-03:00</lastmod>
+  </url><url>
+    <loc>https://inkel.github.io/tags/personal/</loc>
     <lastmod>2021-03-30T15:37:44-03:00</lastmod>
   </url><url>
     <loc>https://inkel.github.io/posts/goodbye-theorem/</loc>
