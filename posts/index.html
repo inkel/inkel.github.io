@@ -1072,8 +1072,7 @@ example.net.        3600    IN  A       192.168.14.52
 <p>As you are aware, at the time of writing this post we are living in very strange times, throughout a global pandemic that has most of the world in quarantine with people confined to their places and working remotely. As stated earlier, at Theorem we are 100% remote since the beginning, so the COVID-19 pandemic didn&rsquo;t change much on how we work, although it had some effects.</p>
 <h2 id="pre-pandemic-typical-workday">Pre-pandemic typical workday</h2>
 <p>I have an office 20 blocks away from home, and my kids went to kindergarten 4 blocks away from the office, so days started at 6:15 am to enjoy breakfast with the family, then we would drive the kids to school, drop them and head to the office. My workdays usually started, then, at 8:00 am.</p>
-<figure class="photo"><a href="https://www.flickr.com/photos/inkel/49831040487/in/dateposted/">
-    <img src="https://live.staticflickr.com/65535/49831040487_a6ce2c02ea.jpg"/> </a><figcaption>
+<figure class="photo"><a href="https://www.flickr.com/photos/inkel/49831040487/in/dateposted/"><img src="https://live.staticflickr.com/65535/49831040487_a6ce2c02ea.jpg"/></a><figcaption>
             <h4>Office</h4>
         </figcaption>
 </figure>
@@ -1561,8 +1560,7 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
 	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;client sent %d bytes: %q&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="nx">data</span><span class="p">)</span>
 	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 <p>I&rsquo;m running <code>go run server.go</code> in a machine whose IP is <code>192.168.1.20</code>, and I&rsquo;ll be sending requests from another machine whose IP is <code>192.168.1.12</code>. One the server machine I&rsquo;m also running an <a href="HAProxy">https://www.haproxy.org/</a> server that acts as a proxy to the Go program above:</p>
 <pre><code>global
     debug
@@ -1667,8 +1665,7 @@ Your remote address is 192.168.1.20:57681
 <span class="kd">type</span> <span class="nx">addr</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">hp</span> <span class="kt">string</span> <span class="p">}</span>
 
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">Network</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&#34;tcp&#34;</span> <span class="p">}</span>
-<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hp</span> <span class="p">}</span>
-</code></pre></div>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hp</span> <span class="p">}</span></code></pre></div>
 <p>Now in our server we wrap the connection into our new type, and pass it to the <code>handle</code> func:</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
@@ -1692,8 +1689,7 @@ Your remote address is 192.168.1.20:57681
 
 		<span class="k">go</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">pcn</span><span class="p">)</span>
 	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 <p>With this, now we see the right output in both the client:</p>
 <pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
 Your remote address is 192.168.1.12:45050
