@@ -12,6 +12,15 @@
    
    
      <item>
+       <title>Replace Go module with local version</title>
+       <link>https://inkel.github.io/posts/replace-go-module-with-local-version/</link>
+       <pubDate>Thu, 20 May 2021 08:50:18 -0300</pubDate>
+       
+       <guid>https://inkel.github.io/posts/replace-go-module-with-local-version/</guid>
+       <description>&lt;p&gt;I was going to write about this, but &lt;a href=&#34;https://lornajane.net/&#34;&gt;Pam Selle&lt;/a&gt; already did it: &lt;a href=&#34;https://lornajane.net/posts/2020/use-a-local-version-of-a-library-in-go&#34;&gt;Use a Local Version of a Library in Go&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Long story short: just run &lt;code&gt;go mod edit -replace path/to/module=/absolute/local/path&lt;/code&gt; and you&amp;rsquo;re good to go! Now when you compile your Go project it will be using the changes in your local environment and not those published in Go module registry.&lt;/p&gt;</description>
+     </item>
+   
+     <item>
        <title>Change several Git commits&#39; author easily</title>
        <link>https://inkel.github.io/posts/change-several-commits-author-easily/</link>
        <pubDate>Thu, 15 Apr 2021 09:54:09 -0300</pubDate>

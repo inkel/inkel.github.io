@@ -2,14 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://inkel.github.io/posts/change-several-commits-author-easily/</loc>
-    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
-  </url><url>
-    <loc>https://inkel.github.io/tags/git/</loc>
-    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
+    <loc>https://inkel.github.io/tags/go/</loc>
+    <lastmod>2021-05-20T08:50:18-03:00</lastmod>
   </url><url>
     <loc>https://inkel.github.io/</loc>
-    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
+    <lastmod>2021-05-20T08:50:18-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -22,7 +19,7 @@
                 />
   </url><url>
     <loc>https://inkel.github.io/posts/</loc>
-    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
+    <lastmod>2021-05-20T08:50:18-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -34,8 +31,11 @@
                 href="https://inkel.github.io/posts/"
                 />
   </url><url>
+    <loc>https://inkel.github.io/posts/replace-go-module-with-local-version/</loc>
+    <lastmod>2021-05-20T08:50:18-03:00</lastmod>
+  </url><url>
     <loc>https://inkel.github.io/tags/</loc>
-    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
+    <lastmod>2021-05-20T08:50:18-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -46,6 +46,12 @@
                 hreflang="en"
                 href="https://inkel.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://inkel.github.io/posts/change-several-commits-author-easily/</loc>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
+  </url><url>
+    <loc>https://inkel.github.io/tags/git/</loc>
+    <lastmod>2021-04-15T09:54:09-03:00</lastmod>
   </url><url>
     <loc>https://inkel.github.io/tags/work/</loc>
     <lastmod>2021-04-15T09:54:09-03:00</lastmod>
@@ -199,9 +205,6 @@
   </url><url>
     <loc>https://inkel.github.io/tags/ssh/</loc>
     <lastmod>2017-11-17T15:51:51-03:00</lastmod>
-  </url><url>
-    <loc>https://inkel.github.io/tags/go/</loc>
-    <lastmod>2017-10-27T10:24:08-03:00</lastmod>
   </url><url>
     <loc>https://inkel.github.io/posts/reverse-curl/</loc>
     <lastmod>2017-10-27T10:24:08-03:00</lastmod>
