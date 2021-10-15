@@ -41,6 +41,71 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/check-environment-variables-in-go-properly/">How to properly check environment variables values in Go</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2021-10-15 10:06:45 -0300 -03">2021-10-15</time>
+    <nav class="tags">
+      
+      <a href="/tags/go">go</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>One thing I&rsquo;ve found fairly often in Go programs is people checking if an environment variable is defined by using the <a href="https://pkg.go.dev/os#LookupEnv"><code>os.LookupEnv</code></a> function, that returns a string with the value, and a boolean indicating that the variable is present. However, what most people seem to miss is the comment that the returned value might still be empty!</p>
+<p>Take for instance the following program that you can try in <a href="https://play.golang.org/p/o_5qRCF62BR">the Go Playground</a>:</p>
+<pre tabindex="0"><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	os.Setenv(&quot;FOO&quot;, &quot;bar&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Setenv(&quot;FOO&quot;, &quot;&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Unsetenv(&quot;FOO&quot;)
+	printEnv(&quot;FOO&quot;)
+
+}
+
+func printEnv(v string) {
+	ge := os.Getenv(v)
+	le, ok := os.LookupEnv(v)
+	fmt.Printf(&quot;Getenv(%[1]q) =&gt; %[2]q\nLookupEnv(%[1]q) =&gt; (%[3]q, %[4]t)\n\n&quot;, v, ge, le, ok)
+}
+</code></pre><p>If you run this, the results might not be what you were expecting:</p>
+<pre tabindex="0"><code>Getenv(&quot;FOO&quot;) =&gt; &quot;bar&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;bar&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, false)
+</code></pre><p>Now you know: the proper way to check an environment variable os it use <code>os.LookupEnv</code> and check both the boolean and that the string isn&rsquo;t empty, otherwise you might introduce a bug in your program.</p>
+<p>PS: how cool is that you can refer to arguments in a formatting string using their position?</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/replace-go-module-with-local-version/">Replace Go module with local version</a>
     </h1>
   </header>
@@ -91,18 +156,18 @@
     <p>Recently <a href="/posts/hello-grafana-labs/">I&rsquo;ve changed jobs</a>, and that meant, among many other things, that my work email address changed, which means that my commits are now using the wrong email address! I need to fix that, but of course I&rsquo;ve already committed stuff using my old email address. How can I fix that?</p>
 <p>Luckily the solution isn&rsquo;t difficult, though it took me a while to properly figure it out.</p>
 <p>The first thing I needed to do was to configure my repository to use my work email address:</p>
-<pre><code>path/to/work-repo $ git config user.name &quot;Leandro López (inkel)&quot;
+<pre tabindex="0"><code>path/to/work-repo $ git config user.name &quot;Leandro López (inkel)&quot;
 path/to/work-repo $ git config user.email &quot;work@example.com&quot;
 </code></pre><p>Note that I&rsquo;m doing this only for my work related repositories, so all of my other work (e.g. public or open source) uses my personal email address.</p>
 <p>Next I want to know which commits SHA1s are using my personal email address. I can use the<a href="http://git-scm.com/docs/git-log#Documentation/git-log.txt---authorltpatterngt"> <code>--author</code> flag of <code>git-log(1)</code></a> and get that information easily:</p>
-<pre><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s&quot; --abbrev-commit --author=personal@example.com
+<pre tabindex="0"><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s&quot; --abbrev-commit --author=personal@example.com
 86b860dcc - inkel &lt;personal@example.com&gt; - Use stringSet for collecting child modules
 9822062a9 - inkel &lt;personal@example.com&gt; - Use stringSet for collecting top root modules
 d6d397f3c - inkel &lt;personal@example.com&gt; - Add stringSet type to collect unique set of strings
 </code></pre><p>Now what I want to do is to reset the author to use the one I configured for this repository without editing the commit message; additionally I want to add a <code>Signed off by</code> line at the end of each commit message. One way to do this is to manually execute the following for every commit:</p>
-<pre><code>$ git commit --amend --signoff --author=&quot;Leandro López (inkel) &lt;work@example.com&gt;&quot; $COMMITSHA
+<pre tabindex="0"><code>$ git commit --amend --signoff --author=&quot;Leandro López (inkel) &lt;work@example.com&gt;&quot; $COMMITSHA
 </code></pre><p>But as you can figure out, this becomes tedious if you have multiple commits. So let&rsquo;s use the power of <a href="http://git-scm.com/docs/git-rebase"><code>git-rebase(1)</code></a> and automate this:</p>
-<pre><code>$ git rebase --exec='git commit --no-edit --amend -s --reset-author' d6d397f3c^
+<pre tabindex="0"><code>$ git rebase --exec='git commit --no-edit --amend -s --reset-author' d6d397f3c^
 Executing: git commit --no-edit --amend -s --reset-author
 [detached HEAD f29b70ad2] Add stringSet type to collect unique set of strings
  2 files changed, 120 insertions(+)
@@ -120,7 +185,7 @@ Successfully rebased and updated refs/heads/foo.
 <p>First is the <a href="http://git-scm.com/docs/git-rebase"><code>--exec</code> flag</a>. This tells Git that for the given list of commits it needs to execute that command <strong>after</strong> each commit. In this case the command to execute is <code>git commit --no-edit --amend -s --reset-author</code> which amends the commit (<code>--amend</code>) without changing the commit message (<code>--no-edit</code>) except by adding a <code>Signed off by</code> line at the end of the message (<code>-s</code> which is short for <code>--signoff</code>) and changing the author to the one this repository should use (<code>--reset-author</code>, remember we add a custom configuration for it).</p>
 <p>Then comes the commit list, in this case <code>d6d397f3c^</code>. Look again at the list of commits above. If you see, the SHA is the same as the one at the bottom of the list, which is the <em>first</em> commit of the list (they are shown in reverse order). The <code>^</code> at the end of the SHA instructs Git to go through the current list of commits until the <em>parent</em> of that commit, without including it.</p>
 <p>And that&rsquo;s it! Once this is done, I pull the list of commits again and it looks right:</p>
-<pre><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s (%cr)' --abbrev-commit --date=relative&quot; --author=work@example.com
+<pre tabindex="0"><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s (%cr)' --abbrev-commit --date=relative&quot; --author=work@example.com
 5d168a566 - Leandro López (inkel) &lt;work@example.com&gt; - Use stringSet for collecting child modules
 3ca17042b - Leandro López (inkel) &lt;work@example.com&gt; - Use stringSet for collecting top root modules
 f29b70ad2 - Leandro López (inkel) &lt;work@example.com&gt; - Add stringSet type to collect unique set of strings
@@ -960,7 +1025,7 @@ CLI is where I feel Windows fails the most, and while the new <a href="https://d
 
   <section class="content">
     <p>I kept forgetting how to perform the equivalent of <a href="https://man7.org/linux/man-pages/man1/grep.1.html"><code>grep(1)</code></a> in PowerShell. The simple answer is <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7"><code>Select-String</code></a>. It is aliased to <code>sls</code>.</p>
-<pre><code>ipconfig | Select-String 192.168
+<pre tabindex="0"><code>ipconfig | Select-String 192.168
 </code></pre><p>I should probably add a <a href="https://stackoverflow.com/a/24914795">permanent alias</a>.</p>
 
   </section>
@@ -1058,10 +1123,10 @@ And when it comes to direct messages I always try to send initially only one mes
 <p>This is were it gets complicated. If you had an <code>ALIAS</code> for <code>example.com</code> to <code>example.net</code> you cannot replace it with a <code>CNAME</code>, because apex domains do not support that. The solution is to use an <code>A</code> record, which loses the value of an alias you would need to keep updating the IP address of the destination of it ever changes.</p>
 <h2 id="summary">Summary</h2>
 <p>As you can see it’s not that complicated to migrate ALIAS records to AWS Route53, however, they do have some limitations. I’ve went from this</p>
-<pre><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
+<pre tabindex="0"><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
 example.com.     3600 IN TXT &quot;ALIAS for example.net&quot;
 </code></pre><p>to this</p>
-<pre><code>www.example.com.    3600    IN  CNAME   example.net.
+<pre tabindex="0"><code>www.example.com.    3600    IN  CNAME   example.net.
 example.net.        3600    IN  A       192.168.14.52
 </code></pre><p>and achieved the expected results, though we now need to keep an eye on the IP address of the destination.</p>
 
@@ -1162,7 +1227,7 @@ example.net.        3600    IN  A       192.168.14.52
   <section class="content">
     <p>If you are like me you might have used the <a href="https://linux.die.net/man/1/sort"><code>sort(1)</code></a> CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.</p>
 <p>Say that we have the following file to sort:</p>
-<pre><code>fpdy 01 08 wcfo
+<pre tabindex="0"><code>fpdy 01 08 wcfo
 juvi 01 02 ejan
 urbx 04 03 ckbw
 fkzq 01 08 myaz
@@ -1173,7 +1238,7 @@ chok 09 06 nqwo
 emjd 01 04 ledx
 npto 02 10 nqsc
 </code></pre><p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
-<pre><code>fpdy 0108 wcfo
+<pre tabindex="0"><code>fpdy 0108 wcfo
 juvi 0102 ejan
 urbx 0403 ckbw
 fkzq 0108 myaz
@@ -1184,7 +1249,7 @@ chok 0906 nqwo
 emjd 0104 ledx
 npto 0210 nqsc
 </code></pre><p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
-<pre><code>$ sort -k 2.4 foo.txt
+<pre tabindex="0"><code>$ sort -k 2.4 foo.txt
 almv 0402 adhs
 juvi 0102 ejan
 urbx 0403 ckbw
@@ -1272,7 +1337,7 @@ npto 0210 nqsc
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>This is exciting to me as the work I&rsquo;ve been doing in <a href="https://github.com/inkel/viaproxy"><code>viaproxy</code></a> had one caveat: testing it works was a bit convoluted, as I was doing by running an <a href="https://www.haproxy.org/">HAProxy</a> instance with a custom configuration like the following:</p>
-<pre><code>global
+<pre tabindex="0"><code>global
     debug
     maxconn 4000
     log 127.0.0.1 local0
@@ -1333,7 +1398,7 @@ listen with-send-proxy
 
   <section class="content">
     <p>Today <a href="https://chadoh.com/">Chad Ostrowski</a>, a fellow engineer at <a href="https://citrusbyte.com/">Citrusbyte</a>, shared an article he wrote: <a href="https://medium.com/@chadoh/css-pro-tips-responsive-font-sizes-and-when-to-use-which-units-d005486985ec">CSS pro tips: responsive font-sizes and when to use which units</a>. After reading it, I couldn&rsquo;t help myself and adapted some of the tips there to this site. It&rsquo;s now much easier to maintain, I think, as I&rsquo;ve removed all previous media queries, but I had to add one:</p>
-<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
   <span class="nt">html</span> <span class="p">{</span> <span class="k">font-size</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">1</span><span class="kt">em</span> <span class="o">+</span> <span class="mf">0.5</span><span class="kt">vw</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p>Without this the text on my machine looks <strong>too big</strong>. I need to work on this, I think.</p>
@@ -1366,7 +1431,7 @@ listen with-send-proxy
 
   <section class="content">
     <p>Say you have a private key in <a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail">PEM format</a>, and you want to use that key for SSH into another server, by adding an entry to your <code>~/.ssh/authorized_keys</code> file with the public key of such PEM file. The following command will parse your PEM file and output the required RSA format used in <code>authorized_keys</code>:</p>
-<pre><code>ssh-keygen -y -f path/to/file.pem
+<pre tabindex="0"><code>ssh-keygen -y -f path/to/file.pem
 </code></pre><p>This will output a <code>ssh-rsa AAAA…</code> string that is safe to append to your <code>~/.ssh/authorized_keys</code>. The <a href="https://linux.die.net/man/1/ssh-keygen"><code>ssh-keygen</code></a> uses the <code>-f</code> flag to specify the input file name, and the <code>-y</code> flag to read a private file and output the OpenSSH public key to standard output.</p>
 
   </section>
@@ -1411,7 +1476,7 @@ listen with-send-proxy
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>It&rsquo;s still very fresh and missing many features, but basically it is a web server that allows you to configure it to always respond with a custom response without too much hassle. The usage is very simple:</p>
-<pre><code>Usage of lruc:
+<pre tabindex="0"><code>Usage of lruc:
   -addr string
         Address to listen for requests (default &quot;:8080&quot;)
   -body -
@@ -1421,9 +1486,9 @@ listen with-send-proxy
   -content-type string
         Content-Type (default &quot;text/plain&quot;)
 </code></pre><p>Say that you want to create a server that always respond with a <code>404 Not Found</code> and a body of <code>No se pudo encontrar lo que buscaba</code> (Spanish for <em>Couldn&rsquo;t find what you were looking for</em> (sort of)) on port 7070, then you could execute the following:</p>
-<pre><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
+<pre tabindex="0"><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
 </code></pre><p>Or say that you want to always return an image, then you could do something like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
 
 <span class="c1"># Or in an useless use of cat</span>
 cat image.png <span class="p">|</span> lruc -content-type image/png -body -
@@ -1494,18 +1559,18 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
     <h3 id="or-why-i-renamed-githubcominkelgo-proxy-protocol-to-githubcominkelviaproxygithubcominkelviaproxy">Or why I renamed <code>github.com/inkel/go-proxy-protocol</code> to <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a>.</h3>
 <p>In my <a href="/posts/proxy-protocol/">previous article</a> I introduced a repository that hold the code to create <code>net.Conn</code> objects aware of the <a href="http://www.haproxy.com/blog/haproxy/proxy-protocol/">proxy protocol</a>, but I wasn&rsquo;t happy with the name of the repository.</p>
 <p>Package names are important in Go, and one aspect that we tend to overlook is that they actually are part of the calling signature when you want to use an export type or function. With the previous code, if we wanted to use the <code>net.Conn</code> wrapper we would have to first import the library:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span>
 </code></pre></div><p>Once we did that, then to wrap a connection we would have to call:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
 </code></pre></div><p>Similarly if we wanted to use the <code>net.Listen</code> alternative, we should&rsquo;ve had to import <code>github.com/inkel/go-proxy-protocol/listen</code> and then call <code>cn, err := listen.WithProxyProtocol</code>. This doesn&rsquo;t look right to my eyes, and hopefully not to yours either. And aside aesthetics, two packages for such limited code? Doesn&rsquo;t make much sense.</p>
 <p>So I spent the day thinking on a better name that could allow me to better convey the effect we want to achieve and that fits in just one library, and thus, <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a> came to be. Let&rsquo;s see how better the code would look like now when wrapping a connection:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// wrap the connection
 </span><span class="c1"></span><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Wrap</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
 </code></pre></div><p>Similarly if you want to use the <code>net.Listener</code>, the code looks just as well (and I might even add that looks better):</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// create the listener
@@ -1547,7 +1612,7 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
 </blockquote>
 <p>If you are proxying an HTTP(S) server, chances are that you have used the <code>X-Forwarded-From</code> header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</p>
 <p>Take for instance the following example: we will have a simple TCP server that echo backs the client&rsquo;s remote address:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;fmt&#34;</span>
@@ -1592,7 +1657,7 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 <p>I&rsquo;m running <code>go run server.go</code> in a machine whose IP is <code>192.168.1.20</code>, and I&rsquo;ll be sending requests from another machine whose IP is <code>192.168.1.12</code>. One the server machine I&rsquo;m also running an <a href="HAProxy">https://www.haproxy.org/</a> server that acts as a proxy to the Go program above:</p>
-<pre><code>global
+<pre tabindex="0"><code>global
     debug
     maxconn 4000
     log 127.0.0.1 local0
@@ -1617,12 +1682,12 @@ listen w-send-proxy
     server app1 192.168.1.20:7654 send-proxy
 </code></pre><p>This configuration creates 2 proxies: one listening on port <code>17654</code> which just proxies the client connection to the server, and another proxy listening in port <code>276564</code> which does the same but it also enables using the proxy protocol by using the <a href="http://cbonte.github.io/haproxy-dconv/1.7/configuration.html#send-proxy"><code>send-proxy</code></a> keyword.</p>
 <p>On the client machine, I&rsquo;m running the following to send requests directly to the Go server, via the regular proxy and via the proxy with proxy protocol enabled:</p>
-<pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
+<pre tabindex="0"><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
 Your remote address is 192.168.1.12:44966
 Your remote address is 192.168.1.20:57680
 Your remote address is 192.168.1.20:57681
 </code></pre><p>As you can see in the first case the client is informed that its remote address is <code>192.168.1.12</code>, which is correct, but in both the other cases it says <code>192.168.1.20</code>, which is the address of the proxy. Let&rsquo;s check what the server has to say in its output:</p>
-<pre><code>$ go run server.go
+<pre tabindex="0"><code>$ go run server.go
 2017/10/13 11:50:54 handling connection from 192.168.1.12:44966
 2017/10/13 11:50:54 client sent 6 bytes: &quot;inkel\n&quot;
 2017/10/13 11:50:54 handling connection from 192.168.1.20:57680
@@ -1631,10 +1696,10 @@ Your remote address is 192.168.1.20:57681
 2017/10/13 11:50:54 client sent 56 bytes: &quot;PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\ninkel\n&quot;
 </code></pre><p>Here something interesting happens: the first connection, the one made directly to the Go server, properly shows the remote address as <code>192.168.1.12</code> and the contents. The second and third ones incorrectly report the remote address as <code>192.168.1.20</code> but the third one shows something interesting in what was received from the client: instead of just receiving <code>inkel</code> it first received <code>PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\n</code>. This is what proxy protocol does, and if you see clearly, the client&rsquo;s actual IP address is there!</p>
 <p>The proxy protocol, when enabled, will send the following initial line to the proxied server:</p>
-<pre><code>PROXY &lt;inet protocol&gt; &lt;client IP&gt; &lt;proxy IP&gt; &lt;client port&gt; &lt;proxy port&gt;\r\n
+<pre tabindex="0"><code>PROXY &lt;inet protocol&gt; &lt;client IP&gt; &lt;proxy IP&gt; &lt;client port&gt; &lt;proxy port&gt;\r\n
 </code></pre><p>The actual <a href="http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">specification</a> is fairly simple, and now we can see why the only condition for proxy protocol to work is that <strong>both endpoints of the connection MUST be compatible with proxy protocol</strong>.</p>
 <p>This explains why the Go server isn&rsquo;t reporting the right remote address, even when proxy protocol is used: the <a href="https://golang.org/pkg/net/"><code>net</code></a> package doesn&rsquo;t (currently) supports proxy protocol. But adding support to it isn&rsquo;t too difficult. Here we have a custom connection type that complies with the <a href="https://golang.org/pkg/net/#Conn"><code>net.Conn</code></a> interface:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">myConn</span> <span class="kd">struct</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">myConn</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">cn</span>      <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span>
 	<span class="nx">r</span>       <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span>
 	<span class="nx">local</span>   <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>
@@ -1697,7 +1762,7 @@ Your remote address is 192.168.1.20:57681
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">Network</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&#34;tcp&#34;</span> <span class="p">}</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hp</span> <span class="p">}</span></code></pre></div>
 <p>Now in our server we wrap the connection into our new type, and pass it to the <code>handle</code> func:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
@@ -1721,12 +1786,12 @@ Your remote address is 192.168.1.20:57681
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 <p>With this, now we see the right output in both the client:</p>
-<pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
+<pre tabindex="0"><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
 Your remote address is 192.168.1.12:45050
 Your remote address is 192.168.1.20:60729
 Your remote address is 192.168.1.12:58556
 </code></pre><p>&hellip;and in the server:</p>
-<pre><code>2017/10/13 13:37:45 accepted connection from 192.168.1.12:45056
+<pre tabindex="0"><code>2017/10/13 13:37:45 accepted connection from 192.168.1.12:45056
 2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
 2017/10/13 13:37:45 accepted connection from 192.168.1.20:60738
 2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;

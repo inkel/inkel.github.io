@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-	<meta name="generator" content="Hugo 0.83.1" />
+	<meta name="generator" content="Hugo 0.88.1" />
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8844932ea3044682adb9db426ac05300"}'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0;">
 
@@ -38,6 +38,38 @@
 
 
 <section id="content">
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/adventofcode2020-day1/">Advent of Code 2020: Day 1</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2020-12-06 23:30:00 -0300 -03">2020-12-06</time>
+    <nav class="tags">
+      
+      <a href="/tags/programming">programming</a>
+      
+      <a href="/tags/adventofcode">adventofcode</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>I did it! I was finally to solve both <a href="https://github.com/inkel/adventofcode-2020/blob/e80cb5b5be71002516c89e95dc86bd857e678eec/src/adventofcode_2020/day1.clj">Day 1 challenges in Clojure</a>! And it only took me four days!</p>
+<p>As said in my <a href="https://inkel.github.io/posts/adventofcode-2020/">previous post</a> one of the reasons why I&rsquo;m participating in this years <a href="https://adventofcode.com/2020">Advent of Code</a> is because I want to learn <a href="https://clojure.org/">Clojure</a>, and while at times I felt frustrated because I couldn&rsquo;t find the solution, I&rsquo;m happy that I did. As with everything, in hindsight, the solution is obvious now. Not that while the problems were similar, both solutions are quite different, and I think they showcase my improvement with the language and functional way of thinking.</p>
+<p>I&rsquo;m looking forward to Day 2 challenges, and I hope to solve them in less than four days!</p>
+
+  </section>
+
+  
+</article>
+
   <hr>
   
   
@@ -295,7 +327,7 @@ CLI is where I feel Windows fails the most, and while the new <a href="https://d
 
   <section class="content">
     <p>I kept forgetting how to perform the equivalent of <a href="https://man7.org/linux/man-pages/man1/grep.1.html"><code>grep(1)</code></a> in PowerShell. The simple answer is <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string?view=powershell-7"><code>Select-String</code></a>. It is aliased to <code>sls</code>.</p>
-<pre><code>ipconfig | Select-String 192.168
+<pre tabindex="0"><code>ipconfig | Select-String 192.168
 </code></pre><p>I should probably add a <a href="https://stackoverflow.com/a/24914795">permanent alias</a>.</p>
 
   </section>
@@ -391,10 +423,10 @@ And when it comes to direct messages I always try to send initially only one mes
 <p>This is were it gets complicated. If you had an <code>ALIAS</code> for <code>example.com</code> to <code>example.net</code> you cannot replace it with a <code>CNAME</code>, because apex domains do not support that. The solution is to use an <code>A</code> record, which loses the value of an alias you would need to keep updating the IP address of the destination of it ever changes.</p>
 <h2 id="summary">Summary</h2>
 <p>As you can see it’s not that complicated to migrate ALIAS records to AWS Route53, however, they do have some limitations. I’ve went from this</p>
-<pre><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
+<pre tabindex="0"><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
 example.com.     3600 IN TXT &quot;ALIAS for example.net&quot;
 </code></pre><p>to this</p>
-<pre><code>www.example.com.    3600    IN  CNAME   example.net.
+<pre tabindex="0"><code>www.example.com.    3600    IN  CNAME   example.net.
 example.net.        3600    IN  A       192.168.14.52
 </code></pre><p>and achieved the expected results, though we now need to keep an eye on the IP address of the destination.</p>
 
@@ -403,102 +435,38 @@ example.net.        3600    IN  A       192.168.14.52
   
 </article>
 
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/typical-workday-at-theorem/">Working at Theorem: a typical day</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">4min.</span>
-    <time datetime="2020-04-28 10:45:00 -0300 -03">2020-04-28</time>
-    <nav class="tags">
-      
-      <a href="/tags/theorem">theorem</a>
-      
-      <a href="/tags/remote%20working">remote working</a>
-      
-      <a href="/tags/personal">personal</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>I&rsquo;ve joined <del>Citrusbyte</del><a href="https://theorem.co/">Theorem</a> 9 years ago, and since day 1 it was a fully remote experience. Over the years I&rsquo;ve learned lots about how to organize myself to approach each new workday although never gave much thought to it, until a few days ago, when while interviewing a candidate he asked <em>what does a typical day at Theorem looks like</em>. This post will try to address that question.</p>
-<p>First and foremost, a disclaimer: by no means I speak on behalf of Theorem or the rest of my teammates; these are entirely my own experiences and do not reflect the reality of all the great people working at this company.</p>
-<p>I live with my girlfriend and our two lovely kids (4 years old and 1 year and a half), so keep that in mind while reading this post.</p>
-<p>As you are aware, at the time of writing this post we are living in very strange times, throughout a global pandemic that has most of the world in quarantine with people confined to their places and working remotely. As stated earlier, at Theorem we are 100% remote since the beginning, so the COVID-19 pandemic didn&rsquo;t change much on how we work, although it had some effects.</p>
-<h2 id="pre-pandemic-typical-workday">Pre-pandemic typical workday</h2>
-<p>I have an office 20 blocks away from home, and my kids went to kindergarten 4 blocks away from the office, so days started at 6:15 am to enjoy breakfast with the family, then we would drive the kids to school, drop them and head to the office. My workdays usually started, then, at 8:00 am.</p>
-<figure class="photo"><a href="https://www.flickr.com/photos/inkel/49831040487/in/dateposted/"><img src="https://live.staticflickr.com/65535/49831040487_a6ce2c02ea.jpg"/></a><figcaption>
-            <h4>Office</h4>
-        </figcaption>
-</figure>
-
-<p>The very first thing I usually do any given day is going through my emails and any pending notification from the day before. If something requires my attention immediately I answer right at it, otherwise, I either archive or snooze the message to a later time if required.</p>
-<p>Next is checking the status of any ongoing task I have been working previously, and paving the way for what&rsquo;s next. Then, off to work.</p>
-<p>Around noon either myself or my girlfriend goes to pick up the kids from school, and takes them home to have lunch, and then back to the office. If I&rsquo;m the one picking them, I do that during my lunch break, and then have a quick bite or snack. Otherwise, I cook something for myself or order some delivery. During this break I might read or watch something.</p>
-<p>Then the rest of the day goes on, until 4:00 pm or 5:00 pm, depending on the day, and walk back home. And that concludes a typical workday.</p>
-<h2 id="typical-workday-during-the-pandemic">Typical workday during the pandemic</h2>
-<p>Things have changed, clearly. We don&rsquo;t wake up anymore at 6:15 am, now it&rsquo;s usually at around 8:00 am. Breakfast is served, and I use this time to catch up on some news and go through my emails and notifications, again snoozing for an hour or so whatever needs my attention; the rest is archived.</p>
-<p>I&rsquo;ve set up a standing desk in my bedroom, which is right next to the living room, where the kids spend most of their time playing. The biggest change since the pandemic was that nowadays I don&rsquo;t have long stretches of work time anymore, so I try and split my tasks into smaller time schedules, so I can take a look at my kids, play with them or help them with homework (yes, even my 1.5 years old daughter has Zoom meetings now.)</p>
-<figure class="photo">
-  <a href="https://www.flickr.com/photos/inkel/49802372406/in/dateposted/" title="Working from home">
-    <img src="https://live.staticflickr.com/65535/49802372406_9ea8c8a64d.jpg" alt="Work from home" />
-  </a>
-  <a href="https://www.flickr.com/photos/inkel/49802676397/in/photostream/" title="Work from home">
-    <img src="https://live.staticflickr.com/65535/49802676397_47b9993d65.jpg" alt="Work from home" />
-  </a>
-  <figcaption>
-    <h4>Working from home with kids</h4>
-  </figcaption>
-</figure>
-<p>Lunch and dinner are usually planned the night before, so at around noon either me or my girlfriend starts preparing lunch. The kids love this time as they get to watch something on Netflix. I had to cancel all my meetings during this time, but that doesn&rsquo;t seem to have affected my work. Asynchronous communication works great!</p>
-<p>After lunch work continues, and I might be able to get some work-only hours if the kids decide to nap, otherwise, again it&rsquo;s split into smaller chunks of time. Either way, I&rsquo;m still able to drive my commitments to success.</p>
-<h2 id="conclusions">Conclusions</h2>
-<p>As you can see, not much has changed, other than how many hours in stretch I can work without interruptions. All other work details were already in place given that we are a 100% remote company. The biggest takeaway, for me, is that in order to survive this crazy new world we are living in, you need to work with great people, who understand not all experiences are equal, who trust you will work with professionalism and responsibility, and who you trust back in the same way.</p>
-<p>If you like what you read and you would like to form part of this great team, check our <a href="https://theorem.co/careers">careers page</a> and apply to any of our current openings. Who knows? Perhaps your dream job is just waiting for you.</p>
-
-  </section>
-
-  
-</article>
-
   
 
   
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/">1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/2/">2</a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/page/3/">3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/4/">4</a>
-  </li>
-  <li class="page-item">
-    <a href="/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
-</ul>
-
-
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item active">
+        <a href="#" aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/5/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
 </section>
 
 

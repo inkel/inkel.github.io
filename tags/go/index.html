@@ -41,6 +41,71 @@
 <article class="page">
   <header>
     <h1>
+      <a href="/posts/check-environment-variables-in-go-properly/">How to properly check environment variables values in Go</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2021-10-15 10:06:45 -0300 -03">2021-10-15</time>
+    <nav class="tags">
+      
+      <a href="/tags/go">go</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>One thing I&rsquo;ve found fairly often in Go programs is people checking if an environment variable is defined by using the <a href="https://pkg.go.dev/os#LookupEnv"><code>os.LookupEnv</code></a> function, that returns a string with the value, and a boolean indicating that the variable is present. However, what most people seem to miss is the comment that the returned value might still be empty!</p>
+<p>Take for instance the following program that you can try in <a href="https://play.golang.org/p/o_5qRCF62BR">the Go Playground</a>:</p>
+<pre tabindex="0"><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	os.Setenv(&quot;FOO&quot;, &quot;bar&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Setenv(&quot;FOO&quot;, &quot;&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Unsetenv(&quot;FOO&quot;)
+	printEnv(&quot;FOO&quot;)
+
+}
+
+func printEnv(v string) {
+	ge := os.Getenv(v)
+	le, ok := os.LookupEnv(v)
+	fmt.Printf(&quot;Getenv(%[1]q) =&gt; %[2]q\nLookupEnv(%[1]q) =&gt; (%[3]q, %[4]t)\n\n&quot;, v, ge, le, ok)
+}
+</code></pre><p>If you run this, the results might not be what you were expecting:</p>
+<pre tabindex="0"><code>Getenv(&quot;FOO&quot;) =&gt; &quot;bar&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;bar&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, false)
+</code></pre><p>Now you know: the proper way to check an environment variable os it use <code>os.LookupEnv</code> and check both the boolean and that the string isn&rsquo;t empty, otherwise you might introduce a bug in your program.</p>
+<p>PS: how cool is that you can refer to arguments in a formatting string using their position?</p>
+
+  </section>
+
+  
+</article>
+
+  <hr>
+  
+  
+  
+<article class="page">
+  <header>
+    <h1>
       <a href="/posts/replace-go-module-with-local-version/">Replace Go module with local version</a>
     </h1>
   </header>
@@ -101,7 +166,7 @@
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>It&rsquo;s still very fresh and missing many features, but basically it is a web server that allows you to configure it to always respond with a custom response without too much hassle. The usage is very simple:</p>
-<pre><code>Usage of lruc:
+<pre tabindex="0"><code>Usage of lruc:
   -addr string
         Address to listen for requests (default &quot;:8080&quot;)
   -body -
@@ -111,9 +176,9 @@
   -content-type string
         Content-Type (default &quot;text/plain&quot;)
 </code></pre><p>Say that you want to create a server that always respond with a <code>404 Not Found</code> and a body of <code>No se pudo encontrar lo que buscaba</code> (Spanish for <em>Couldn&rsquo;t find what you were looking for</em> (sort of)) on port 7070, then you could execute the following:</p>
-<pre><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
+<pre tabindex="0"><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
 </code></pre><p>Or say that you want to always return an image, then you could do something like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
 
 <span class="c1"># Or in an useless use of cat</span>
 cat image.png <span class="p">|</span> lruc -content-type image/png -body -
@@ -150,18 +215,18 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
     <h3 id="or-why-i-renamed-githubcominkelgo-proxy-protocol-to-githubcominkelviaproxygithubcominkelviaproxy">Or why I renamed <code>github.com/inkel/go-proxy-protocol</code> to <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a>.</h3>
 <p>In my <a href="/posts/proxy-protocol/">previous article</a> I introduced a repository that hold the code to create <code>net.Conn</code> objects aware of the <a href="http://www.haproxy.com/blog/haproxy/proxy-protocol/">proxy protocol</a>, but I wasn&rsquo;t happy with the name of the repository.</p>
 <p>Package names are important in Go, and one aspect that we tend to overlook is that they actually are part of the calling signature when you want to use an export type or function. With the previous code, if we wanted to use the <code>net.Conn</code> wrapper we would have to first import the library:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/inkel/go-proxy-protocol/conn&#34;</span>
 </code></pre></div><p>Once we did that, then to wrap a connection we would have to call:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">WithProxyProtocol</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
 </code></pre></div><p>Similarly if we wanted to use the <code>net.Listen</code> alternative, we should&rsquo;ve had to import <code>github.com/inkel/go-proxy-protocol/listen</code> and then call <code>cn, err := listen.WithProxyProtocol</code>. This doesn&rsquo;t look right to my eyes, and hopefully not to yours either. And aside aesthetics, two packages for such limited code? Doesn&rsquo;t make much sense.</p>
 <p>So I spent the day thinking on a better name that could allow me to better convey the effect we want to achieve and that fits in just one library, and thus, <a href="github.com/inkel/viaproxy"><code>github.com/inkel/viaproxy</code></a> came to be. Let&rsquo;s see how better the code would look like now when wrapping a connection:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// wrap the connection
 </span><span class="c1"></span><span class="nx">newCn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">viaproxy</span><span class="p">.</span><span class="nf">Wrap</span><span class="p">(</span><span class="nx">cn</span><span class="p">)</span>
 </code></pre></div><p>Similarly if you want to use the <code>net.Listener</code>, the code looks just as well (and I might even add that looks better):</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// import the package
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;github.com/inkel/viaproxy&#34;</span>
 
 <span class="c1">// create the listener
@@ -203,7 +268,7 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
 </blockquote>
 <p>If you are proxying an HTTP(S) server, chances are that you have used the <code>X-Forwarded-From</code> header to keep the real remote address of the client making the request and not receving the proxy&rsquo;s address instead. But this only works for HTTP(S): if you are proxying any other kind of TCP service, you are doomed.</p>
 <p>Take for instance the following example: we will have a simple TCP server that echo backs the client&rsquo;s remote address:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;fmt&#34;</span>
@@ -248,7 +313,7 @@ cat image.png <span class="p">|</span> lruc -content-type image/png -body -
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 <p>I&rsquo;m running <code>go run server.go</code> in a machine whose IP is <code>192.168.1.20</code>, and I&rsquo;ll be sending requests from another machine whose IP is <code>192.168.1.12</code>. One the server machine I&rsquo;m also running an <a href="HAProxy">https://www.haproxy.org/</a> server that acts as a proxy to the Go program above:</p>
-<pre><code>global
+<pre tabindex="0"><code>global
     debug
     maxconn 4000
     log 127.0.0.1 local0
@@ -273,12 +338,12 @@ listen w-send-proxy
     server app1 192.168.1.20:7654 send-proxy
 </code></pre><p>This configuration creates 2 proxies: one listening on port <code>17654</code> which just proxies the client connection to the server, and another proxy listening in port <code>276564</code> which does the same but it also enables using the proxy protocol by using the <a href="http://cbonte.github.io/haproxy-dconv/1.7/configuration.html#send-proxy"><code>send-proxy</code></a> keyword.</p>
 <p>On the client machine, I&rsquo;m running the following to send requests directly to the Go server, via the regular proxy and via the proxy with proxy protocol enabled:</p>
-<pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
+<pre tabindex="0"><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
 Your remote address is 192.168.1.12:44966
 Your remote address is 192.168.1.20:57680
 Your remote address is 192.168.1.20:57681
 </code></pre><p>As you can see in the first case the client is informed that its remote address is <code>192.168.1.12</code>, which is correct, but in both the other cases it says <code>192.168.1.20</code>, which is the address of the proxy. Let&rsquo;s check what the server has to say in its output:</p>
-<pre><code>$ go run server.go
+<pre tabindex="0"><code>$ go run server.go
 2017/10/13 11:50:54 handling connection from 192.168.1.12:44966
 2017/10/13 11:50:54 client sent 6 bytes: &quot;inkel\n&quot;
 2017/10/13 11:50:54 handling connection from 192.168.1.20:57680
@@ -287,10 +352,10 @@ Your remote address is 192.168.1.20:57681
 2017/10/13 11:50:54 client sent 56 bytes: &quot;PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\ninkel\n&quot;
 </code></pre><p>Here something interesting happens: the first connection, the one made directly to the Go server, properly shows the remote address as <code>192.168.1.12</code> and the contents. The second and third ones incorrectly report the remote address as <code>192.168.1.20</code> but the third one shows something interesting in what was received from the client: instead of just receiving <code>inkel</code> it first received <code>PROXY TCP4 192.168.1.12 192.168.1.20 58472 27654\r\n</code>. This is what proxy protocol does, and if you see clearly, the client&rsquo;s actual IP address is there!</p>
 <p>The proxy protocol, when enabled, will send the following initial line to the proxied server:</p>
-<pre><code>PROXY &lt;inet protocol&gt; &lt;client IP&gt; &lt;proxy IP&gt; &lt;client port&gt; &lt;proxy port&gt;\r\n
+<pre tabindex="0"><code>PROXY &lt;inet protocol&gt; &lt;client IP&gt; &lt;proxy IP&gt; &lt;client port&gt; &lt;proxy port&gt;\r\n
 </code></pre><p>The actual <a href="http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">specification</a> is fairly simple, and now we can see why the only condition for proxy protocol to work is that <strong>both endpoints of the connection MUST be compatible with proxy protocol</strong>.</p>
 <p>This explains why the Go server isn&rsquo;t reporting the right remote address, even when proxy protocol is used: the <a href="https://golang.org/pkg/net/"><code>net</code></a> package doesn&rsquo;t (currently) supports proxy protocol. But adding support to it isn&rsquo;t too difficult. Here we have a custom connection type that complies with the <a href="https://golang.org/pkg/net/#Conn"><code>net.Conn</code></a> interface:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">myConn</span> <span class="kd">struct</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">myConn</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">cn</span>      <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span>
 	<span class="nx">r</span>       <span class="o">*</span><span class="nx">bufio</span><span class="p">.</span><span class="nx">Reader</span>
 	<span class="nx">local</span>   <span class="nx">net</span><span class="p">.</span><span class="nx">Addr</span>
@@ -353,7 +418,7 @@ Your remote address is 192.168.1.20:57681
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">Network</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&#34;tcp&#34;</span> <span class="p">}</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">addr</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>  <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">hp</span> <span class="p">}</span></code></pre></div>
 <p>Now in our server we wrap the connection into our new type, and pass it to the <code>handle</code> func:</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;:7654&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
@@ -377,12 +442,12 @@ Your remote address is 192.168.1.20:57681
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 <p>With this, now we see the right output in both the client:</p>
-<pre><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
+<pre tabindex="0"><code>$ for port in {,1,2}7654; do echo inkel | nc 192.168.1.20 ${port}; done
 Your remote address is 192.168.1.12:45050
 Your remote address is 192.168.1.20:60729
 Your remote address is 192.168.1.12:58556
 </code></pre><p>&hellip;and in the server:</p>
-<pre><code>2017/10/13 13:37:45 accepted connection from 192.168.1.12:45056
+<pre tabindex="0"><code>2017/10/13 13:37:45 accepted connection from 192.168.1.12:45056
 2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;
 2017/10/13 13:37:45 accepted connection from 192.168.1.20:60738
 2017/10/13 13:37:45 client sent 6 bytes: &quot;inkel\n&quot;

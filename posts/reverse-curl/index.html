@@ -81,7 +81,7 @@ Oh wow! :)" property="og:description" />
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>It&rsquo;s still very fresh and missing many features, but basically it is a web server that allows you to configure it to always respond with a custom response without too much hassle. The usage is very simple:</p>
-<pre><code>Usage of lruc:
+<pre tabindex="0"><code>Usage of lruc:
   -addr string
         Address to listen for requests (default &quot;:8080&quot;)
   -body -
@@ -91,9 +91,9 @@ Oh wow! :)" property="og:description" />
   -content-type string
         Content-Type (default &quot;text/plain&quot;)
 </code></pre><p>Say that you want to create a server that always respond with a <code>404 Not Found</code> and a body of <code>No se pudo encontrar lo que buscaba</code> (Spanish for <em>Couldn&rsquo;t find what you were looking for</em> (sort of)) on port 7070, then you could execute the following:</p>
-<pre><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
+<pre tabindex="0"><code>lruc -addr :7070 -code 404 -body &quot;No se pudo encontrar lo que buscaba&quot;
 </code></pre><p>Or say that you want to always return an image, then you could do something like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">&lt; image.png lruc -content-type image/png -body -
 
 <span class="c1"># Or in an useless use of cat</span>
 cat image.png <span class="p">|</span> lruc -content-type image/png -body -

@@ -65,10 +65,10 @@
 <p>This is were it gets complicated. If you had an <code>ALIAS</code> for <code>example.com</code> to <code>example.net</code> you cannot replace it with a <code>CNAME</code>, because apex domains do not support that. The solution is to use an <code>A</code> record, which loses the value of an alias you would need to keep updating the IP address of the destination of it ever changes.</p>
 <h2 id="summary">Summary</h2>
 <p>As you can see it’s not that complicated to migrate ALIAS records to AWS Route53, however, they do have some limitations. I’ve went from this</p>
-<pre><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
+<pre tabindex="0"><code>www.example.com. 3600 IN TXT &quot;ALIAS for example.net&quot;
 example.com.     3600 IN TXT &quot;ALIAS for example.net&quot;
 </code></pre><p>to this</p>
-<pre><code>www.example.com.    3600    IN  CNAME   example.net.
+<pre tabindex="0"><code>www.example.com.    3600    IN  CNAME   example.net.
 example.net.        3600    IN  A       192.168.14.52
 </code></pre><p>and achieved the expected results, though we now need to keep an eye on the IP address of the destination.</p>
 

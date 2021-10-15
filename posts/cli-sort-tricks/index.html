@@ -64,7 +64,7 @@ fpdy 01 08 wcfo juvi 01 02 ejan urbx 04 03 ckbw fkzq 01 08 myaz fjie 04 09 rhvo 
   <section class="content">
     <p>If you are like me you might have used the <a href="https://linux.die.net/man/1/sort"><code>sort(1)</code></a> CLI utility more than once in your life. Today, I&rsquo;ve found a trick that I&rsquo;ve never used before, and hopefully it will help someone else in the future.</p>
 <p>Say that we have the following file to sort:</p>
-<pre><code>fpdy 01 08 wcfo
+<pre tabindex="0"><code>fpdy 01 08 wcfo
 juvi 01 02 ejan
 urbx 04 03 ckbw
 fkzq 01 08 myaz
@@ -75,7 +75,7 @@ chok 09 06 nqwo
 emjd 01 04 ledx
 npto 02 10 nqsc
 </code></pre><p>Now, supposed that I wanted to sort first by the third column and then for the second one, then one would do <code>sort -k 3 foo.txt</code>. Easy. But what if instead the source file looked like this and I wanted the same results?</p>
-<pre><code>fpdy 0108 wcfo
+<pre tabindex="0"><code>fpdy 0108 wcfo
 juvi 0102 ejan
 urbx 0403 ckbw
 fkzq 0108 myaz
@@ -86,7 +86,7 @@ chok 0906 nqwo
 emjd 0104 ledx
 npto 0210 nqsc
 </code></pre><p>Well, tricky, right? Not really: the <code>-k</code> accepts the format <code>F[.C]</code>, where <code>F</code> is the field number (<code>2</code> in our case) and <code>C</code> is the character position within the field (<code>4</code> in our case) so if we run the following we will achieve what we are looking for:</p>
-<pre><code>$ sort -k 2.4 foo.txt
+<pre tabindex="0"><code>$ sort -k 2.4 foo.txt
 almv 0402 adhs
 juvi 0102 ejan
 urbx 0403 ckbw

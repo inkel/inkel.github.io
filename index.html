@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-	<meta name="generator" content="Hugo 0.83.1" />
+	<meta name="generator" content="Hugo 0.88.1" />
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8844932ea3044682adb9db426ac05300"}'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0;">
 
@@ -38,6 +38,70 @@
 
 
 <section id="content">
+  <hr>
+  
+  
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/check-environment-variables-in-go-properly/">How to properly check environment variables values in Go</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2021-10-15 10:06:45 -0300 -03">2021-10-15</time>
+    <nav class="tags">
+      
+      <a href="/tags/go">go</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>One thing I&rsquo;ve found fairly often in Go programs is people checking if an environment variable is defined by using the <a href="https://pkg.go.dev/os#LookupEnv"><code>os.LookupEnv</code></a> function, that returns a string with the value, and a boolean indicating that the variable is present. However, what most people seem to miss is the comment that the returned value might still be empty!</p>
+<p>Take for instance the following program that you can try in <a href="https://play.golang.org/p/o_5qRCF62BR">the Go Playground</a>:</p>
+<pre tabindex="0"><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	os.Setenv(&quot;FOO&quot;, &quot;bar&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Setenv(&quot;FOO&quot;, &quot;&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Unsetenv(&quot;FOO&quot;)
+	printEnv(&quot;FOO&quot;)
+
+}
+
+func printEnv(v string) {
+	ge := os.Getenv(v)
+	le, ok := os.LookupEnv(v)
+	fmt.Printf(&quot;Getenv(%[1]q) =&gt; %[2]q\nLookupEnv(%[1]q) =&gt; (%[3]q, %[4]t)\n\n&quot;, v, ge, le, ok)
+}
+</code></pre><p>If you run this, the results might not be what you were expecting:</p>
+<pre tabindex="0"><code>Getenv(&quot;FOO&quot;) =&gt; &quot;bar&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;bar&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, false)
+</code></pre><p>Now you know: the proper way to check an environment variable os it use <code>os.LookupEnv</code> and check both the boolean and that the string isn&rsquo;t empty, otherwise you might introduce a bug in your program.</p>
+<p>PS: how cool is that you can refer to arguments in a formatting string using their position?</p>
+
+  </section>
+
+  
+</article>
+
   <hr>
   
   
@@ -93,18 +157,18 @@
     <p>Recently <a href="/posts/hello-grafana-labs/">I&rsquo;ve changed jobs</a>, and that meant, among many other things, that my work email address changed, which means that my commits are now using the wrong email address! I need to fix that, but of course I&rsquo;ve already committed stuff using my old email address. How can I fix that?</p>
 <p>Luckily the solution isn&rsquo;t difficult, though it took me a while to properly figure it out.</p>
 <p>The first thing I needed to do was to configure my repository to use my work email address:</p>
-<pre><code>path/to/work-repo $ git config user.name &quot;Leandro López (inkel)&quot;
+<pre tabindex="0"><code>path/to/work-repo $ git config user.name &quot;Leandro López (inkel)&quot;
 path/to/work-repo $ git config user.email &quot;work@example.com&quot;
 </code></pre><p>Note that I&rsquo;m doing this only for my work related repositories, so all of my other work (e.g. public or open source) uses my personal email address.</p>
 <p>Next I want to know which commits SHA1s are using my personal email address. I can use the<a href="http://git-scm.com/docs/git-log#Documentation/git-log.txt---authorltpatterngt"> <code>--author</code> flag of <code>git-log(1)</code></a> and get that information easily:</p>
-<pre><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s&quot; --abbrev-commit --author=personal@example.com
+<pre tabindex="0"><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s&quot; --abbrev-commit --author=personal@example.com
 86b860dcc - inkel &lt;personal@example.com&gt; - Use stringSet for collecting child modules
 9822062a9 - inkel &lt;personal@example.com&gt; - Use stringSet for collecting top root modules
 d6d397f3c - inkel &lt;personal@example.com&gt; - Add stringSet type to collect unique set of strings
 </code></pre><p>Now what I want to do is to reset the author to use the one I configured for this repository without editing the commit message; additionally I want to add a <code>Signed off by</code> line at the end of each commit message. One way to do this is to manually execute the following for every commit:</p>
-<pre><code>$ git commit --amend --signoff --author=&quot;Leandro López (inkel) &lt;work@example.com&gt;&quot; $COMMITSHA
+<pre tabindex="0"><code>$ git commit --amend --signoff --author=&quot;Leandro López (inkel) &lt;work@example.com&gt;&quot; $COMMITSHA
 </code></pre><p>But as you can figure out, this becomes tedious if you have multiple commits. So let&rsquo;s use the power of <a href="http://git-scm.com/docs/git-rebase"><code>git-rebase(1)</code></a> and automate this:</p>
-<pre><code>$ git rebase --exec='git commit --no-edit --amend -s --reset-author' d6d397f3c^
+<pre tabindex="0"><code>$ git rebase --exec='git commit --no-edit --amend -s --reset-author' d6d397f3c^
 Executing: git commit --no-edit --amend -s --reset-author
 [detached HEAD f29b70ad2] Add stringSet type to collect unique set of strings
  2 files changed, 120 insertions(+)
@@ -122,7 +186,7 @@ Successfully rebased and updated refs/heads/foo.
 <p>First is the <a href="http://git-scm.com/docs/git-rebase"><code>--exec</code> flag</a>. This tells Git that for the given list of commits it needs to execute that command <strong>after</strong> each commit. In this case the command to execute is <code>git commit --no-edit --amend -s --reset-author</code> which amends the commit (<code>--amend</code>) without changing the commit message (<code>--no-edit</code>) except by adding a <code>Signed off by</code> line at the end of the message (<code>-s</code> which is short for <code>--signoff</code>) and changing the author to the one this repository should use (<code>--reset-author</code>, remember we add a custom configuration for it).</p>
 <p>Then comes the commit list, in this case <code>d6d397f3c^</code>. Look again at the list of commits above. If you see, the SHA is the same as the one at the bottom of the list, which is the <em>first</em> commit of the list (they are shown in reverse order). The <code>^</code> at the end of the SHA instructs Git to go through the current list of commits until the <em>parent</em> of that commit, without including it.</p>
 <p>And that&rsquo;s it! Once this is done, I pull the list of commits again and it looks right:</p>
-<pre><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s (%cr)' --abbrev-commit --date=relative&quot; --author=work@example.com
+<pre tabindex="0"><code>$ git log --pretty=format:&quot;%h - %aN &lt;%ae&gt; - %s (%cr)' --abbrev-commit --date=relative&quot; --author=work@example.com
 5d168a566 - Leandro López (inkel) &lt;work@example.com&gt; - Use stringSet for collecting child modules
 3ca17042b - Leandro López (inkel) &lt;work@example.com&gt; - Use stringSet for collecting top root modules
 f29b70ad2 - Leandro López (inkel) &lt;work@example.com&gt; - Add stringSet type to collect unique set of strings
@@ -343,72 +407,38 @@ f29b70ad2 - Leandro López (inkel) &lt;work@example.com&gt; - Add stringSet type
   
 </article>
 
-  <hr>
-  
-  
-<article class="page">
-  <header>
-    <h1>
-      <a href="/posts/bye-2020/">Bye 2020</a>
-    </h1>
-  </header>
-
-  <section class="meta">
-    <span class="reading-time">1min.</span>
-    <time datetime="2020-12-30 08:34:21 -0300 -03">2020-12-30</time>
-    <nav class="tags">
-      
-      <a href="/tags/personal">personal</a>
-      
-    </nav>
-  </section>
-
-  <section class="content">
-    <p>It&rsquo;s finally over. This awful year has ended. My work life <a href="https://inkel.github.io/posts/typical-workday-at-theorem/">hasn&rsquo;t changed much</a>, although I had to <a href="https://inkel.github.io/posts/work-blocks/">organize my work blocks</a> in a better way. My personal life, on the other hand, was quite affected, specially for my kids and partner; they were the most affected by having to start kindergarden classes via Zoom (my kids), and almost completely stop they work life (my partner).</p>
-<p>I did manage to do some stuff that I find nice to share, and hopefully will continue doing in 2021:</p>
-<ul>
-<li>I dedicated more time to this blog again.</li>
-<li>I have a <a href="https://buttondown.email/inkel" title="inkelinks">newsletter</a> now; please go and subscribe!</li>
-<li>For the first time in my life I joined the <a href="https://inkel.github.io/posts/adventofcode-2020/">Advent of Code</a>, although for different reasons I&rsquo;ve stopped working on the challenges; I&rsquo;m planning on continue with them in my upcoming vacations.</li>
-</ul>
-<p>I don&rsquo;t believe in <em>magical dates</em> and I know it&rsquo;s not that January 1st, 2021 will be automatically better: COVID-19 still exists, travel is restricted, the economy in this country (Argentina) isn&rsquo;t getting any better, etc, but I&rsquo;m looking forward to see what the new year will bring and work on making things better, not only for me, but for my family.</p>
-
-  </section>
-
-  
-</article>
-
   
 
   
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item disabled">
-    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/">1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/2/">2</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/3/">3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/4/">4</a>
-  </li>
-  <li class="page-item">
-    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
-</ul>
-
-
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a href="#" aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a href="#" aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a href="#" aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/5/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
 </section>
 
 

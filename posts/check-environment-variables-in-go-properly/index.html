@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8844932ea3044682adb9db426ac05300"}'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="One thing I&rsquo;ve found fairly often in Go programs is people checking if an environment variable is defined by using the os.LookupEnv function, that returns a string with the value, and a boolean indicating that the variable is present. However, what most people seem to miss is the comment that the returned value might still be empty!
+Take for instance the following program that you can try in the Go Playground:">
+
+    <title>How to properly check environment variables values in Go</title>
+    <meta content="How to properly check environment variables values in Go" property="og:title" />
+    <link rel="canonical" href="https://inkel.github.io/posts/check-environment-variables-in-go-properly/">
+
+    <meta content="https://inkel.github.io/images/avatar.png" property="og:image" />
+    <meta content="inkel" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta content="https://inkel.github.io/posts/check-environment-variables-in-go-properly/" property="og:url" />
+    <meta content="One thing I&rsquo;ve found fairly often in Go programs is people checking if an environment variable is defined by using the os.LookupEnv function, that returns a string with the value, and a boolean indicating that the variable is present. However, what most people seem to miss is the comment that the returned value might still be empty!
+Take for instance the following program that you can try in the Go Playground:" property="og:description" />
+    <meta name="twitter:label1" value="Reading time">
+    <meta name="twitter:data1" value="1min.">
+    <meta name="twitter:label1" value="Published on">
+    <meta name="twitter:data1" value="2021-15-10">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body lang="">
+    <header>
+      <h1>
+        <a href="/"><img src="/images/avatar.png" id="avatar" />inkel</a>
+      </h1>
+      
+    </header>
+
+
+
+<article class="page">
+  <header>
+    <h1>
+      <a href="/posts/check-environment-variables-in-go-properly/">How to properly check environment variables values in Go</a>
+    </h1>
+  </header>
+
+  <section class="meta">
+    <span class="reading-time">1min.</span>
+    <time datetime="2021-10-15 10:06:45 -0300 -03">2021-10-15</time>
+    <nav class="tags">
+      
+      <a href="/tags/go">go</a>
+      
+    </nav>
+  </section>
+
+  <section class="content">
+    <p>One thing I&rsquo;ve found fairly often in Go programs is people checking if an environment variable is defined by using the <a href="https://pkg.go.dev/os#LookupEnv"><code>os.LookupEnv</code></a> function, that returns a string with the value, and a boolean indicating that the variable is present. However, what most people seem to miss is the comment that the returned value might still be empty!</p>
+<p>Take for instance the following program that you can try in <a href="https://play.golang.org/p/o_5qRCF62BR">the Go Playground</a>:</p>
+<pre tabindex="0"><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	os.Setenv(&quot;FOO&quot;, &quot;bar&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Setenv(&quot;FOO&quot;, &quot;&quot;)
+	printEnv(&quot;FOO&quot;)
+
+	os.Unsetenv(&quot;FOO&quot;)
+	printEnv(&quot;FOO&quot;)
+
+}
+
+func printEnv(v string) {
+	ge := os.Getenv(v)
+	le, ok := os.LookupEnv(v)
+	fmt.Printf(&quot;Getenv(%[1]q) =&gt; %[2]q\nLookupEnv(%[1]q) =&gt; (%[3]q, %[4]t)\n\n&quot;, v, ge, le, ok)
+}
+</code></pre><p>If you run this, the results might not be what you were expecting:</p>
+<pre tabindex="0"><code>Getenv(&quot;FOO&quot;) =&gt; &quot;bar&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;bar&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, true)
+
+Getenv(&quot;FOO&quot;) =&gt; &quot;&quot;
+LookupEnv(&quot;FOO&quot;) =&gt; (&quot;&quot;, false)
+</code></pre><p>Now you know: the proper way to check an environment variable os it use <code>os.LookupEnv</code> and check both the boolean and that the string isn&rsquo;t empty, otherwise you might introduce a bug in your program.</p>
+<p>PS: how cool is that you can refer to arguments in a formatting string using their position?</p>
+
+  </section>
+
+  <nav id="next-prev">
+    
+    <a class="prev" href="/posts/replace-go-module-with-local-version/">&lt; Replace Go module with local version</a>
+    
+  </nav>
+</article>
+
+
+    <footer>
+      <nav id="social">
+        <a href="https://flickr.com/inkel">flickr</a><a href="https://github.com/inkel">github</a><a href="https://goodreads.com/inkel">goodreads</a><a href="https://instagram.com/inkel">instagram</a><a href="https://twitter.com/inkel">twitter</a>
+        <a href="https://buttondown.email/inkel">newsletter</a>
+      </nav>
+    </footer>
+  </body>
+</html>
+
